@@ -6,9 +6,39 @@
 
 ![nettsideeksempel](vedlegg/nettsideeksempel.png)
 
-
-
-[TOC]
+<!-- TOC START min:1 max:3 link:true asterisk:false update:true -->
+- [Romstatus](#romstatus)
+- [Prosjektbeskrivelse](#prosjektbeskrivelse)
+- [Begrunnelse](#begrunnelse)
+- [Kompetansemål](#kompetansemål)
+    - [Teknologi og forskningslære 1](#teknologi-og-forskningslære-1)
+- [Beskrivelse av funksjonalitet til deler](#beskrivelse-av-funksjonalitet-til-deler)
+    - [Hvordan en NDIR CO~2~ sensor fungerer](#hvordan-en-ndir-co2-sensor-fungerer)
+    - [Hvordan en PIR sensor fungerer](#hvordan-en-pir-sensor-fungerer)
+- [Original tidsplan](#original-tidsplan)
+    - [Uke 5](#uke-5)
+    - [Uke 6](#uke-6)
+    - [Uke 7](#uke-7)
+    - [Uke 8](#uke-8)
+    - [Uke 10](#uke-10)
+    - [Uke 11](#uke-11)
+    - [Uke 12](#uke-12)
+    - [Utover året](#utover-året)
+- [Logg](#logg)
+    - [Uke 5](#uke-5-1)
+    - [Uke 6](#uke-6-1)
+    - [Uke 7](#uke-7-1)
+    - [Uke 8](#uke-8-1)
+    - [Uke 9](#uke-9)
+    - [Uke 10](#uke-10-1)
+    - [Uke 11](#uke-11-1)
+    - [Uke 12](#uke-12-1)
+    - [Uke 13](#uke-13)
+- [Vedlegg](#vedlegg)
+    - [Skjermbilde 1](#skjermbilde-1)
+    - [Skjermbilde 2](#skjermbilde-2)
+    - [Kode 3](#kode-3)
+<!-- TOC END -->
 
 
 
@@ -18,11 +48,11 @@ Vi bygger en sensor som loggfører om det er bevegelse i et rom, temperatur, CO~
 
 # Begrunnelse
 
-Vi ønsket å lage dette prosjektet fordi vi ofte er i situasjonen at vi leter etter et ledig grupperom og ønsket oss en mulighet for å slippe å gå rundt hele vrimle eller banke på dører og forstyrre folk. Det er også fint å kunne velge det rommet med best inneklima, hvis det er flere ledige, så derfor la vi til måling av CO~2~ - nivå, temperatur og luftfuktighet. Etter forespørsel fra ledelsen (Kjetil Eide og Endre Helsem) har vi designet dette til å loggføre denne informasjonen detaljert i en SQL database så vi i tillegg har omfattende statistikk som skolen kan bruke i møte med klager fra elever og henvendeler til ansvarlige for bygget. 
+Vi ønsket å lage dette prosjektet fordi vi ofte er i situasjonen at vi leter etter et ledig grupperom og ønsket oss en mulighet for å slippe å gå rundt hele vrimle eller banke på dører og forstyrre folk. Det er også fint å kunne velge det rommet med best inneklima, hvis det er flere ledige, så derfor la vi til måling av CO~2~ - nivå, temperatur og luftfuktighet. Etter forespørsel fra ledelsen (Kjetil Eide og Endre Helsem) har vi designet dette til å loggføre denne informasjonen detaljert i en SQL database så vi i tillegg har omfattende statistikk som skolen kan bruke i møte med klager fra elever og henvendeler til ansvarlige for bygget.
 
-Vi anså også dette som en fin mulighet til å kombinere flere forskjellige typer programmering, "mekking" og designing for å skape et komplett produkt. Derfor ønsket vi også å lage et system som er tilpasset bruk i *alle* rommene på skolen samtidig, i motsetning til et system som bare fungerer i ett enkelt rom om gangen. 
+Vi anså også dette som en fin mulighet til å kombinere flere forskjellige typer programmering, "mekking" og designing for å skape et komplett produkt. Derfor ønsket vi også å lage et system som er tilpasset bruk i *alle* rommene på skolen samtidig, i motsetning til et system som bare fungerer i ett enkelt rom om gangen.
 
-Ut av prosjektet sitter vi tilsammen igjen med en sammensetning av kunnskap om 3D-modellering og printing, lodding, kabling, flashing av fastvare, bruk av UNIX-teminal (zsh) og koding innen både Arduino/C, Python, SQL, HTML, CSS og Markdown. Dette vil vi ha mye glede av ved senere prosjekt, f.eks IoT opplegg hjemme, på universitetet til både prototyping innen ingeniørfeltet og fag som [MAT-INF1100](https://www.uio.no/studier/emner/matnat/math/MAT-INF1100/index.html) og [IN1900](https://www.uio.no/studier/emner/matnat/ifi/IN1900/index.html) og hvilke som helst andre prosjekt som innebærer programmering. Viktigst av alt er derimot erfaringen med å planlegge et prosjekt, fordele oppgaver, lære seg forutsetningene, og til slutt gjennomføre et prosjekt fra A til Å uten store forhåndskunnskaper, som en gruppe. 
+Ut av prosjektet sitter vi tilsammen igjen med en sammensetning av kunnskap om 3D-modellering og printing, lodding, kabling, flashing av fastvare, bruk av UNIX-teminal (zsh) og koding innen både Arduino/C, Python, SQL, HTML, CSS og Markdown. Dette vil vi ha mye glede av ved senere prosjekt, f.eks IoT opplegg hjemme, på universitetet til både prototyping innen ingeniørfeltet og fag som [MAT-INF1100](https://www.uio.no/studier/emner/matnat/math/MAT-INF1100/index.html) og [IN1900](https://www.uio.no/studier/emner/matnat/ifi/IN1900/index.html) og hvilke som helst andre prosjekt som innebærer programmering. Viktigst av alt er derimot erfaringen med å planlegge et prosjekt, fordele oppgaver, lære seg forutsetningene, og til slutt gjennomføre et prosjekt fra A til Å uten store forhåndskunnskaper, som en gruppe.
 
 
 
@@ -32,7 +62,7 @@ Ut av prosjektet sitter vi tilsammen igjen med en sammensetning av kunnskap om 3
 
 #### Den unge ingeniøren
 
-Mål for opplæringen er at eleven skal kunne 
+Mål for opplæringen er at eleven skal kunne
 
 - **planlegge og bygge en konstruksjon som er fast eller bevegelig, og som har en definert funksjon (høy)**
 - **bruke tredimensjonale tegninger eller skisser i utvikling av konstruksjoner (høy)**
@@ -40,16 +70,16 @@ Mål for opplæringen er at eleven skal kunne
 - **bruke sensorer og styringssystemer i forbindelse med forsøk og konstruksjoner (høy)**
 - **dokumentere og vurdere konstruksjoners fysiske egenskaper og funksjonalitet ved hjelp av målinger og enkle beregninger (høy)**
 
-#### Den unge forskeren 
+#### Den unge forskeren
 
-Mål for opplæringen er at eleven skal kunne 
+Mål for opplæringen er at eleven skal kunne
 
 - gjøre rede for hvordan et naturvitenskapelig prosjekt planlegges, gjennomføres og etterarbeides før det blir publisert (under prosses)
 - **planlegge, gjennomføre, analysere og dokumentere systematiske målinger om støy, luftforurensning, inneklima og vannkvalitet, og drøfte virkninger på helse og miljø (høy)**
 
 #### Teknologi, naturvitenskap og samfunn
 
-Mål for opplæringen er at eleven skal kunne 
+Mål for opplæringen er at eleven skal kunne
 
 - drøfte etiske, miljømessige, kulturelle og politiske sider ved teknologisk utvikling
 - **beskrive den historiske utviklingen av en teknologisk innretning, forklare virkemåten og drøfte anvendelser i samfunnet (middels)**
@@ -57,9 +87,9 @@ Mål for opplæringen er at eleven skal kunne
 - beskrive prinsipper og virkemåte for noen moderne instrumenter i industri, helsevesen eller forskning, og gjøre rede for nytten og eventuelle skadevirkninger
 - kartlegge og presentere praktisk bruk av realfag i en lokal bedrift eller institusjon
 
-#### Design og produktutvikling 
+#### Design og produktutvikling
 
-Mål for opplæringen er at eleven skal kunne 
+Mål for opplæringen er at eleven skal kunne
 
 - **gjøre rede for funksjonen til vanlige komponenter i elektroniske kretser, og gjenkjenne komponentene i en krets (høy )**
 - **lage elektroniske kretser ved å lodde komponenter og simulere og teste kretsene (høy)**
@@ -80,7 +110,7 @@ Alle molekyler har sitt unike absorpsjonsspekter, hvor enkelte bølgelengder bli
 
 ![img](vedlegg/pirsensorillustrasjon.png)
 
-Her er en tegning av hvordan man kobler til en PIR sensor (spenningen til den konstante 5 volten ). En PIR sensor blir brukt til å registrere bevegelse i et rom og den kan bare registrere verdiene “HIGH” eller “LOW” altså, bevegelse eller ikke bevegelse. Den merker bevegelse ved å måle differansen mellom den infrarøde strålingene som kommer fra objekter. Altså en person kan så stille rett foran den uten av den vil bli “HIGH” men så fort den personen beveger seg vil den registrere det og bli “HIGH”.(PIR=passive infrared radiation). Bilder under er selve komponenten som registrerer den infrarøde strålingen. 
+Her er en tegning av hvordan man kobler til en PIR sensor (spenningen til den konstante 5 volten ). En PIR sensor blir brukt til å registrere bevegelse i et rom og den kan bare registrere verdiene “HIGH” eller “LOW” altså, bevegelse eller ikke bevegelse. Den merker bevegelse ved å måle differansen mellom den infrarøde strålingene som kommer fra objekter. Altså en person kan så stille rett foran den uten av den vil bli “HIGH” men så fort den personen beveger seg vil den registrere det og bli “HIGH”.(PIR=passive infrared radiation). Bilder under er selve komponenten som registrerer den infrarøde strålingen.
 
 ![img](vedlegg/pirsensorbilde.png)
 
@@ -94,7 +124,7 @@ PIR sensorer har to forskjellige potmetere under. Den ene kontrollerer rekkevidd
 
 ### Uke 5
 
-- Finne en løsning til hva slags sensor vi kan bruke og om vi kan bruke flere forskjellige 
+- Finne en løsning til hva slags sensor vi kan bruke og om vi kan bruke flere forskjellige
 - Kommunikasjon mellom arduinoer med NRF module
 
 ### Uke 6
@@ -104,7 +134,7 @@ PIR sensorer har to forskjellige potmetere under. Den ene kontrollerer rekkevidd
 
 ### Uke 7
 
-- Lage koder og få en forståelse av hvordan sensorene fungerer 
+- Lage koder og få en forståelse av hvordan sensorene fungerer
 - Logge signaler mottatt via udp i en sql database
 - Kanskje prøve å motta signaler fra ir-sensor
 
@@ -115,7 +145,7 @@ PIR sensorer har to forskjellige potmetere under. Den ene kontrollerer rekkevidd
 
 ### Uke 10
 
-- Sette opp alt dette med en Doit ESP32 
+- Sette opp alt dette med en Doit ESP32
 - Reservere grupperom ved hjelp av manuell innsending av reservasjon som logges i sql database
 
 ### Uke 11
@@ -194,14 +224,14 @@ PIR sensorer har to forskjellige potmetere under. Den ene kontrollerer rekkevidd
 
 - Tok kontakt med IT om forespørsel om å sette opp et nettverk med WPA2 kryptering på skolen, evt gi tilgang til AkaAirplay nettverket, de sa de skulle se på det.
 - Printet første forsøk på deksel til Raspberry Pi 3 B+, det ble ikke helt velllykket. (bilde 21-22)
-- Magnus lagde et annet design til deksel til Arduino og PIR-sensor kombinert og hull til knapp, printen ble ikke helt vellykket. (illustrasjon 23-24, bilde 25-26) 
+- Magnus lagde et annet design til deksel til Arduino og PIR-sensor kombinert og hull til knapp, printen ble ikke helt vellykket. (illustrasjon 23-24, bilde 25-26)
   - Verbatim Magnus: *"Pinnene som PIR-sensoren skulle sitte i var en-to millimeter for nære hverandre noe som gjorde at man måtte tvinge sensoren på. Dette fikk den til å sitte godt fast, men pinnene knakk. Skruehullene fikk jeg ikke testa da Arduinoen ikke passet. Dette er fordi plasten mulig krymper da den smeltede plasten stivner og kjøles ned. USB-hullet er også feilplassert og står på feil side av arduinoen. (porten er over brettet, mens hullet er under). skruehullene for veggfestet er 5mm, en tilfeldig verdi da vi ikke hadde bestemt oss på noen skruer. Det er mulig teip og lim er bedre. Casen har ikke noe lokk. Dette er av design og gruppa vår sin nye teknologi gjør det mulig å bruke veggen som et lokk, noe som også reduserer plastikkforbruk om du vil. Dette gjør den sterkere og mindre avansert. De to beste måtene å lage et lokk på er en glider, noe som vil være vanskelig med så små dimensjoner, ettersom veggene er 2mm og blir mye svakere om vi skjærer skinner i den. Den andre løsningen er å lage et lokk med skruehull så skrua går gjennom casen, inn i lokket, for så å gå inn i veggen. Dette skaper litt ekstra høyde, og har egentlig ingen positive sider. Vi har mye som må forbedres av denne prototypen, men lokkdesignet vårt er patentverdig."*
 
 ### Uke 13
 
 - Skulle flytte over alle kode fra Arduino Genuino Uno til ESP8266, en fikk problemer med drivere, men fant en [løsning](https://github.com/adrianmihalko/ch340g-ch34g-ch34x-mac-os-x-driver?fbclid=IwAR3GZpZaK2d5c-Y8Lw_fUGdoAh4YidZZddZX-p-rlOhaJKi43Z6GHsxx_U8). Måtte også få USB til Serial ved hjelp av [denne](<https://www.silabs.com/products/development-tools/software/usb-to-uart-bridge-vcp-drivers?fbclid=IwAR2heKSBZxpx_mzag608V-vMJZTuRtM7cBcGZOtHfb_ZwdxsjpcSBxjjaA8>).
 
-- Fant [documentation](<https://arduino-esp8266.readthedocs.io/en/latest/esp8266wifi/readme.html>) til Arduino Core til ESP8266 og forklaring på funksjoner for å kunne sette opp dette med UDP igjen. 
+- Fant [documentation](<https://arduino-esp8266.readthedocs.io/en/latest/esp8266wifi/readme.html>) til Arduino Core til ESP8266 og forklaring på funksjoner for å kunne sette opp dette med UDP igjen.
 - Martin har fullført en prototype av nettsiden med fungerende python-basert oppdaterer
 
 # Vedlegg
@@ -224,7 +254,7 @@ PIR sensorer har to forskjellige potmetere under. Den ene kontrollerer rekkevidd
 /*
  * Denne koden leser av PPM verdier for luftforurensning fra en MQ135 gasssensor, viser dette på en LCD skjerm og sender informasjonen over UDP
  */
-// --- Oppsett til WiFi --- 
+// --- Oppsett til WiFi ---
 #include <WiFi.h>
 #include "esp_wpa2.h" //wpa2 library for å koble til bedriftsnettverk
 #include <WiFiUdp.h>
@@ -248,7 +278,7 @@ const char * networkPswd = "****"; //Samme passord
 const char * udpAddress = "10.25.9.178";
 const int udpPort = 16969;
 
-// --- Teste forbindelse --- 
+// --- Teste forbindelse ---
 boolean connected = false;
 
 // --- Type til UDP library ---
@@ -263,7 +293,7 @@ int sensorPin = 36;
 void setup(){
   // Initilize hardware serial:
   Serial.begin(9600);
-  
+
   //Connect to the WiFi network
   //, networkUsnm, networkPswd
   connectToWiFi(ssid);
@@ -273,7 +303,7 @@ void setup(){
 }
 
 void loop(){
-  //only send data when connected 
+  //only send data when connected
   sensor_avlesning = digitalRead(sensorPin);
   Serial.print(sensor_avlesning);
   if(connected){
@@ -286,7 +316,7 @@ void loop(){
       udp.endPacket();
       Serial.println(sensor_avlesning);
       gammelVerdi = digitalRead(sensorPin);
-      
+
   }
   /*
   lcd.init();
@@ -295,7 +325,7 @@ void loop(){
   lcd.print("ArQ=");
   lcd.print(sensor_avlesning,DEC);
   lcd.print(" PPM");
-  lcd.println("       "); 
+  lcd.println("       ");
   lcd.print("  ");
   delay(100);        */      
   }
@@ -309,7 +339,7 @@ void connectToWiFi(const char * ssid){
   WiFi.disconnect(true);
   //register event handler
   WiFi.onEvent(WiFiEvent);
-  
+
   //Initiate connection
   WiFi.mode(WIFI_STA); //init wifi mode
   esp_wifi_sta_wpa2_ent_set_identity((uint8_t *)EAP_IDENTITY, strlen(EAP_IDENTITY)); //provide identity
@@ -328,7 +358,7 @@ void connectToWiFi(const char * ssid){
   }
   Serial.println("");
   Serial.println("WiFi connected");
-  Serial.println("IP address set: "); 
+  Serial.println("IP address set: ");
   Serial.println(WiFi.localIP()); //print LAN IP
   }
 
@@ -336,7 +366,7 @@ void connectToWiFi(const char * ssid){
 void WiFiEvent(WiFiEvent_t event){
     switch(event) {
       case SYSTEM_EVENT_STA_GOT_IP:
-          //When connected set 
+          //When connected set
           Serial.print("WiFi connected! IP address: ");
           Serial.println(WiFi.localIP());  
           //initializes the UDP state

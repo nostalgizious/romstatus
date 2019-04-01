@@ -78,13 +78,13 @@ Alle molekyler har sitt unike absorpsjonsspekter, hvor enkelte bølgelengder bli
 
 ### Hvordan en PIR sensor fungerer
 
-![img](https://lh3.googleusercontent.com/j0dG-YE46zqRsBf663h9zv6g88AkQXIcwavK9L4ZYCAJIXuYabhJBB4uws5VsYddc4vFQgdgT8ORajDTGHLuLuk4DQBdtFD5pxSoG_dsv9GNQGn8bs7qk026gB5kqqeLDfN5vbyl)
+![img](vedlegg/pirsensorillustrasjon.png)
 
 Her er en tegning av hvordan man kobler til en PIR sensor (spenningen til den konstante 5 volten ). En PIR sensor blir brukt til å registrere bevegelse i et rom og den kan bare registrere verdiene “HIGH” eller “LOW” altså, bevegelse eller ikke bevegelse. Den merker bevegelse ved å måle differansen mellom den infrarøde strålingene som kommer fra objekter. Altså en person kan så stille rett foran den uten av den vil bli “HIGH” men så fort den personen beveger seg vil den registrere det og bli “HIGH”.(PIR=passive infrared radiation). Bilder under er selve komponenten som registrerer den infrarøde strålingen. 
 
-![img](https://lh6.googleusercontent.com/ob43wrP6ugEje6OpFxef63k8L2GFuPjXWQgYknhIGKD6KKsRSekc7wXBpPoUTAbvP9XUoArlwuK9uDQcDCTRToewu-DORQF21OyiCw-kTZUuF0kEADGoYgTsrmUF3gltj0ulgMdj)
+![img](vedlegg/pirsensorbilde.png)
 
-![img](https://lh5.googleusercontent.com/IerA3_Ny1QeIYmA6GvmkV79pZoD8fGDEyQnJjZNKktOkOFRPNcPZTtzPwOQVA08kD7xtM77qGTMTpy4qebX0TCqZcSBue5bq6GIsatkb2jqJROAmeekXMFqBviUfhHY_Pvqq12IS)
+![img](vedlegg/pirsensorbilde2.png)
 
 PIR sensorer har to forskjellige potmetere under. Den ene kontrollerer rekkevidden på sensoren fra 3 til 7 meter mens den andre kontrollerer hvor stor ventetiden er til den neste avlesningen starter, mellom 0.3 sekunder til 5 min. Det stikker også ut 3 forskjellige pins på baksiden med en jumper som forbinder 2 av dem. dette gjør som et det blir 2 forskjellige innstillinger. Den ene heter "non-repeatable trigger" og gjør at når verdien er “high” og ventetiden er over vil den automatisk sette verdien til “LOW” og søke etter bevegelse igjen. Den andre heter“repeatable trigger”og holder verdien på “HIGH” helt til den merker en forandring.
 
@@ -571,15 +571,15 @@ if __name__ == '__main__':
 
 ### Illustrasjon 23-24
 
-![img](https://lh4.googleusercontent.com/vaqi5RjCFOQ8hAfpkwvYKOuFSzp5GpS92FJXYrf010zWoJXdfVdTu-Y3ShWqPEeQq5w5Bn8Ywyw0rExt2DrXvBL7LQoloqmiKl3s3i2bK_GWhAUaJP_SMIdEq0JL0tHxl7e3VrJ1)
+![img](vedlegg/pirsensorcovermagnusovenfraprint.png)
 
-![img](https://lh5.googleusercontent.com/n5iv1pk0XKi1T8hzA4SaKz0EK2NbOjCCSYnTKBNhpWtBM2czt-KJxl3L9nfRFlOX7QZONNbqzkcMsRjGIGYVC4oxrVnE8rPrNUnkRqJucUj6reIHBHJpL4Cop4wrycAgCuWzkD8R)
+![img](vedlegg/pirsensorcovermagnusnedenfraprint.png)
 
 ###Bilde 25-26
 
-![img](https://lh3.googleusercontent.com/8wqKPClMhZZSYI7gKrQ8_hey5xL3FUXkKL3t7MWNIu6bzJKAQaj2Y9gs7u3VhjwiXkJrs33wxO1yDS3Q0oEZKcr1wgDS-ZvNo2ZMm6em7j72FSk98-N1F50H1181z_mENpnIzbrm)
+![img](vedlegg/pirsensorcovermagnusovenfra.jpg)
 
-![img](https://lh3.googleusercontent.com/XaEaHRMDkE0iQZKr51hOl-CyEumrk6L_l9ttiGoC1m83ibw2LGIg7nqwDX5I-VUQ3orS2XdwTGOzNYjzk1qQs27SdRkYAQDUAT1wFBzNqP5KUZ0wTv_H10joRBZY_UEQARO3E0tY)
+![img](vedlegg/pirsensorcovermagnusnedenfra.jpg)
 
 ### Kode 27-29
 

@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <link rel="stylesheet" type="text/css" href="grupperomOversikt.css">
+</head>
+
+<body>
+  <!-- Meny -->
+  <div class="menu">
+    <ul>
+      <li class="active" id="over" onclick="side(1)">Oversikt</li>
+      <li class="inactive" id="kartm" onclick="side(2)">Kart</li>
+      <li class="inactive" id="hjelp" onclick="side(3)">Hjelp</li>
+      <li class="inactive" id="pro" onclick="side(4)">Om Prosjektet</li>
+      <li class="inactive" id="canvas" onclick="window.location.href = 'https://akademiet.instructure.com';">Canvas</li>
+      <p id="easteregg1" ondblclick="alert('01110000 01101100 01100001 01100011 01100101 01101000 01101111 01101100 01100100 01100101 01110010')">Påskeegg?</p>
+    </ul>
+  </div>
+
+  <!-- Oversikt -->
+  <div class="innhold" id="Oversikt">
+    <h1>Oversikt over grupperom</h1>
+    <table id="myTable">
+      <thead id="Tabell">
+        <tr>
+          <th class="button" id="etasje" onclick="sortTable(0)" title="Sorter etter etasje">Etasje</th>
+          <th class="button" id="romnummer" onclick="sortTable(1)" title="Sorter etter romnummer">Romnr.</th>
+          <th class="button" id="navn" onclick="sortTable(2)" title="Sorter etter romnavn">Navn</th>
+          <th class="button" onclick="sortTable(3)" title="Sorter etter status">Status</th>
+          <th class="button" id="luftkvalitet" onclick="sortTableLuft(4)" title="Sorter etter luftkvalitet">Luftkvalitet</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr id="111" class="tabell">
+          <td id="etasje">1</td>
+          <td>111</td>
+          <td id="navn">Kahlo</td>
+          <td id="111status">Ledig</td>
+          <td id="111luft" name="100" title="100">Høy</td>
+        </tr>
+        <tr id="112" class="tabell">
+          <td id="etasje">1</td>
+          <td>112</td>
+          <td id="navn">Bergman</td>
+          <td id="112status">Ledig</td>
+          <td id="112luft" name="100" title="100">Høy</td>
+        </tr>
+        <tr id="113" class="tabell">
+          <td id="etasje">1</td>
+          <td>113</td>
+          <td id="navn">Kafka</td>
+          <td id="113status">Ledig</td>
+          <td id="113luft" name="100" title="100">Høy</td>
+        </tr>
+        <tr id="114" class="tabell">
+          <td id="etasje">1</td>
+          <td>114</td>
+          <td id="navn">Kurosawa</td>
+          <td id="114status">Ledig</td>
+          <td id="114luft" name="100" title="100">Høy</td>
+        </tr>
+        <tr id="115" class="tabell">
+          <td id="etasje">1</td>
+          <td>115</td>
+          <td id="navn">Hemingway</td>
+          <td id="115status">Ledig</td>
+          <td id="115luft" name="100" title="100">Høy</td>
+        </tr>
+        <tr id="209" class="tabell">
+          <td id="etasje">2</td>
+          <td>209</td>
+          <td id="navn">Ullmann</td>
+          <td id="209status">Ledig</td>
+          <td id="209luft" name="100" title="100">Høy</td>
+        </tr>
+        <tr id="210" class="tabell">
+          <td id="etasje">2</td>
+          <td>210</td>
+          <td id="navn">Dahl</td>
+          <td id="210status">Ledig</td>
+          <td id="210luft" name="100" title="100">Høy</td>
+        </tr>
+        <tr id="211" class="tabell">
+          <td id="etasje">2</td>
+          <td>211</td>
+          <td id="navn">Hepburn</td>
+          <td id="211status">Ledig</td>
+          <td id="211luft" name="100" title="100">Høy</td>
+        </tr>
+        <tr id="212" class="tabell">
+          <td id="etasje">2</td>
+          <td>212</td>
+          <td id="navn">Streep</td>
+          <td id="212status">Ledig</td>
+          <td id="212luft" name="100" title="100">Høy</td>
+        </tr>
+        <tr id="213" class="tabell">
+          <td id="etasje">2</td>
+          <td>213</td>
+          <td id="navn">Welles</td>
+          <td id="213status">Ledig</td>
+          <td id="213luft" name="100" title="100">Høy</td>
+        </tr>
+        <tr id="214" class="tabell">
+          <td id="etasje">2</td>
+          <td>214</td>
+          <td id="navn">Shelley</td>
+          <td id="214status">Ledig</td>
+          <td id="214luft" name="100" title="100">Høy</td>
+        </tr>
+        <tr id="215" class="tabell">
+          <td id="etasje">2</td>
+          <td>215</td>
+          <td id="navn">Scorsese</td>
+          <td id="215status">Ledig</td>
+          <td id="215luft" name="100" title="100">Høy</td>
+        </tr>
+        <tr id="216" class="tabell">
+          <td id="etasje">2</td>
+          <td>216</td>
+          <td id="navn">Lee</td>
+          <td id="216status">Ledig</td>
+          <td id="216luft" name="100" title="100">Høy</td>
+        </tr>
+        <tr id="217" class="tabell">
+          <td id="etasje">2</td>
+          <td>217</td>
+          <td id="navn">Leone</td>
+          <td id="217status">Ledig</td>
+          <td id="217luft" name="100" title="100">Høy</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div id="kart">
+    <div id="Vrimle" class="unclick">
+      <p id="Vrimle">Vrimle</p>
+    </div>
+    <div id="etasje1" class="unclick" onmouseover="hover('etasje1', 'etasje2')" onmouseout="hoverNot()">
+      <div id="111K" name="grupperom" class="111">
+        <div>111</div>
+        <table>
+          <tr>
+            <td>Status:</td>
+            <td>Ledig</td>
+          </tr>
+          <tr>
+            <td>Luftkvalitet:</td>
+            <td>Høy</td>
+          </tr>
+        </table>
+      </div>
+      <div id="112K" name="grupperom" class="200">
+        <div>112</div>
+        <table>
+          <tr>
+            <td>Status:</td>
+            <td>Opptatt</td>
+          </tr>
+          <tr>
+            <td>Luftkvalitet:</td>
+            <td>Lav</td>
+          </tr>
+        </table>
+      </div>
+      <div id="113K" name="grupperom" class="700">
+        <div>113</div>
+        <table>
+          <tr>
+            <td>Status:</td>
+            <td>Opptatt</td>
+          </tr>
+          <tr>
+            <td>Luftkvalitet:</td>
+            <td>Middels</td>
+          </tr>
+        </table>
+      </div>
+      <div id="114K" name="grupperom" class="500">
+        <div>114</div>
+        <table>
+          <tr>
+            <td>Status:</td>
+            <td>Ledig</td>
+          </tr>
+          <tr>
+            <td>Luftkvalitet:</td>
+            <td>Høy</td>
+          </tr>
+        </table>
+      </div>
+      <div id="115K" name="grupperom" class="800">
+        <div>115</div>
+        <table>
+          <tr>
+            <td>Status:</td>
+            <td>Opptatt</td>
+          </tr>
+          <tr>
+            <td>Luftkvalitet:</td>
+            <td>Høy</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div id="etasje2" class="unclick" onmouseover="hover('etasje2', 'etasje1')" onmouseout="hoverNot()">
+      <div id="209K" name="grupperom" class="111">
+        <div>209</div>
+        <table>
+          <tr>
+            <td>Status:</td>
+            <td>Opptatt</td>
+          </tr>
+          <tr>
+            <td>Luftkvalitet:</td>
+            <td>Lav</td>
+          </tr>
+        </table>
+      </div>
+      <div id="210K" name="grupperom" class="1000">
+        <div>210</div>
+        <table>
+          <tr>
+            <td>Status:</td>
+            <td>Ledig</td>
+          </tr>
+          <tr>
+            <td>Luftkvalitet:</td>
+            <td>Lav</td>
+          </tr>
+        </table>
+      </div>
+      <div id="211K" name="grupperom" class="111">
+        <div>211</div>
+        <table>
+          <tr>
+            <td>Status:</td>
+            <td>Opptatt</td>
+          </tr>
+          <tr>
+            <td>Luftkvalitet:</td>
+            <td>Lav</td>
+          </tr>
+        </table>
+      </div>
+      <div id="212K" name="grupperom" class="600">
+        <div>212</div>
+        <table>
+          <tr>
+            <td>Status:</td>
+            <td>Ledig</td>
+          </tr>
+          <tr>
+            <td>Luftkvalitet:</td>
+            <td>Høy</td>
+          </tr>
+        </table>
+      </div>
+      <div id="213K" name="grupperom" class="800">
+        <div>213</div>
+        <table>
+          <tr>
+            <td>Status:</td>
+            <td>Ledig</td>
+          </tr>
+          <tr>
+            <td>Luftkvalitet:</td>
+            <td>Middels</td>
+          </tr>
+        </table>
+      </div>
+      <div id="214K" name="grupperom" class="500">
+        <div>214</div>
+        <table>
+          <tr>
+            <td>Status:</td>
+            <td>Opptatt</td>
+          </tr>
+          <tr>
+            <td>Luftkvalitet:</td>
+            <td>Høy</td>
+          </tr>
+        </table>
+      </div>
+      <div id="215K" name="grupperom" class="111">
+        <div>215</div>
+        <table>
+          <tr>
+            <td>Status:</td>
+            <td>Ledig</td>
+          </tr>
+          <tr>
+            <td>Luftkvalitet:</td>
+            <td>Middels</td>
+          </tr>
+        </table>
+      </div>
+      <div id="216K" name="grupperom" class="700">
+        <div>216</div>
+        <table>
+          <tr>
+            <td>Status:</td>
+            <td>Ledig</td>
+          </tr>
+          <tr>
+            <td>Luftkvalitet:</td>
+            <td>Middels</td>
+          </tr>
+        </table>
+      </div>
+      <div id="217K" name="grupperom" class="111">
+        <div>217</div>
+        <table>
+          <tr>
+            <td>Status:</td>
+            <td>Opptatt</td>
+          </tr>
+          <tr>
+            <td>Luftkvalitet:</td>
+            <td>Lav</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+  <!-- Om Prosjektet: -->
+  <div class="innhold" id="omP" name="annet">
+    <h1>Om Prosjektet</h1>
+    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut
+      aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum
+      zzril delenit augue duis dolore te feugait nulla facilisi.</p>
+  </div>
+
+  <!-- Hjelp -->
+  <div class="innhold" id="trengerHjelp" name="annet">
+    <h1>Hjelp</h1>
+    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut
+      aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum
+      zzril delenit augue duis dolore te feugait nulla facilisi.</p>
+  </div>
+  <script src="grupperomOversikt.js" type="text/javascript"></script>
+    </body>
+</html>

@@ -689,576 +689,338 @@ def luftHtml(htmlFil, romnummer, co2ppm,luftkval):
 ```
 
 ##### oversiktGrupperom.html
-```
+```HTML
 <!DOCTYPE html>
 <html>
 
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script>
-    (function() {
-      "use strict";
-      // Some key codes that are used
-      var up = 38,
-        down = 40,
-        left = 37,
-        right = 39,
-        A = 65,
-        B = 66;
-      // Full Konami Code obtained from: http://en.wikipedia.org/wiki/Konami_Code
-      var konamiCode = [up, up, down, down, left, right, left, right, B, A];
-      // Deteted sequence. Empty by default
-      var konamiDetected = [];
-
-      // Attachs the function on an element (for a certain event)
-      function attachCustomEvent(el, eventName, desiredFunction) {
-        if (el.addEventListener) {
-          el.addEventListener(eventName, desiredFunction, false);
-          // Old IE
-        } else {
-          el.attachEvent('on' + eventName, desiredFunction);
-        }
-      }
-
-      // Detachs the function on an element (for a certain event)
-      function detachCustomEvent(el, eventName, desiredFunction) {
-        if (el.removeEventListener) {
-          el.removeEventListener(eventName, desiredFunction, false);
-          // Old IE
-        } else {
-          el.detachEvent('on' + eventName, desiredFunction);
-        }
-      }
-
-      // Function that is invoked after detecting the Konami Code
-      function startUpKonami() {
-        // Prevent further detection (When removing this line the Konami code can be entered multiple times)
-        detachCustomEvent(document, "keydown", isKonamiKey);
-        konamiIsDetected();
-      }
-
-      // Function to detect whether the pressed key is part of the Konami Code
-      function isKonamiKey(e) {
-        var evt = e || window.event;
-        var key = evt.keyCode ? evt.keyCode : evt.which;
-        // Set to true before checking everything
-        var codeOk = true;
-        // Push the key
-        konamiDetected.push(key);
-        // Check if the key is valid or not
-        if (konamiDetected.length < konamiCode.length) {
-          // Check that the values are Ok so far. If not clear the array
-          for (var i = 0, max = konamiDetected.length; i < max; i++) {
-            if (konamiDetected[i] !== konamiCode[i]) {
-              codeOk = false;
-            }
-          }
-          if (!codeOk) {
-            // Clean the array
-            konamiDetected = [];
-            // Push the just detected value inside the array
-            konamiDetected.push(key);
-          }
-        } else if (konamiDetected.length === konamiCode.length) {
-          for (var j = 0, max = konamiDetected.length; j < max; j++) {
-            if (konamiDetected[j] !== konamiCode[j]) {
-              codeOk = false;
-            }
-          }
-          // Clean the array
-          konamiDetected = [];
-          if (codeOk) {
-            startUpKonami();
-          }
-          // This should never happen, but if it happens we clean the array
-        } else {
-          konamiDetected = [];
-        }
-        // After everything has been checked show the resulting array after pressing such key
-        // console.log(konamiDetected);
-      }
-
-      // Attach the event detection to the whole document
-      attachCustomEvent(document, "keydown", isKonamiKey);
-    })();
-
-    // Function that is invoked after the konami code has been entered
-    function konamiIsDetected() {
-      window.location.href = 'https://commons.wikimedia.org/wiki/File:Bg-easter-eggs.jpg';
-    }
-
-
-    // Bla mellom sidene
-    function side(n) {
-      var x, y, z = 0;
-      x = document.getElementById("Oversikt");
-      y = document.getElementById("trengerHjelp");
-      z = document.getElementById("omP");
-      if (n == 1) {
-        x.style.display = "block";
-        y.style.display = "none";
-        z.style.display = "none";
-
-        document.getElementById("over").className = "active";
-        document.getElementById("hjelp").className = "inactive";
-        document.getElementById("pro").className = "inactive";
-      } else if (n == 2) {
-        x.style.display = "none";
-        y.style.display = "block";
-        z.style.display = "none";
-        document.getElementById("over").className = "inactive";
-        document.getElementById("hjelp").className = "active";
-        document.getElementById("pro").className = "inactive";
-      } else {
-        x.style.display = "none";
-        y.style.display = "none";
-        z.style.display = "block";
-        document.getElementById("over").className = "inactive";
-        document.getElementById("hjelp").className = "inactive";
-        document.getElementById("pro").className = "active";
-      }
-    }
-
-    // Sorter tabellen
-    function sortTable(n) {
-      var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
-      table = document.getElementById("myTable");
-      switching = true;
-      // Set the sorting direction to ascending:
-      dir = "asc";
-      /* Make a loop that will continue until
-      no switching has been done: */
-      while (switching) {
-        // Start by saying: no switching is done:
-        switching = false;
-        rows = table.rows;
-        /* Loop through all table rows (except the
-        first, which contains table headers): */
-        for (i = 1; i < (rows.length - 1); i++) {
-          // Start by saying there should be no switching:
-          shouldSwitch = false;
-          /* Get the two elements you want to compare,
-          one from current row and one from the next: */
-          x = rows[i].getElementsByTagName("TD")[n];
-          y = rows[i + 1].getElementsByTagName("TD")[n];
-          /* Check if the two rows should switch place,
-          based on the direction, asc or desc: */
-          if (dir == "asc") {
-            if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
-              // If so, mark as a switch and break the loop:
-              shouldSwitch = true;
-              break;
-            }
-          } else if (dir == "desc") {
-            if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
-              // If so, mark as a switch and break the loop:
-              shouldSwitch = true;
-              break;
-            }
-          }
-        }
-        if (shouldSwitch) {
-          /* If a switch has been marked, make the switch
-          and mark that a switch has been done: */
-          rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
-          switching = true;
-          // Each time a switch is done, increase this count by 1:
-          switchcount++;
-        } else {
-          /* If no switching has been done AND the direction is "asc",
-          set the direction to "desc" and run the while loop again. */
-          if (switchcount == 0 && dir == "asc") {
-            dir = "desc";
-            switching = true;
-          }
-        }
-      }
-    }
-
-    function sortTableLuft(n) {
-      var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
-      table = document.getElementById("myTable");
-      switching = true;
-      // Set the sorting direction to ascending:
-      dir = "asc";
-      /* Make a loop that will continue until
-      no switching has been done: */
-      while (switching) {
-        // Start by saying: no switching is done:
-        switching = false;
-        rows = table.rows;
-        /* Loop through all table rows (except the
-        first, which contains table headers): */
-        for (i = 1; i < (rows.length - 1); i++) {
-          // Start by saying there should be no switching:
-          shouldSwitch = false;
-          /* Get the two elements you want to compare,
-          one from current row and one from the next: */
-          x = rows[i].getElementsByTagName("TD")[n];
-          y = rows[i + 1].getElementsByTagName("TD")[n];
-          /* Check if the two rows should switch place,
-          based on the direction, asc or desc: */
-          if (dir == "asc") {
-            if (Number(x.title) > Number(y.title)) {
-              // If so, mark as a switch and break the loop:
-              shouldSwitch = true;
-              break;
-            }
-          } else if (dir == "desc") {
-            if (Number(x.title) < Number(y.title)) {
-              // If so, mark as a switch and break the loop:
-              shouldSwitch = true;
-              break;
-            }
-          }
-        }
-        if (shouldSwitch) {
-          /* If a switch has been marked, make the switch
-          and mark that a switch has been done: */
-          rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
-          switching = true;
-          // Each time a switch is done, increase this count by 1:
-          switchcount++;
-        } else {
-          /* If no switching has been done AND the direction is "asc",
-          set the direction to "desc" and run the while loop again. */
-          if (switchcount == 0 && dir == "asc") {
-            dir = "desc";
-            switching = true;
-          }
-        }
-      }
-    }
-
-    function luftStatus() {
-      sortTableLuft(4);
-      sortTable(3);
-    }
-  </script>
-  <style>
-    :root {
-      --primCol: #F9F8F6;
-      --secCol: #EbE9E8;
-      --hoverCol: #FFBA66;
-      --paddingWide: 10%;
-      --paddingSmall: 5%;
-    }
-    /* Meny */
-    ul {
-      padding: 0;
-      padding-left: var(--paddingWide);
-      margin: 0;
-      list-style-type: none;
-      overflow: hidden;
-      background-color: var(--secCol);
-    }
-
-    li {
-      display: block;
-      text-align: left;
-      text-align: center;
-      text-decoration: none;
-      float: left;
-      display: block;
-      padding: 20px;
-    }
-
-    li:hover {
-      background-color: var(--hoverCol);
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-    }
-
-    .menu {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      left: 0;
-    }
-
-    .active {
-      background-color: var(--primCol);
-    }
-
-    .inactive {
-      background-color: var(--secCol);
-      cursor: pointer;
-    }
-
-    .active:hover {
-      background-color: var(--primCol);
-    }
-
-    /* Oversikt */
-    table {
-      border-collapse: collapse;
-      text-align: center;
-      margin-left: 0;
-      width: 100%;
-    }
-
-    .button {
-      text-align: center;
-      color: white;
-      background-color: #E77731;
-      margin: 10px;
-      padding: 10px;
-      letter-spacing: 2px;
-      width: 20%;
-      cursor: pointer;
-      transition: 0.48s;
-      border: solid var(--primCol) 3px;
-
-    }
-
-    .button:hover {
-      background-color: orange;
-      transition: 0.5s;
-      transform: scale(1.01);
-    }
-
-    tr {
-      transition: 0.2s;
-      background-color: var(--secCol);
-    }
-
-    tr:hover {
-      background-color: var(--hoverCol);
-      transition: 0.2s;
-    }
-
-    td {
-      padding: 5px;
-      border-left: solid var(--primCol) 3px;
-    }
-
-    /* Sider som enda ikke er ferdig */
-
-    div.innhold {
-      width: 100%;
-      padding-left: var(--paddingWide);
-      padding-right: var(--paddingWide);
-    }
-
-    div[name="annet"] {
-      display: none;
-    }
-
-    /* Felles */
-    html {
-      background-color: var(--primCol);
-    }
-
-    h1 {
-      padding-top: 1%;
-      font-family: arial;
-      color: #584434;
-      margin-left: 0;
-      margin-bottom: 10px;
-    }
-
-    /*Eastereggs
-    easteregg1*/
-    @media only screen and (max-width: 1000px) {
-      #easteregg1 {
-        display: none;
-      }
-    }
-
-    #easteregg1 {
-      color: var(--secCol);
-      cursor: help;
-    }
-
-    /*Mindre viktige elementer hjemmes når det ikke blir plass til dem*/
-
-    @media only screen and (max-width: 600px) {
-      #etasje {
-        display: none;
-      }
-
-      li {
-        font-size: 15px;
-        padding: 15px;
-      }
-    }
-
-    @media only screen and (max-width: 520px) {
-      #navn {
-        display: none;
-      }
-
-      div.innhold {
-        width: 100%;
-        padding-left: var(--paddingSmall);
-        padding-right: var(--paddingSmall);
-      }
-
-      ul {
-        padding-left: var(--paddingSmall);
-      }
-    }
-
-    @media only screen and (max-width: 450px) {
-      h1 {
-        font-size: 25px;
-      }
-    }
-
-    @media only screen and (max-width: 395px) {
-      #pro {
-        display: none;
-      }
-    }
-
-    @media only screen and (max-width: 325px) {
-      td {
-        font-size: 90%;
-      }
-
-      th {
-        font-size: 90%;
-      }
-    }
-  </style>
-
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <link rel="stylesheet" type="text/css" href="grupperomOversikt.css">
 </head>
 
 <body>
-
   <!-- Meny -->
   <div class="menu">
     <ul>
       <li class="active" id="over" onclick="side(1)">Oversikt</li>
-      <li class="inactive" id="hjelp" onclick="side(2)">Hjelp</li>
-      <li class="inactive" id="pro" onclick="side(3)">Om Prosjektet</li>
+      <li class="inactive" id="kartm" onclick="side(2)">Kart</li>
+      <li class="inactive" id="hjelp" onclick="side(3)">Hjelp</li>
+      <li class="inactive" id="pro" onclick="side(4)">Om Prosjektet</li>
       <li class="inactive" id="canvas" onclick="window.location.href = 'https://akademiet.instructure.com';">Canvas</li>
       <p id="easteregg1" ondblclick="alert('01110000 01101100 01100001 01100011 01100101 01101000 01101111 01101100 01100100 01100101 01110010')">Påskeegg?</p>
     </ul>
   </div>
 
   <!-- Oversikt -->
-  <div id="Oversikt" class="innhold">
+  <div class="innhold" id="Oversikt">
     <h1>Oversikt over grupperom</h1>
     <table id="myTable">
-      <thead>
+      <thead id="Tabell">
         <tr>
-          <th id="etasje" class="button" onclick="sortTable(0)" title="Sorter etter etasje">Etasje</th>
-          <th id="romnummer" class="button" onclick="sortTable(1)" title="Sorter etter romnummer">Romnr.</th>
-          <th id="navn" class="button" onclick="sortTable(2)" title="Sorter etter romnavn">Navn</th>
+          <th class="button" id="etasje" onclick="sortTable(0)" title="Sorter etter etasje">Etasje</th>
+          <th class="button" id="romnummer" onclick="sortTable(1)" title="Sorter etter romnummer">Romnr.</th>
+          <th class="button" id="navn" onclick="sortTable(2)" title="Sorter etter romnavn">Navn</th>
           <th class="button" onclick="sortTable(3)" title="Sorter etter status">Status</th>
-          <th id="luftkvalitet" class="button" onclick="sortTableLuft(4)" title="Sorter etter luftkvalitet">Luftkvalitet</th>
+          <th class="button" id="luftkvalitet" onclick="sortTableLuft(4)" title="Sorter etter luftkvalitet">Luftkvalitet</th>
         </tr>
       </thead>
 
       <tbody>
-        <tr id="111">
+        <tr id="111" class="tabell">
           <td id="etasje">1</td>
           <td>111</td>
           <td id="navn">Kahlo</td>
           <td id="111status">Ledig</td>
-          <td id="111luft" title="800" name="Lav">Lav</td>
+          <td id="111luft" name="100" title="100">Høy</td>
         </tr>
-        <tr id="112">
+        <tr id="112" class="tabell">
           <td id="etasje">1</td>
           <td>112</td>
           <td id="navn">Bergman</td>
           <td id="112status">Ledig</td>
-          <td id="112luft" title="800" name="Lav">Lav</td>
+          <td id="112luft" name="100" title="100">Høy</td>
         </tr>
-        <tr id="113">
+        <tr id="113" class="tabell">
           <td id="etasje">1</td>
           <td>113</td>
           <td id="navn">Kafka</td>
           <td id="113status">Ledig</td>
-          <td id="113luft" title="800" name="Lav">Lav</td>
+          <td id="113luft" name="100" title="100">Høy</td>
         </tr>
-        <tr id="114">
+        <tr id="114" class="tabell">
           <td id="etasje">1</td>
           <td>114</td>
           <td id="navn">Kurosawa</td>
           <td id="114status">Ledig</td>
-          <td id="114luft" title="800" name="Lav">Lav</td>
+          <td id="114luft" name="100" title="100">Høy</td>
         </tr>
-        <tr id="115">
+        <tr id="115" class="tabell">
           <td id="etasje">1</td>
           <td>115</td>
           <td id="navn">Hemingway</td>
           <td id="115status">Ledig</td>
-          <td id="115luft" title="800" name="Lav">Lav</td>
+          <td id="115luft" name="100" title="100">Høy</td>
         </tr>
-        <tr id="209">
+        <tr id="209" class="tabell">
           <td id="etasje">2</td>
           <td>209</td>
           <td id="navn">Ullmann</td>
           <td id="209status">Ledig</td>
-          <td id="209luft" title="200" name="Høy">Høy</td>
+          <td id="209luft" name="100" title="100">Høy</td>
         </tr>
-        <tr id="210">
+        <tr id="210" class="tabell">
           <td id="etasje">2</td>
           <td>210</td>
           <td id="navn">Dahl</td>
           <td id="210status">Ledig</td>
-          <td id="210luft" title="200" name="Høy">Høy</td>
+          <td id="210luft" name="100" title="100">Høy</td>
         </tr>
-        <tr id="211">
+        <tr id="211" class="tabell">
           <td id="etasje">2</td>
           <td>211</td>
           <td id="navn">Hepburn</td>
           <td id="211status">Ledig</td>
-          <td id="211luft" title="600" name="Middels">Middels</td>
+          <td id="211luft" name="100" title="100">Høy</td>
         </tr>
-        <tr id="212">
+        <tr id="212" class="tabell">
           <td id="etasje">2</td>
           <td>212</td>
           <td id="navn">Streep</td>
           <td id="212status">Ledig</td>
-          <td id="212luft" title="700" name="Middels">Middels</td>
+          <td id="212luft" name="100" title="100">Høy</td>
         </tr>
-        <tr id="213">
+        <tr id="213" class="tabell">
           <td id="etasje">2</td>
           <td>213</td>
           <td id="navn">Welles</td>
           <td id="213status">Ledig</td>
-          <td id="213luft" title="600" name="Middels">Middels</td>
+          <td id="213luft" name="100" title="100">Høy</td>
         </tr>
-        <tr id="214">
+        <tr id="214" class="tabell">
           <td id="etasje">2</td>
           <td>214</td>
           <td id="navn">Shelley</td>
           <td id="214status">Ledig</td>
-          <td id="214luft" title="700" name="Middels">Middels</td>
+          <td id="214luft" name="100" title="100">Høy</td>
         </tr>
-        <tr id="215">
+        <tr id="215" class="tabell">
           <td id="etasje">2</td>
           <td>215</td>
           <td id="navn">Scorsese</td>
           <td id="215status">Ledig</td>
-          <td id="215luft" title="600" name="Middels">Middels</td>
+          <td id="215luft" name="100" title="100">Høy</td>
         </tr>
-        <tr id="216">
+        <tr id="216" class="tabell">
           <td id="etasje">2</td>
           <td>216</td>
           <td id="navn">Lee</td>
-          <td id="216status">Opptatt</td>
-          <td id="216luft" title="600" name="Middels">Middels</td>
+          <td id="216status">Ledig</td>
+          <td id="216luft" name="100" title="100">Høy</td>
         </tr>
-        <tr id="217">
+        <tr id="217" class="tabell">
           <td id="etasje">2</td>
           <td>217</td>
           <td id="navn">Leone</td>
           <td id="217status">Ledig</td>
-          <td id="217luft" title="200" name="Høy">Høy</td>
+          <td id="217luft" name="100" title="100">Høy</td>
         </tr>
       </tbody>
     </table>
   </div>
 
+  <div id="kart">
+    <div id="Vrimle" class="unclick">
+      <p id="Vrimle">Vrimle</p>
+    </div>
+    <div id="etasje1" class="unclick" onmouseover="hover('etasje1', 'etasje2')" onmouseout="hoverNot()">
+      <div id="111K" name="grupperom" class="111">
+        <div>111</div>
+        <table>
+          <tr>
+            <td>Status:</td>
+            <td>Ledig</td>
+          </tr>
+          <tr>
+            <td>Luftkvalitet:</td>
+            <td>Høy</td>
+          </tr>
+        </table>
+      </div>
+      <div id="112K" name="grupperom" class="200">
+        <div>112</div>
+        <table>
+          <tr>
+            <td>Status:</td>
+            <td>Opptatt</td>
+          </tr>
+          <tr>
+            <td>Luftkvalitet:</td>
+            <td>Lav</td>
+          </tr>
+        </table>
+      </div>
+      <div id="113K" name="grupperom" class="700">
+        <div>113</div>
+        <table>
+          <tr>
+            <td>Status:</td>
+            <td>Opptatt</td>
+          </tr>
+          <tr>
+            <td>Luftkvalitet:</td>
+            <td>Middels</td>
+          </tr>
+        </table>
+      </div>
+      <div id="114K" name="grupperom" class="500">
+        <div>114</div>
+        <table>
+          <tr>
+            <td>Status:</td>
+            <td>Ledig</td>
+          </tr>
+          <tr>
+            <td>Luftkvalitet:</td>
+            <td>Høy</td>
+          </tr>
+        </table>
+      </div>
+      <div id="115K" name="grupperom" class="800">
+        <div>115</div>
+        <table>
+          <tr>
+            <td>Status:</td>
+            <td>Opptatt</td>
+          </tr>
+          <tr>
+            <td>Luftkvalitet:</td>
+            <td>Høy</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div id="etasje2" class="unclick" onmouseover="hover('etasje2', 'etasje1')" onmouseout="hoverNot()">
+      <div id="209K" name="grupperom" class="111">
+        <div>209</div>
+        <table>
+          <tr>
+            <td>Status:</td>
+            <td>Opptatt</td>
+          </tr>
+          <tr>
+            <td>Luftkvalitet:</td>
+            <td>Lav</td>
+          </tr>
+        </table>
+      </div>
+      <div id="210K" name="grupperom" class="1000">
+        <div>210</div>
+        <table>
+          <tr>
+            <td>Status:</td>
+            <td>Ledig</td>
+          </tr>
+          <tr>
+            <td>Luftkvalitet:</td>
+            <td>Lav</td>
+          </tr>
+        </table>
+      </div>
+      <div id="211K" name="grupperom" class="111">
+        <div>211</div>
+        <table>
+          <tr>
+            <td>Status:</td>
+            <td>Opptatt</td>
+          </tr>
+          <tr>
+            <td>Luftkvalitet:</td>
+            <td>Lav</td>
+          </tr>
+        </table>
+      </div>
+      <div id="212K" name="grupperom" class="600">
+        <div>212</div>
+        <table>
+          <tr>
+            <td>Status:</td>
+            <td>Ledig</td>
+          </tr>
+          <tr>
+            <td>Luftkvalitet:</td>
+            <td>Høy</td>
+          </tr>
+        </table>
+      </div>
+      <div id="213K" name="grupperom" class="800">
+        <div>213</div>
+        <table>
+          <tr>
+            <td>Status:</td>
+            <td>Ledig</td>
+          </tr>
+          <tr>
+            <td>Luftkvalitet:</td>
+            <td>Middels</td>
+          </tr>
+        </table>
+      </div>
+      <div id="214K" name="grupperom" class="500">
+        <div>214</div>
+        <table>
+          <tr>
+            <td>Status:</td>
+            <td>Opptatt</td>
+          </tr>
+          <tr>
+            <td>Luftkvalitet:</td>
+            <td>Høy</td>
+          </tr>
+        </table>
+      </div>
+      <div id="215K" name="grupperom" class="111">
+        <div>215</div>
+        <table>
+          <tr>
+            <td>Status:</td>
+            <td>Ledig</td>
+          </tr>
+          <tr>
+            <td>Luftkvalitet:</td>
+            <td>Middels</td>
+          </tr>
+        </table>
+      </div>
+      <div id="216K" name="grupperom" class="700">
+        <div>216</div>
+        <table>
+          <tr>
+            <td>Status:</td>
+            <td>Ledig</td>
+          </tr>
+          <tr>
+            <td>Luftkvalitet:</td>
+            <td>Middels</td>
+          </tr>
+        </table>
+      </div>
+      <div id="217K" name="grupperom" class="111">
+        <div>217</div>
+        <table>
+          <tr>
+            <td>Status:</td>
+            <td>Opptatt</td>
+          </tr>
+          <tr>
+            <td>Luftkvalitet:</td>
+            <td>Lav</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
   <!-- Om Prosjektet: -->
-  <div id="omP" class="innhold" name="annet">
+  <div class="innhold" id="omP" name="annet">
     <h1>Om Prosjektet</h1>
     <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut
       aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum
@@ -1266,31 +1028,540 @@ def luftHtml(htmlFil, romnummer, co2ppm,luftkval):
   </div>
 
   <!-- Hjelp -->
-  <div id="trengerHjelp" class="innhold" name="annet">
+  <div class="innhold" id="trengerHjelp" name="annet">
     <h1>Hjelp</h1>
     <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut
       aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum
       zzril delenit augue duis dolore te feugait nulla facilisi.</p>
   </div>
-  <script>
-    function myFunction(x) {
-      if (x.matches) { // If media query matches
-        document.getElementById("romnummer").innerHTML = "Romnr.";
-        document.getElementById("luftkvalitet").innerHTML = "Luftkval.";
-      } else {
-        document.getElementById("romnummer").innerHTML = "Romnummer";
-        document.getElementById("luftkvalitet").innerHTML = "Luftkvalitet";
+  <script src="grupperomOversikt.js" type="text/javascript"></script>
+    </body>
+</html>
+```
+
+##### oversiktGrupperom.css
+
+```css
+
+:root {
+  --primCol: #F9F8F6;
+  --secCol: #EbE9E8;
+  --hoverCol: #FFBA66;
+  --paddingWide: 10%;
+  --paddingSmall: 5%;
+}
+
+/* Meny */
+ul {
+  padding: 0;
+  padding-left: var(--paddingWide);
+  margin: 0;
+  list-style-type: none;
+  overflow: hidden;
+  background-color: var(--secCol);
+}
+
+li {
+  display: block;
+  text-align: left;
+  text-align: center;
+  text-decoration: none;
+  float: left;
+  display: block;
+  padding: 20px;
+}
+
+li:hover {
+  background-color: var(--hoverCol);
+}
+
+* {
+  box-sizing: border-box;
+}
+}
+
+.menu {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  left: 0;
+}
+
+.active {
+  background-color: var(--primCol);
+}
+
+.inactive {
+  background-color: var(--secCol);
+  cursor: pointer;
+}
+
+.active:hover {
+  background-color: var(--primCol);
+}
+
+/* Oversikt */
+table#myTable {
+  border-collapse: collapse;
+  text-align: center;
+  margin-left: 0;
+  width: 100%;
+}
+
+th {
+  text-align: center;
+  color: white;
+  background-color: #E77731;
+  margin: 10px;
+  padding: 10px;
+  letter-spacing: 2px;
+  width: 20%;
+  cursor: pointer;
+  transition: 0.48s;
+  border: solid var(--primCol) 3px;
+}
+
+th:hover {
+  background-color: orange;
+  transition: 0.5s;
+  transform: scale(1.01);
+}
+
+tr.tabell {
+  transition: 0.2s;
+  background-color: var(--secCol);
+}
+
+tr.tabell:hover {
+  background-color: var(--hoverCol);
+  transition: 0.2s;
+}
+
+tr.tabell>td {
+  padding: 5px;
+  border-left: solid var(--primCol) 3px;
+}
+
+/*Kart*/
+div#kart {
+  width: 70vw;
+  height: 80vh;
+  position: relative;
+  margin: auto;
+  top: 20px;
+  text-align: center;
+  display: none;
+  max-width: 700px;
+}
+
+div.unclick {
+  position: absolute;
+  width: 29%;
+}
+
+div.unclick:hover {
+  width: 35%;
+  position: absolute;
+  transition: 0.3s;
+}
+
+div#etasje2 {
+  right: 0;
+  height: 100%
+}
+
+div#etasje1 {
+  left: 40%;
+  height: 100%;
+}
+
+[name="grupperom"] {
+  height: 11.1%;
+  transition: 0.3s;
+  background-color: #EbE9E8;
+  position: relative;
+}
+
+[name="grupperom"]:hover {
+  transform: scale(1.01);
+  transition: 0.1s;
+  font-size: 0.9em;
+  padding: 10px;
+  box-shadow: 0 0 5% rgba(0, 0, 0, 0.5);
+}
+
+[name="grupperom"]>div {
+  position: absolute;
+  top: 35%;
+  width: 100%;
+}
+
+[name="grupperom"]>table {
+  display: none;
+}
+
+[name="grupperom"]:hover>table {
+  display:inline-block;
+  text-align: center;
+}
+
+[name="grupperom"]:hover>div {
+  display: none;
+}
+
+#Vrimle {
+  background-color: #EbE9E8;
+  width: 38%;
+  height: 100%;
+}
+
+#Vrimle>p {
+  writing-mode: vertical-rl;
+  text-align: center;
+  font-size: 7vh;
+}
+
+[name="grupperom"]>table {
+  font-size: 2.5vw;
+  text-align: left;
+}
+
+@media only screen and (min-width: 700px) {
+  [name="grupperom"]>table {
+    font-size: 15px;
+  }
+}
+
+/* Sider som enda ikke er ferdig */
+div.innhold {
+  width: 100%;
+  padding-left: var(--paddingWide);
+  padding-right: var(--paddingWide);
+}
+
+div[name="annet"] {
+  display: none;
+}
+
+/* Felles */
+html {
+  background-color: var(--primCol);
+  font-family: sans-serif;
+}
+
+h1 {
+  padding-top: 1%;
+  font-family: arial;
+  color: #584434;
+  margin-left: 0;
+  margin-bottom: 10px;
+}
+
+/*Eastereggs
+easteregg1*/
+@media only screen and (max-width: 1000px) {
+  #easteregg1 {
+    display: none;
+  }
+}
+
+#easteregg1 {
+  color: var(--secCol);
+  cursor: help;
+}
+
+/*Mindre viktige elementer hjemmes når det ikke blir plass til dem*/
+@media only screen and (max-width: 600px) {
+  #etasje {
+    display: none;
+  }
+
+  li {
+    font-size: 15px;
+    padding: 15px;
+  }
+}
+
+@media only screen and (max-width: 520px) {
+  #navn {
+    display: none;
+  }
+
+  div.innhold {
+    width: 100%;
+    padding-left: var(--paddingSmall);
+    padding-right: var(--paddingSmall);
+  }
+
+  div#Kart {
+    margin-left: 5%;
+  }
+
+  ul {
+    padding-left: var(--paddingSmall);
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  h1 {
+    font-size: 25px;
+  }
+}
+
+@media only screen and (max-width: 460px) {
+  #pro {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 335px) {
+  #hjelp {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 325px) {
+  tr.tabell td {
+    font-size: 90%;
+  }
+
+  th {
+    font-size: 90%;
+  }
+}
+
+
+```
+
+##### grupperomOversikt.js
+
+```js
+
+// Bla mellom sidene
+function side(n) {
+  var a, b, c, d = 0;
+  a = document.getElementById("Oversikt");
+  b = document.getElementById("kart")
+  c = document.getElementById("trengerHjelp");
+  d = document.getElementById("omP");
+  if (n == 1) {
+    a.style.display = "block";
+    b.style.display = "none";
+    c.style.display = "none";
+    d.style.display = "none";
+
+    document.getElementById("over").className = "active";
+    document.getElementById("kartm").className = "inactive";
+    document.getElementById("hjelp").className = "inactive";
+    document.getElementById("pro").className = "inactive";
+  } else if (n == 2) {
+    a.style.display = "none";
+    b.style.display = "grid";
+    c.style.display = "none";
+    d.style.display = "none";
+    document.getElementById("over").className = "inactive";
+    document.getElementById("kartm").className = "active";
+    document.getElementById("hjelp").className = "inactive";
+    document.getElementById("pro").className = "inactive";
+  } else if (n == 3) {
+    a.style.display = "none";
+    b.style.display = "none";
+    c.style.display = "block";
+    d.style.display = "none";
+    document.getElementById("over").className = "inactive";
+    document.getElementById("kartm").className = "inactive";
+    document.getElementById("hjelp").className = "active";
+    document.getElementById("pro").className = "inactive";
+  } else {
+    a.style.display = "none";
+    b.style.display = "none";
+    c.style.display = "none";
+    d.style.display = "block";
+    document.getElementById("over").className = "inactive";
+    document.getElementById("kartm").className = "inactive";
+    document.getElementById("hjelp").className = "inactive";
+    document.getElementById("pro").className = "active";
+  }
+}
+
+// Sorter tabellen
+function sortTable(n) {
+  var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+  table = document.getElementById("myTable");
+  switching = true;
+  // Set the sorting direction to ascending:
+  dir = "asc";
+  /* Make a loop that will continue until
+  no switching has been done: */
+  while (switching) {
+    // Start by saying: no switching is done:
+    switching = false;
+    rows = table.rows;
+    /* Loop through all table rows (except the
+    first, which contains table headers): */
+    for (i = 1; i < (rows.length - 1); i++) {
+      // Start by saying there should be no switching:
+      shouldSwitch = false;
+      /* Get the two elements you want to compare,
+      one from current row and one from the next: */
+      x = rows[i].getElementsByTagName("TD")[n];
+      y = rows[i + 1].getElementsByTagName("TD")[n];
+      /* Check if the two rows should switch place,
+      based on the direction, asc or desc: */
+      if (dir == "asc") {
+        if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+          // If so, mark as a switch and break the loop:
+          shouldSwitch = true;
+          break;
+        }
+      } else if (dir == "desc") {
+        if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+          // If so, mark as a switch and break the loop:
+          shouldSwitch = true;
+          break;
+        }
       }
     }
+    if (shouldSwitch) {
+      /* If a switch has been marked, make the switch
+      and mark that a switch has been done: */
+      rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+      switching = true;
+      // Each time a switch is done, increase this count by 1:
+      switchcount++;
+    } else {
+      /* If no switching has been done AND the direction is "asc",
+      set the direction to "desc" and run the while loop again. */
+      if (switchcount == 0 && dir == "asc") {
+        dir = "desc";
+        switching = true;
+      }
+    }
+  }
+}
 
-    var x = window.matchMedia("(max-width: 700px)")
-    myFunction(x) // Call listener function at run time
-    x.addListener(myFunction) // Attach listener function on state changes
-    luftStatus()
+function sortTableLuft(n) {
+  var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+  table = document.getElementById("myTable");
+  switching = true;
+  // Set the sorting direction to ascending:
+  dir = "asc";
+  /* Make a loop that will continue until
+  no switching has been done: */
+  while (switching) {
+    // Start by saying: no switching is done:
+    switching = false;
+    rows = table.rows;
+    /* Loop through all table rows (except the
+    first, which contains table headers): */
+    for (i = 1; i < (rows.length - 1); i++) {
+      // Start by saying there should be no switching:
+      shouldSwitch = false;
+      /* Get the two elements you want to compare,
+      one from current row and one from the next: */
+      x = rows[i].getElementsByTagName("TD")[n];
+      y = rows[i + 1].getElementsByTagName("TD")[n];
+      /* Check if the two rows should switch place,
+      based on the direction, asc or desc: */
+      if (dir == "asc") {
+        if (Number(x.title) > Number(y.title)) {
+          // If so, mark as a switch and break the loop:
+          shouldSwitch = true;
+          break;
+        }
+      } else if (dir == "desc") {
+        if (Number(x.title) < Number(y.title)) {
+          // If so, mark as a switch and break the loop:
+          shouldSwitch = true;
+          break;
+        }
+      }
+    }
+    if (shouldSwitch) {
+      /* If a switch has been marked, make the switch
+      and mark that a switch has been done: */
+      rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+      switching = true;
+      // Each time a switch is done, increase this count by 1:
+      switchcount++;
+    } else {
+      /* If no switching has been done AND the direction is "asc",
+      set the direction to "desc" and run the while loop again. */
+      if (switchcount == 0 && dir == "asc") {
+        dir = "desc";
+        switching = true;
+      }
+    }
+  }
+}
 
-    //easteregg2
-  </script>
-</body>
+function luftStatus() {
+  sortTableLuft(4);
+  sortTable(3);
+}
+// Gi rom farge etter status:
+function fargeKode(id) {
+  var boks, x, y, z, p = 0;
+  y = document.getElementById(id);
+  x = parseInt(y.className);
+  p = y.getElementsByTagName('td')[1].innerHTML;
+  /*document.getElementById('button').innerHTML = p;*/
+  if (p == 'Ledig') {
+    if (x < 700) {
+      y.style.backgroundColor = '#57bb3e';
+    } else if (x < 900) {
+      y.style.backgroundColor = '#FFBB00';
+    } else {
+      y.style.backgroundColor = '#ff7440';
+    }
+  }
+}
 
-</html>
+function statusFarge() {
+  for (var i = 0; i < 5; i++) {
+    fargeKode(i + 111 + 'K');
+  }
+  for (var i = 0; i < 9; i++) {
+    fargeKode(i + 209 + 'K');
+  }
+}
+
+function hover(etasje1, etasje2) {
+  var x, y = 0;
+  x = document.getElementById(etasje1);
+  y = document.getElementById(etasje2);
+  x.style.width = '38%';
+  y.style.width = '20%';
+  //x.style.height = '96.6%';
+}
+
+// Etasje utvider seg onmouseover
+function hoverNot() {
+  var x, y = 0;
+  x = document.getElementById('etasje1');
+  y = document.getElementById('etasje2');
+  x.style.width = '28%';
+  x.style.transition = '0.3s';
+  y.style.width = '30%';
+  y.style.transition = '0.3s';
+  y.style.height = '100%';
+  x.style.height = '100%';
+}
+
+function myFunction(x) {
+  if (x.matches) { // If media query matches
+    document.getElementById("romnummer").innerHTML = "Romnr.";
+    document.getElementById("luftkvalitet").innerHTML = "Luftkval.";
+  } else {
+    document.getElementById("romnummer").innerHTML = "Romnummer";
+    document.getElementById("luftkvalitet").innerHTML = "Luftkvalitet";
+  }
+}
+
+var x = window.matchMedia("(max-width: 700px)");
+myFunction(x); // Call listener function at run time
+x.addListener(myFunction); // Attach listener function on state changes
+luftStatus();
+statusFarge();
+
 ```

@@ -6,7 +6,7 @@
 
 ![nettsideeksempel](vedlegg/nettsideeksempel.png)
 
-<!-- TOC START min:1 max:3 link<!-- TOC START min:1 max:3 link:true asterisk:false update:true -->
+<!-- TOC START min:1 max:3 link:true asterisk:false update:true -->
 - [Romstatus](#romstatus)
 - [Prosjektbeskrivelse](#prosjektbeskrivelse)
 - [Begrunnelse](#begrunnelse)
@@ -38,6 +38,7 @@
   - [Uke 11](#uke-11-1)
   - [Uke 12](#uke-12-1)
   - [Uke 13](#uke-13)
+  - [Uke 14](#uke-14)
 - [Vedlegg](#vedlegg)
   - [Skjermbilde 1](#skjermbilde-1)
   - [Skjermbilde 2](#skjermbilde-2)
@@ -57,7 +58,7 @@
   - [Bilde 21-22](#bilde-21-22)
   - [Illustrasjon 23-24](#illustrasjon-23-24)
   - [Bilde 25-26](#bilde-25-26)
-  - [Kode 27-29](#kode-27-29)
+  - [Kode 27-31](#kode-27-31)
     - [htmlOppdaterer.py](#htmloppdatererpy)
     - [oppdatererLib.py](#oppdatererlibpy)
     - [grupperomOversikt.html](#grupperomoversikthtml)
@@ -256,6 +257,15 @@ PIR sensorer har to forskjellige potmetere under. Den ene kontrollerer rekkevidd
 
 - Fant [documentation](<https://arduino-esp8266.readthedocs.io/en/latest/esp8266wifi/readme.html>) til Arduino Core til ESP8266 og forklaring på funksjoner for å kunne sette opp dette med UDP igjen.
 - Martin har fullført en prototype av nettsiden med fungerende python-basert oppdaterer (kode 27-31)
+
+## Uke 14
+
+- Satt opp et [Github repository](<https://github.com/nostalgizious/romstatus>) til prosjektet.
+- Splittet opp nettsiden i en .css, .html og .js fil
+- Splittet opp postgresInsert.py i en skrive-fil (postgresInsert.py) og en lese-fil (postgresRead.py)
+- Lagde en python fil som kontrollerer hele lesingen av databasen og skrivingen til nettsiden, samt intervaller på både oppdatering av database og nettside. (oppdateringsHastighet.py)
+- Lagde en python fil som genererer tabellene i databasen til de korresponderende rommene basert på romlisten, hvis de ikke eksisterer enda. (opprettDatabase.py)
+- Justerte Prosjektoversikt.markdown til å være kompatibelt med Github-Flavoured Markdown så det vises riktig på Github repoet.
 
 # Vedlegg
 

@@ -6,52 +6,64 @@
 
 ![nettsideeksempel](vedlegg/nettsideeksempel.png)
 
-<!-- TOC START min:1 max:3 link:true asterisk:false update:true -->
+<!-- TOC START min:1 max:3 link<!-- TOC START min:1 max:3 link:true asterisk:false update:true -->
 - [Romstatus](#romstatus)
 - [Prosjektbeskrivelse](#prosjektbeskrivelse)
 - [Begrunnelse](#begrunnelse)
 - [Kompetansemål](#kompetansemål)
-    - [Teknologi og forskningslære 1](#teknologi-og-forskningslære-1)
+  - [Teknologi og forskningslære 1](#teknologi-og-forskningslære-1)
+    - [Den unge ingeniøren](#den-unge-ingeniøren)
+    - [Den unge forskeren](#den-unge-forskeren)
+    - [Teknologi, naturvitenskap og samfunn](#teknologi-naturvitenskap-og-samfunn)
+    - [Design og produktutvikling](#design-og-produktutvikling)
 - [Beskrivelse av funksjonalitet til deler](#beskrivelse-av-funksjonalitet-til-deler)
-    - [Hvordan en NDIR CO~2~ sensor fungerer](#hvordan-en-ndir-co2-sensor-fungerer)
-    - [Hvordan en PIR sensor fungerer](#hvordan-en-pir-sensor-fungerer)
+  - [Hvordan en NDIR CO~2~ sensor fungerer](#hvordan-en-ndir-co2-sensor-fungerer)
+  - [Hvordan en PIR sensor fungerer](#hvordan-en-pir-sensor-fungerer)
 - [Original tidsplan](#original-tidsplan)
-    - [Uke 5](#uke-5)
-    - [Uke 6](#uke-6)
-    - [Uke 7](#uke-7)
-    - [Uke 8](#uke-8)
-    - [Uke 10](#uke-10)
-    - [Uke 11](#uke-11)
-    - [Uke 12](#uke-12)
-    - [Utover året](#utover-året)
+  - [Uke 5](#uke-5)
+  - [Uke 6](#uke-6)
+  - [Uke 7](#uke-7)
+  - [Uke 8](#uke-8)
+  - [Uke 10](#uke-10)
+  - [Uke 11](#uke-11)
+  - [Uke 12](#uke-12)
+  - [Utover året](#utover-året)
 - [Logg](#logg)
-    - [Uke 5](#uke-5-1)
-    - [Uke 6](#uke-6-1)
-    - [Uke 7](#uke-7-1)
-    - [Uke 8](#uke-8-1)
-    - [Uke 9](#uke-9)
-    - [Uke 10](#uke-10-1)
-    - [Uke 11](#uke-11-1)
-    - [Uke 12](#uke-12-1)
-    - [Uke 13](#uke-13)
+  - [Uke 5](#uke-5-1)
+  - [Uke 6](#uke-6-1)
+  - [Uke 7](#uke-7-1)
+  - [Uke 8](#uke-8-1)
+  - [Uke 9](#uke-9)
+  - [Uke 10](#uke-10-1)
+  - [Uke 11](#uke-11-1)
+  - [Uke 12](#uke-12-1)
+  - [Uke 13](#uke-13)
 - [Vedlegg](#vedlegg)
-    - [Skjermbilde 1](#skjermbilde-1)
-    - [Skjermbilde 2](#skjermbilde-2)
-    - [Kode 3](#kode-3)
-    - [Skjermbilde 4](#skjermbilde-4)
-    - [Kode 5](#kode-5)
-    - [Illustrasjon 6-8](#illustrasjon-6-8)
-    - [Illustrasjon 9-11](#illustrasjon-9-11)
-    - [Illustrasjon 12-14](#illustrasjon-12-14)
-    - [Illustrasjon 15-17](#illustrasjon-15-17)
-    - [Bilde 18-20](#bilde-18-20)
-    - [Bilde 21-22](#bilde-21-22)
-    - [Illustrasjon 23-24](#illustrasjon-23-24)
-    - [Bilde 25-26](#bilde-25-26)
-    - [Kode 27-29](#kode-27-29)
+  - [Skjermbilde 1](#skjermbilde-1)
+  - [Skjermbilde 2](#skjermbilde-2)
+  - [Kode 3](#kode-3)
+    - [luftkvalitetssender.pde](#luftkvalitetssenderpde)
+    - [luftkvalitetslogger.py](#luftkvalitetsloggerpy)
+  - [Skjermbilde 4](#skjermbilde-4)
+  - [Kode 5](#kode-5)
+    - [rom.ini](#romini)
+    - [config.py](#configpy)
+    - [postgresinsert.py](#postgresinsertpy)
+  - [Illustrasjon 6-8](#illustrasjon-6-8)
+  - [Illustrasjon 9-11](#illustrasjon-9-11)
+  - [Illustrasjon 12-14](#illustrasjon-12-14)
+  - [Illustrasjon 15-17](#illustrasjon-15-17)
+  - [Bilde 18-20](#bilde-18-20)
+  - [Bilde 21-22](#bilde-21-22)
+  - [Illustrasjon 23-24](#illustrasjon-23-24)
+  - [Bilde 25-26](#bilde-25-26)
+  - [Kode 27-29](#kode-27-29)
+    - [htmlOppdaterer.py](#htmloppdatererpy)
+    - [oppdatererLib.py](#oppdatererlibpy)
+    - [grupperomOversikt.html](#grupperomoversikthtml)
+    - [oversiktGrupperom.css](#oversiktgrupperomcss)
+    - [grupperomOversikt.js](#grupperomoversiktjs)
 <!-- TOC END -->
-
-
 
 # Prosjektbeskrivelse
 
@@ -319,8 +331,8 @@ PIR sensorer har to forskjellige potmetere under. Den ene kontrollerer rekkevidd
     Serial.print(sensor_avlesning);
     if(connected){
       //Send a packet
-    /*  udp.beginPacket(udpAddress,udpPort);
-      udp.printf("Verdi:",avlesning); */
+    */  udp.beginPacket(udpAddress,udpPort);
+      udp.printf("Verdi:",avlesning);/*
       while (digitalRead(sensorPin) != gammelVerdi){
         udp.beginPacket(udpAddress,udpPort);
         udp.printf("%d",sensor_avlesning);
@@ -329,7 +341,7 @@ PIR sensorer har to forskjellige potmetere under. Den ene kontrollerer rekkevidd
         gammelVerdi = digitalRead(sensorPin);
 
     }
-    /*
+    */
     lcd.init();
     lcd.backlight();
     lcd.setCursor(0,0);
@@ -338,7 +350,7 @@ PIR sensorer har to forskjellige potmetere under. Den ene kontrollerer rekkevidd
     lcd.print(" PPM");
     lcd.println("       ");
     lcd.print("  ");
-    delay(100);        */      
+    delay(100);        /*     
     }
     //Wait for 1 second
   }

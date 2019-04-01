@@ -69,9 +69,9 @@ Ut av prosjektet sitter vi tilsammen igjen med en sammensetning av kunnskap om 3
 
 # Kompetansemål
 
-### Teknologi og forskningslære 1
+## Teknologi og forskningslære 1
 
-#### Den unge ingeniøren
+### Den unge ingeniøren
 
 Mål for opplæringen er at eleven skal kunne
 
@@ -81,14 +81,14 @@ Mål for opplæringen er at eleven skal kunne
 - **bruke sensorer og styringssystemer i forbindelse med forsøk og konstruksjoner (høy)**
 - **dokumentere og vurdere konstruksjoners fysiske egenskaper og funksjonalitet ved hjelp av målinger og enkle beregninger (høy)**
 
-#### Den unge forskeren
+### Den unge forskeren
 
 Mål for opplæringen er at eleven skal kunne
 
 - gjøre rede for hvordan et naturvitenskapelig prosjekt planlegges, gjennomføres og etterarbeides før det blir publisert (under prosses)
 - **planlegge, gjennomføre, analysere og dokumentere systematiske målinger om støy, luftforurensning, inneklima og vannkvalitet, og drøfte virkninger på helse og miljø (høy)**
 
-#### Teknologi, naturvitenskap og samfunn
+### Teknologi, naturvitenskap og samfunn
 
 Mål for opplæringen er at eleven skal kunne
 
@@ -98,7 +98,7 @@ Mål for opplæringen er at eleven skal kunne
 - beskrive prinsipper og virkemåte for noen moderne instrumenter i industri, helsevesen eller forskning, og gjøre rede for nytten og eventuelle skadevirkninger
 - kartlegge og presentere praktisk bruk av realfag i en lokal bedrift eller institusjon
 
-#### Design og produktutvikling
+### Design og produktutvikling
 
 Mål for opplæringen er at eleven skal kunne
 
@@ -113,11 +113,11 @@ Mål for opplæringen er at eleven skal kunne
 
 # Beskrivelse av funksjonalitet til deler
 
-### Hvordan en NDIR CO~2~ sensor fungerer
+## Hvordan en NDIR CO~2~ sensor fungerer
 
 Alle molekyler har sitt unike absorpsjonsspekter, hvor enkelte bølgelengder blir absorbert og skutt ut i alle retninger. Når molekylet tar imot en bestemt bølgelengde vil elektronene flytte seg til et annet energinivå. Når de går tilbake skytes et foton med den samme bølgelengden ut i en tilfeldig retning. CO2 kan ta imot og sende ut bølgelengder på 4.26 µm, 2.7 µm og 13 µm fra det infrarøde spekteret. NDIR sin CO2 sensor bruker en liten IR-lampe med bølgelengde på rundt 4,2 µm som lyser gjennom et rør med lufta i rommet. CO2-molekylene absorberer da bølgelengdene på 4.26 µm, mens de andre bølgelengdene går videre. I enden av røret er den et optisk filter som tar opp alle fotonene. Bak der er det en IR-detektor som ser alle punktene hvor bølgelengder på 4.26 µm ikke har truffet. Mengden CO2 molekyler er proporsjonal med antall “hull” det er eller antall fotoner som ikke kom videre.
 
-### Hvordan en PIR sensor fungerer
+## Hvordan en PIR sensor fungerer
 
 ![img](vedlegg/pirsensorillustrasjon.png)
 
@@ -133,44 +133,44 @@ PIR sensorer har to forskjellige potmetere under. Den ene kontrollerer rekkevidd
 
 **Arbeidet ble inndelt i praktisk arbeid med sensoren, og infrastruktur rundt, og oppgavene gitt til henholdsvis Magnus og Arvin, og Martin og Ferdinand**
 
-### Uke 5
+## Uke 5
 
 - Finne en løsning til hva slags sensor vi kan bruke og om vi kan bruke flere forskjellige
 - Kommunikasjon mellom arduinoer med NRF module
 
-### Uke 6
+## Uke 6
 
 - Teste forskjellige sensorer og se hva som passer best
 - IR signal gjennom NRF sender (hvis ikke ble ferdig uke 5)
 
-### Uke 7
+## Uke 7
 
 - Lage koder og få en forståelse av hvordan sensorene fungerer
 - Logge signaler mottatt via udp i en sql database
 - Kanskje prøve å motta signaler fra ir-sensor
 
-### Uke 8
+## Uke 8
 
 - Koble til en pauseknapp til PIR sensoren  
 - Lese av informasjon fra sql database og vise det på en nettside
 
-### Uke 10
+## Uke 10
 
 - Sette opp alt dette med en Doit ESP32
 - Reservere grupperom ved hjelp av manuell innsending av reservasjon som logges i sql database
 
-### Uke 11
+## Uke 11
 
 - Lage case til sensoren
 - Sette opp en raspberry pi med alt dette
 
-### Uke 12
+## Uke 12
 
 - Finne passende plassering av sensor
 - Sette opp strømforsyning
 - Koble opp alle arduinoene vi har lagd hittil til raspberry pi og fullføre demo-fasen av prosjektet
 
-### Utover året
+## Utover året
 
 - Vise fungerende demo-prosjekt til ledelsen og få sponset resterende og hittil brukte deler
 - Publisere nettsiden så den er åpent tilgjengelig
@@ -180,7 +180,7 @@ PIR sensorer har to forskjellige potmetere under. Den ene kontrollerer rekkevidd
 
 # Logg
 
-### Uke 5
+## Uke 5
 
 - Valgt prosjekt
 - Delt inn i grupper
@@ -188,7 +188,7 @@ PIR sensorer har to forskjellige potmetere under. Den ene kontrollerer rekkevidd
 - Fant ut av at vi burde bruke en PIR sensor som hoved sensoren, men vi kan også bruke andre som ultrasonisk og C02 måler
 - Bestilt flere ESP8266 til prosjektet og diverse sensorer vi kanskje kan ha bruk for. (Skjermbilde 1-2)
 
-### Uke 6
+## Uke 6
 
 - Funnet riktige drivere til brettene (Heltec Wifi Kit 8 og Doit ESP32)
 - Testet begge brettene
@@ -198,23 +198,23 @@ PIR sensorer har to forskjellige potmetere under. Den ene kontrollerer rekkevidd
 - Testa PIR sensoren og den ultrasonisk sensoren
 - Lagde en kode til PIR sensoren som fungerer greit men er en del bugs og noen justeringer må til. prøver også å integrere en knapp
 
-### Uke 7
+## Uke 7
 
 - Lært oss SQL som dekker behovet for prosjektet
 - Koblet opp IR sensor til ESP32en og sendt signalene fra den til “PacketSender” på Macen
 - Lagde en PIR sensor kode som grei til prosjektet
 
-### Uke 8
+## Uke 8
 
 - Laget python kode som kontinuerlig kan logge informasjon fra Arduino (via UDP ved hjelp av "Socket" biblioteket) inn i en SQL database (ved bruk av "SQLite3" biblioteket) (kode 3)
 - Kan lese informasjon fra SQL database og vise det i Python i både tekstform og med grafer. (skjermbilde 4)
 - Vi fikser og justerer på PIR sensor koden sånn at den skal fungere etter hvordan vi vil ha den
 
-### Uke 9
+## Uke 9
 
 - Satt opp et mye mer robust system med postgresql database og laget en ny Python kode fra bunnen av tilpasset dette databasesystemet ved bruk av psycopg2 biblioteket og som kan motta og loggføre flere parametre (co2ppm, tempc, humidity, irsensor) (kode 5)
 
-### Uke 10
+## Uke 10
 
 - Valgte Autodesk Fusion 360 til 3D modellering ettersom det skal være det mest intuitivet i bruk av de profesjonelle programmene og er gratis for studenter.
 - Begynte med 3D modellering (illustrasjon 6-8)
@@ -224,21 +224,21 @@ PIR sensorer har to forskjellige potmetere under. Den ene kontrollerer rekkevidd
 - Fått 5stk. ESP8266 i posten
 - Forsøkt å sette opp disse med samme kode som ESP32, men den har ingen støtte for WPA2-Enterprise PEAP kryptering på WiFI, og kan derfor ikke kobles til "Akademiet" nettverket.
 
-### Uke 11
+## Uke 11
 
 - Justert 3D modell til ESP8266 så den passer perfekt og printet denne. (illustrasjon 20-21, bilde 22-24)
 - Laget HTML fil til nettsiden
 - Utforsket mulighetene til å bruke beautifulsoup4 biblioteket til Python til å oppdatere nettsiden så vi slipper å bruke PHP og JavaScript.
 - Satt opp en ESP8266 med samme kode som ESP32en, koblet opp mot nettverk som benytter seg av vanlig WPA2 kryptering.
 
-### Uke 12
+## Uke 12
 
 - Tok kontakt med IT om forespørsel om å sette opp et nettverk med WPA2 kryptering på skolen, evt gi tilgang til AkaAirplay nettverket, de sa de skulle se på det.
 - Printet første forsøk på deksel til Raspberry Pi 3 B+, det ble ikke helt velllykket. (bilde 21-22)
 - Magnus lagde et annet design til deksel til Arduino og PIR-sensor kombinert og hull til knapp, printen ble ikke helt vellykket. (illustrasjon 23-24, bilde 25-26)
   - Verbatim Magnus: *"Pinnene som PIR-sensoren skulle sitte i var en-to millimeter for nære hverandre noe som gjorde at man måtte tvinge sensoren på. Dette fikk den til å sitte godt fast, men pinnene knakk. Skruehullene fikk jeg ikke testa da Arduinoen ikke passet. Dette er fordi plasten mulig krymper da den smeltede plasten stivner og kjøles ned. USB-hullet er også feilplassert og står på feil side av arduinoen. (porten er over brettet, mens hullet er under). skruehullene for veggfestet er 5mm, en tilfeldig verdi da vi ikke hadde bestemt oss på noen skruer. Det er mulig teip og lim er bedre. Casen har ikke noe lokk. Dette er av design og gruppa vår sin nye teknologi gjør det mulig å bruke veggen som et lokk, noe som også reduserer plastikkforbruk om du vil. Dette gjør den sterkere og mindre avansert. De to beste måtene å lage et lokk på er en glider, noe som vil være vanskelig med så små dimensjoner, ettersom veggene er 2mm og blir mye svakere om vi skjærer skinner i den. Den andre løsningen er å lage et lokk med skruehull så skrua går gjennom casen, inn i lokket, for så å gå inn i veggen. Dette skaper litt ekstra høyde, og har egentlig ingen positive sider. Vi har mye som må forbedres av denne prototypen, men lokkdesignet vårt er patentverdig."*
 
-### Uke 13
+## Uke 13
 
 - Skulle flytte over alle kode fra Arduino Genuino Uno til ESP8266, en fikk problemer med drivere, men fant en [løsning](https://github.com/adrianmihalko/ch340g-ch34g-ch34x-mac-os-x-driver?fbclid=IwAR3GZpZaK2d5c-Y8Lw_fUGdoAh4YidZZddZX-p-rlOhaJKi43Z6GHsxx_U8). Måtte også få USB til Serial ved hjelp av [denne](<https://www.silabs.com/products/development-tools/software/usb-to-uart-bridge-vcp-drivers?fbclid=IwAR2heKSBZxpx_mzag608V-vMJZTuRtM7cBcGZOtHfb_ZwdxsjpcSBxjjaA8>).
 
@@ -247,17 +247,17 @@ PIR sensorer har to forskjellige potmetere under. Den ene kontrollerer rekkevidd
 
 # Vedlegg
 
-### Skjermbilde 1
+## Skjermbilde 1
 
 ![Innkjøp av sensorer](vedlegg/skjermbildealiexpress1.png)
 
-### Skjermbilde 2
+## Skjermbilde 2
 
 ![Innkjøp av ESP8266](vedlegg/skjermbildealiexpress2.png)
 
-### Kode 3
+## Kode 3
 
-#### luftkvalitetssender.pde
+### luftkvalitetssender.pde
 
 ------
 
@@ -393,7 +393,7 @@ PIR sensorer har to forskjellige potmetere under. Den ene kontrollerer rekkevidd
   }
 ```
 
-#### luftkvalitetslogger.py
+### luftkvalitetslogger.py
 
 ------
 
@@ -455,15 +455,15 @@ plt.plot(x_verdi,y_verdi)
 plt.show()
 ```
 
-### Skjermbilde 4
+## Skjermbilde 4
 
 ![Graf over luftkvalitet](vedlegg/grafoverluftkvalitet.png)
 
-### Kode 5
+## Kode 5
 
 ------
 
-#### rom.ini
+### rom.ini
 
 ```ini
 [postgresql]
@@ -473,7 +473,7 @@ user=fersch
 password=Akademiet
 ```
 
-#### config.py
+### config.py
 
 ```python
 from configparser import ConfigParser
@@ -496,7 +496,7 @@ def config(filename='rom.ini', section='postgresql'):
     return db
 ```
 
-#### postgresinsert.py
+### postgresinsert.py
 
 ```python
 import psycopg2
@@ -564,7 +564,7 @@ if __name__ == '__main__':
     insert(romnavn, data[1],data[2],data[3],data[4])
 ```
 
-### Illustrasjon 6-8
+## Illustrasjon 6-8
 
 ![Førsteutkast Arduino](vedlegg/forsteutkastarduino.png)
 
@@ -572,7 +572,7 @@ if __name__ == '__main__':
 
 ![Førsteutkast IR-sensor](vedlegg/forsteutkastirsensor.png)
 
-### Illustrasjon 9-11
+## Illustrasjon 9-11
 
 ![Arduino med IR-sensor med cover](vedlegg/arduinomedirsensormedcover.png)
 
@@ -580,7 +580,7 @@ if __name__ == '__main__':
 
 ![Arduino med IR-sensor ovenfra](vedlegg/arduinomedirsensorovenfra.png)
 
-### Illustrasjon 12-14
+## Illustrasjon 12-14
 
 ![Raspberry Pi B 3+ cover](vedlegg/rbpi3bcover.png)
 
@@ -588,7 +588,7 @@ if __name__ == '__main__':
 
 ![Raspberry Pi B 3+ uten cover](vedlegg/rbpi3utencover.png)
 
-### Illustrasjon 15-17
+## Illustrasjon 15-17
 
 ![Første print Arduino](vedlegg/forsteprintarduino.png)
 
@@ -596,7 +596,7 @@ if __name__ == '__main__':
 
 ![Første print IR-sensor](vedlegg/forsteprintirsensor.png)
 
-### Bilde 18-20
+## Bilde 18-20
 
 ![Første fungerende print ovenfra med støtte](vedlegg/vedlegg16.jpg "ovenfra med støtte")
 
@@ -604,27 +604,27 @@ if __name__ == '__main__':
 
 ![Første fungerende print i profil](vedlegg/vedlegg18.jpg "i profil")
 
-### Bilde 21-22
+## Bilde 21-22
 
 ![](vedlegg/rbpi3bforsteprintforsokforfra.jpg)
 
 ![rbpi3bforsteprintforsokovenfra](vedlegg/rbpi3bforsteprintforsokovenfra.jpg)
 
-### Illustrasjon 23-24
+## Illustrasjon 23-24
 
 ![img](vedlegg/pirsensorcovermagnusovenfraprint.png)
 
 ![img](vedlegg/pirsensorcovermagnusnedenfraprint.png)
 
-###Bilde 25-26
+## Bilde 25-26
 
 ![img](vedlegg/pirsensorcovermagnusovenfra.jpg)
 
 ![img](vedlegg/pirsensorcovermagnusnedenfra.jpg)
 
-### Kode 27-29
+## Kode 27-29
 
-#### htmlOppdaterer.py
+### htmlOppdaterer.py
 
 ---
 
@@ -649,7 +649,7 @@ erstatt.luftHtml("grupperom.html",tuple["romNr"], luft_kval, luft)
 erstatt.statusHtml("grupperom.html", tuple["romNr"], status)
 ```
 
-#### oppdatererLib.py
+### oppdatererLib.py
 
 ---
 
@@ -688,7 +688,7 @@ def luftHtml(htmlFil, romnummer, co2ppm,luftkval):
         outf.write(str(soup))```
 ```
 
-#### grupperomOversikt.html
+### grupperomOversikt.html
 ```HTML
 <!DOCTYPE html>
 <html>
@@ -1039,7 +1039,7 @@ def luftHtml(htmlFil, romnummer, co2ppm,luftkval):
 </html>
 ```
 
-#### oversiktGrupperom.css
+### oversiktGrupperom.css
 
 ```css
 
@@ -1333,7 +1333,7 @@ easteregg1*/
 
 ```
 
-#### grupperomOversikt.js
+### grupperomOversikt.js
 
 ```js
 

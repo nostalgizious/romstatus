@@ -257,11 +257,11 @@ PIR sensorer har to forskjellige potmetere under. Den ene kontrollerer rekkevidd
 
 ### Kode 3
 
-##### luftkvalitetssender.pde
+#### luftkvalitetssender.pde
 
 ------
 
-```
+```C
   /*
    * Denne koden leser av PPM verdier for luftforurensning fra en MQ135 gasssensor, viser dette på en LCD skjerm og sender informasjonen over UDP
    */
@@ -393,7 +393,7 @@ PIR sensorer har to forskjellige potmetere under. Den ene kontrollerer rekkevidd
   }
 ```
 
-##### luftkvalitetslogger.py
+#### luftkvalitetslogger.py
 
 ------
 
@@ -463,7 +463,7 @@ plt.show()
 
 ------
 
-##### rom.ini
+#### rom.ini
 
 ```ini
 [postgresql]
@@ -473,7 +473,7 @@ user=fersch
 password=Akademiet
 ```
 
-##### config.py
+#### config.py
 
 ```python
 from configparser import ConfigParser
@@ -496,7 +496,7 @@ def config(filename='rom.ini', section='postgresql'):
     return db
 ```
 
-##### postgresinsert.py
+#### postgresinsert.py
 
 ```python
 import psycopg2
@@ -624,7 +624,7 @@ if __name__ == '__main__':
 
 ### Kode 27-29
 
-#####htmlOppdaterer.py
+#### htmlOppdaterer.py
 
 ---
 
@@ -649,7 +649,7 @@ erstatt.luftHtml("grupperom.html",tuple["romNr"], luft_kval, luft)
 erstatt.statusHtml("grupperom.html", tuple["romNr"], status)
 ```
 
-##### oppdatererLib.py
+#### oppdatererLib.py
 
 ---
 
@@ -688,7 +688,7 @@ def luftHtml(htmlFil, romnummer, co2ppm,luftkval):
         outf.write(str(soup))```
 ```
 
-##### oversiktGrupperom.html
+#### grupperomOversikt.html
 ```HTML
 <!DOCTYPE html>
 <html>
@@ -1039,7 +1039,7 @@ def luftHtml(htmlFil, romnummer, co2ppm,luftkval):
 </html>
 ```
 
-##### oversiktGrupperom.css
+#### oversiktGrupperom.css
 
 ```css
 
@@ -1333,7 +1333,7 @@ easteregg1*/
 
 ```
 
-##### grupperomOversikt.js
+#### grupperomOversikt.js
 
 ```js
 

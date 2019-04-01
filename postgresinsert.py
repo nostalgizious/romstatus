@@ -1,11 +1,14 @@
 import psycopg2
 from psycopg2 import sql
 from config import config
+from config import udpconfig
 import socket
 from datetime import datetime as date
 
-UDP_IP = "10.25.10.163"
-UDP_PORT = 16969
+udp = udpconfig()
+print(udp)
+UDP_IP = udp.get('ip')
+UDP_PORT = int(udp.get('port'))
 sock = socket.socket(socket.AF_INET, # Internet
                      socket.SOCK_DGRAM) # UDP
 sock.bind((UDP_IP, UDP_PORT))
@@ -55,12 +58,7 @@ def insert(romnummer, co2ppm,tempc,humidity,irsensor):
             datetime = str(date.now())
             info = [(id,datetime,co2ppm,tempc,humidity,irsensor)]
             cur.executemany(sql.SQL('''INSERT INTO {} VALUES(%s, %s, %s, %s, %s, %s)''').format(sql.Identifier(romnummer)), info)
-            cur.execute(sql.SQL('''SELECT * FROM rom1 ORDER BY id DESC LIMIT 1'''))
-            print(type(cur.fetchone()))
             conn.commit()
 
 if __name__ == '__main__':
     insert(romnavn, data[1],data[2],data[3],data[4])
-
-
-

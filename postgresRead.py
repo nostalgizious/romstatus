@@ -38,4 +38,4 @@ def read(romnummer):
             #print('Database connection is opened.')
             avlesning = (romnummer, )+cur.fetchone()
             conn.commit()
-            return(avlesning)
+            print(avlesning)

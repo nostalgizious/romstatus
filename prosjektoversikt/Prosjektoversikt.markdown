@@ -255,7 +255,7 @@ PIR sensorer har to forskjellige potmetere under. Den ene kontrollerer rekkevidd
 - Skulle flytte over alle kode fra Arduino Genuino Uno til ESP8266, en fikk problemer med drivere, men fant en [løsning](https://github.com/adrianmihalko/ch340g-ch34g-ch34x-mac-os-x-driver?fbclid=IwAR3GZpZaK2d5c-Y8Lw_fUGdoAh4YidZZddZX-p-rlOhaJKi43Z6GHsxx_U8). Måtte også få USB til Serial ved hjelp av [denne](<https://www.silabs.com/products/development-tools/software/usb-to-uart-bridge-vcp-drivers?fbclid=IwAR2heKSBZxpx_mzag608V-vMJZTuRtM7cBcGZOtHfb_ZwdxsjpcSBxjjaA8>).
 
 - Fant [documentation](<https://arduino-esp8266.readthedocs.io/en/latest/esp8266wifi/readme.html>) til Arduino Core til ESP8266 og forklaring på funksjoner for å kunne sette opp dette med UDP igjen.
-- Martin har fullført en prototype av nettsiden med fungerende python-basert oppdaterer
+- Martin har fullført en prototype av nettsiden med fungerende python-basert oppdaterer (kode 27-31)
 
 # Vedlegg
 
@@ -634,7 +634,7 @@ if __name__ == '__main__':
 
 ![img](vedlegg/pirsensorcovermagnusnedenfra.jpg)
 
-## Kode 27-29
+## Kode 27-31
 
 ### htmlOppdaterer.py
 

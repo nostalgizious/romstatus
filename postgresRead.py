@@ -29,6 +29,7 @@ def read(romnummer):
         print(error)
     finally:
         if conn is not None:
+            print(rom)
             cur.execute(sql.SQL('''SELECT * FROM {} ORDER BY id DESC LIMIT 1''').format(sql.Identifier(rom)))
             #id_test = cur.fetchone()[0]
             #if type(id_test) != int:

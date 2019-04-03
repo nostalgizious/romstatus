@@ -141,8 +141,8 @@
     transform: scale(1.01);
     transition: 0.1s;
     font-size: 0.9em;
-    padding: 10px;
-    box-shadow: 0 0 5% rgba(0, 0, 0, 0.5);
+    padding-top: 1vh;
+    box-shadow: 0 0 0.5vw rgba(0, 0, 0, 0.5);
   }
 
   [name="grupperom"]>div {

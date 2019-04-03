@@ -10,10 +10,11 @@ print(udp)
 UDP_IP = udp.get('ip')
 UDP_PORT = int(udp.get('port'))
 sock = socket.socket(socket.AF_INET, # Internet
-                     socket.SOCK_DGRAM) # UDP
+            socket.SOCK_DGRAM) # UDP
 sock.bind((UDP_IP, UDP_PORT))
 
 data, addr = sock.recvfrom(1024) # buffer size is 1024 bytes
+print("test")
 data = str(data)
 data = data[2:len(data)-1]
 data = data.split(",")

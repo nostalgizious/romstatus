@@ -13,15 +13,22 @@ sock = socket.socket(socket.AF_INET, # Internet
             socket.SOCK_DGRAM) # UDP
 sock.bind((UDP_IP, UDP_PORT))
 
-data, addr = sock.recvfrom(1024) # buffer size is 1024 bytes
-print("test")
-data = str(data)
-data = data[2:len(data)-1]
-data = data.split(",")
-rom_id = data[0]
-rom_id = str(rom_id)
-romnavn = "rom"+rom_id
-print(romnavn)
+for _ in range(5):
+    data, addr = sock.recvfrom(1024) # buffer size is 1024 bytes
+    data = str(data)
+    data = data.split(":")
+    if data[0] == "romNummer":
+        romnavn = "rom"+data[1]
+    if else data[0] == "co2PPM":
+        co2ppm = data[1]
+    if else data[0] == "tempC":
+        tempc = data[1]
+    if else data[0] == "humidity":
+        humidity = data[1]
+    if else data[0] == "irSensor":
+        irsensor = data[1]
+    else:
+        continue
 
 def insert(romnummer, co2ppm,tempc,humidity,irsensor):
     """ Connect to the PostgreSQL database server """

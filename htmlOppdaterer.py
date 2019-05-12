@@ -6,7 +6,6 @@ def oppdaterRom(romNummer):
     romNummer = sisteVerdi[0]
     co2ppm = int(sisteVerdi[3])
     irsensor = int(sisteVerdi[6])
-
     if irsensor == 0:
         status = "Ledig"
     elif irsensor == 1:
@@ -15,13 +14,15 @@ def oppdaterRom(romNummer):
         status = "Booket"
     else:
         print("status input value error")
-
+    print(status)
     if co2ppm > 900:
         luft = "Lav"
     elif co2ppm <= 900 and co2ppm >= 700:
         luft = "Middels"
     else:
-        luft = "Høy"
+        luft = "Hoy"
 
     erstatt.luftHtml("grupperomOversikt.html",romNummer, str(co2ppm), luft)
     erstatt.statusHtml("grupperomOversikt.html", romNummer, status)
+
+oppdaterRom(217)

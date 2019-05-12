@@ -9,7 +9,7 @@ conn = None
 try:
     # read connection parameters
     params = config()
-    #print(params)
+    print(params)
     # connect to the PostgreSQL server
     print('Connecting to the PostgreSQL database...')
     conn = psycopg2.connect(**params)

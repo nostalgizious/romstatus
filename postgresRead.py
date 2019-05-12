@@ -2,6 +2,7 @@ import psycopg2
 from psycopg2 import sql
 from config import config
 
+
 def read(romnummer):
     """ Connect to the PostgreSQL database server """
     conn = None
@@ -29,7 +30,6 @@ def read(romnummer):
         print(error)
     finally:
         if conn is not None:
-            print(rom)
             cur.execute(sql.SQL('''SELECT * FROM {} ORDER BY id DESC LIMIT 1''').format(sql.Identifier(rom)))
             #id_test = cur.fetchone()[0]
             #if type(id_test) != int:
@@ -39,4 +39,4 @@ def read(romnummer):
             #print('Database connection is opened.')
             avlesning = (romnummer, )+cur.fetchone()
             conn.commit()
-            print(avlesning)
+            return(avlesning)

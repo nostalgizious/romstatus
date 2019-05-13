@@ -22,10 +22,8 @@ def luftHtml(htmlFil, romnummer, co2ppm,luftkval):
     from bs4 import BeautifulSoup
     with open(htmlFil) as fp:
         soup = BeautifulSoup(fp, parser)  # åpner filen
-
     id = (romnummer + "luft")
-    tag = soup.find(id = id)  # finner taggen som stemmer med luft-id-en
-
+    tag = soup.find(id = id) # finner taggen som stemmer med luft-id-en
 
     tag.attrs = {'id': id, 'title': [co2ppm], "name": [co2ppm]}
     tag.string.replace_with(luftkval)

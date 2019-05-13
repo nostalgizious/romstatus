@@ -3,7 +3,7 @@ from postgresRead import read
 
 def oppdaterRom(romNummer):
     sisteVerdi = read(romNummer) #får en tuple med verdiene [romnummer, id, date, co2ppm, tempc, humidity, irsensor]
-    romNummer = sisteVerdi[0]
+    romNummer = str(sisteVerdi[0])
     co2ppm = int(sisteVerdi[3])
     irsensor = int(sisteVerdi[6])
     if irsensor == 0:

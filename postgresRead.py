@@ -40,3 +40,5 @@ def read(romnummer):
             avlesning = (romnummer, )+cur.fetchone()
             conn.commit()
             return(avlesning)
+
+print(read(216))

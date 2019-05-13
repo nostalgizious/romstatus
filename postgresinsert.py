@@ -4,6 +4,7 @@ from config import config
 from config import udpconfig
 import socket
 from datetime import datetime as date
+from time import sleep
 
 udp = udpconfig()
 print(udp)
@@ -67,8 +68,13 @@ def insert(romnummer, co2ppm,tempc,humidity,irsensor):
 
             datetime = str(date.now())
             info = [(id,datetime,co2ppm,tempc,humidity,irsensor)]
+            print(info)
             cur.executemany(sql.SQL('''INSERT INTO {} VALUES(%s, %s, %s, %s, %s, %s)''').format(sql.Identifier(romnummer)), info)
             conn.commit()
 
-if __name__ == '__main__':
-    insert(romnavn, co2ppm, tempc, humidity, irsensor)
+loop = 0
+
+while loop==0 :
+    if __name__ == '__main__':
+        insert(romnavn, co2ppm, tempc, humidity, irsensor)
+        sleep(60)

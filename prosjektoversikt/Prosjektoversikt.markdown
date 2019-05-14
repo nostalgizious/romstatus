@@ -6,65 +6,75 @@
 
 ![nettsideeksempel](vedlegg/nettsideeksempel.png)
 
-<!-- TOC START min:1 max:3 link:true asterisk:false update:true -->
+<!-- TOC depthFrom:1 depthTo:6 withLinks:1 updateOnSave:1 orderedList:0 -->
+
 - [Romstatus](#romstatus)
 - [Prosjektbeskrivelse](#prosjektbeskrivelse)
 - [Begrunnelse](#begrunnelse)
-- [Kompetansemål](#kompetansemål)
-  - [Teknologi og forskningslære 1](#teknologi-og-forskningslære-1)
-    - [Den unge ingeniøren](#den-unge-ingeniøren)
-    - [Den unge forskeren](#den-unge-forskeren)
-    - [Teknologi, naturvitenskap og samfunn](#teknologi-naturvitenskap-og-samfunn)
-    - [Design og produktutvikling](#design-og-produktutvikling)
+- [Kompetansemål](#kompetanseml)
+	- [Teknologi og forskningslære 1](#teknologi-og-forskningslre-1)
+		- [Den unge ingeniøren](#den-unge-ingeniren)
+		- [Den unge forskeren](#den-unge-forskeren)
+		- [Teknologi, naturvitenskap og samfunn](#teknologi-naturvitenskap-og-samfunn)
+		- [Design og produktutvikling](#design-og-produktutvikling)
 - [Beskrivelse av funksjonalitet til deler](#beskrivelse-av-funksjonalitet-til-deler)
-  - [Hvordan en NDIR CO~2~ sensor fungerer](#hvordan-en-ndir-co2-sensor-fungerer)
-  - [Hvordan en PIR sensor fungerer](#hvordan-en-pir-sensor-fungerer)
+	- [Hvordan en NDIR CO~2~ sensor fungerer](#hvordan-en-ndir-co2-sensor-fungerer)
+	- [Hvordan en PIR sensor fungerer](#hvordan-en-pir-sensor-fungerer)
 - [Original tidsplan](#original-tidsplan)
-  - [Uke 5](#uke-5)
-  - [Uke 6](#uke-6)
-  - [Uke 7](#uke-7)
-  - [Uke 8](#uke-8)
-  - [Uke 10](#uke-10)
-  - [Uke 11](#uke-11)
-  - [Uke 12](#uke-12)
-  - [Utover året](#utover-året)
+	- [Uke 5](#uke-5)
+	- [Uke 6](#uke-6)
+	- [Uke 7](#uke-7)
+	- [Uke 8](#uke-8)
+	- [Uke 10](#uke-10)
+	- [Uke 11](#uke-11)
+	- [Uke 12](#uke-12)
+	- [Utover året](#utover-ret)
 - [Logg](#logg)
-  - [Uke 5](#uke-5-1)
-  - [Uke 6](#uke-6-1)
-  - [Uke 7](#uke-7-1)
-  - [Uke 8](#uke-8-1)
-  - [Uke 9](#uke-9)
-  - [Uke 10](#uke-10-1)
-  - [Uke 11](#uke-11-1)
-  - [Uke 12](#uke-12-1)
-  - [Uke 13](#uke-13)
-  - [Uke 14](#uke-14)
+	- [Uke 5](#uke-5)
+	- [Uke 6](#uke-6)
+	- [Uke 7](#uke-7)
+	- [Uke 8](#uke-8)
+	- [Uke 9](#uke-9)
+	- [Uke 10](#uke-10)
+	- [Uke 11](#uke-11)
+	- [Uke 12](#uke-12)
+	- [Uke 13](#uke-13)
+	- [Uke 14](#uke-14)
+	- [Uke 15-17](#uke-15-17)
+	- [Uke 18](#uke-18)
+	- [Uke 19](#uke-19)
 - [Vedlegg](#vedlegg)
-  - [Skjermbilde 1](#skjermbilde-1)
-  - [Skjermbilde 2](#skjermbilde-2)
-  - [Kode 3](#kode-3)
-    - [luftkvalitetssender.pde](#luftkvalitetssenderpde)
-    - [luftkvalitetslogger.py](#luftkvalitetsloggerpy)
-  - [Skjermbilde 4](#skjermbilde-4)
-  - [Kode 5](#kode-5)
-    - [rom.ini](#romini)
-    - [config.py](#configpy)
-    - [postgresinsert.py](#postgresinsertpy)
-  - [Illustrasjon 6-8](#illustrasjon-6-8)
-  - [Illustrasjon 9-11](#illustrasjon-9-11)
-  - [Illustrasjon 12-14](#illustrasjon-12-14)
-  - [Illustrasjon 15-17](#illustrasjon-15-17)
-  - [Bilde 18-20](#bilde-18-20)
-  - [Bilde 21-22](#bilde-21-22)
-  - [Illustrasjon 23-24](#illustrasjon-23-24)
-  - [Bilde 25-26](#bilde-25-26)
-  - [Kode 27-31](#kode-27-31)
-    - [htmlOppdaterer.py](#htmloppdatererpy)
-    - [oppdatererLib.py](#oppdatererlibpy)
-    - [grupperomOversikt.html](#grupperomoversikthtml)
-    - [oversiktGrupperom.css](#oversiktgrupperomcss)
-    - [grupperomOversikt.js](#grupperomoversiktjs)
-<!-- TOC END -->
+	- [Skjermbilde 1](#skjermbilde-1)
+	- [Skjermbilde 2](#skjermbilde-2)
+	- [Kode 3](#kode-3)
+		- [luftkvalitetssender.pde](#luftkvalitetssenderpde)
+		- [luftkvalitetslogger.py](#luftkvalitetsloggerpy)
+	- [Skjermbilde 4](#skjermbilde-4)
+	- [Kode 5](#kode-5)
+		- [rom.ini](#romini)
+		- [config.py](#configpy)
+		- [postgresinsert.py](#postgresinsertpy)
+	- [Illustrasjon 6-8](#illustrasjon-6-8)
+	- [Illustrasjon 9-11](#illustrasjon-9-11)
+	- [Illustrasjon 12-14](#illustrasjon-12-14)
+	- [Illustrasjon 15-17](#illustrasjon-15-17)
+	- [Bilde 18-20](#bilde-18-20)
+	- [Bilde 21-22](#bilde-21-22)
+	- [Illustrasjon 23-24](#illustrasjon-23-24)
+	- [Bilde 25-26](#bilde-25-26)
+	- [Kode 27-31](#kode-27-31)
+		- [htmlOppdaterer.py](#htmloppdatererpy)
+		- [oppdatererLib.py](#oppdatererlibpy)
+- [oppdatere status:](#oppdatere-status)
+- [Oppdatere luftkvalitet:](#oppdatere-luftkvalitet)
+		- [grupperomOversikt.html](#grupperomoversikthtml)
+		- [oversiktGrupperom.css](#oversiktgrupperomcss)
+- [Vrimle {](#vrimle-)
+- [Vrimle>p {](#vrimlep-)
+- [easteregg1 {](#easteregg1-)
+		- [grupperomOversikt.js](#grupperomoversiktjs)
+
+<!-- /TOC -->
 
 # Prosjektbeskrivelse
 
@@ -266,6 +276,25 @@ PIR sensorer har to forskjellige potmetere under. Den ene kontrollerer rekkevidd
 - Lagde en python fil som kontrollerer hele lesingen av databasen og skrivingen til nettsiden, samt intervaller på både oppdatering av database og nettside. (oppdateringsHastighet.py)
 - Lagde en python fil som genererer tabellene i databasen til de korresponderende rommene basert på romlisten, hvis de ikke eksisterer enda. (opprettDatabase.py)
 - Justerte Prosjektoversikt.markdown til å være kompatibelt med Github-Flavoured Markdown så det vises riktig på Github repoet.
+
+## Uke 15-17
+
+- I stor grad en pause fra ToF
+- Noen forsøk på å klare å få ESP8266 mikrokontrollereren til å fungere med drivere på diverse PCer
+- Litt prøving på å få PIR-sensoren til å fungere med ESP8266
+
+## Uke 18
+
+- Satt sammen hele systemet på serversiden og lagde et enkelt PHP-script for å kunne sette opp en Apache webserver på macen. [Fulgte denne oppskriften](https://websitebeaver.com/set-up-localhost-on-macos-high-sierra-apache-mysql-and-php-7-with-sslhttps?fbclid=IwAR1prhCn3PLptYgAdP9RchyFGfm7qtp-SfNM8VamBQi27SePTU_2rH1fMJQ)
+- Satt opp en Raspberry Pi med Ubuntu og innstallerte PostgreSQL, Apache webserver. [Fulgte denne oppskriften](https://medium.com/@Riverside/how-to-install-apache-php-postgresql-lapp-on-ubuntu-16-04-adb00042c45d?fbclid=IwAR3OhqYvPIHUgClwcI9lFwTYM2MPnLrZbaiVlBCbY_U5ku_9Ywe6IiplY68)
+- Raspberry Pi overopphetet ved innstallering og ble veldig treg, må sannsynligvis bruke noe annet enn Ubuntu. Kanskje Raspbian.
+
+## Uke 19
+
+- Fant ut hvordan UDP-protokollen til ESP8266 fungerer, med udp.write til string og udp.print til tall
+- Satt opp postgresInsert.py til å lese informasjonen fra UDP og lagre det riktig inn i databasen.
+- Fant riktige innstillinger til IR-sensor og kompatible pins på ESP8266 og fikk hele sulamitten til å fungere.
+- Testet IR-sensor i rom og koblet det opp mot en local server på en mac og fullførte en test av hele systemet, det var vellykket.
 
 # Vedlegg
 

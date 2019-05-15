@@ -24,5 +24,3 @@ def oppdaterRom(romNummer):
 
     erstatt.luftHtml("grupperomOversikt.html",romNummer, str(co2ppm), luft)
     erstatt.statusHtml("grupperomOversikt.html", romNummer, status)
-
-oppdaterRom(217)

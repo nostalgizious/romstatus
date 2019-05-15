@@ -22,7 +22,7 @@ try:
     db_version = cur.fetchone()
     print(db_version)
 except (Exception, psycopg2.DatabaseError) as error:
-    print(error)
+    print(error)ç
 finally:
     if conn is not None:
         for romNummer in romListe:

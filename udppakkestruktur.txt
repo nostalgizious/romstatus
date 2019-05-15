@@ -1,7 +1,6 @@
-romNummer:111 
-co2PPM:200
-tempC:215 //Temperaturen skal rundes av til 1 desimal og ganges med 10
-humidity:80 //Luftfuktigheten vil oppgis i prosent uten desimaler
-irSensor: 1 // 0 betyr ledig, 1 betyr opptatt, 2 betyr reservert/knapp brukt
+Format:   romNummer:co2PPM:tempC:humidity:irsensor
+Eksempel: 217:300:216:34:1
 
-
+Temperatur:       Rundes av til 1 desimal og ganges med 10
+Luftfuktighet:    Oppgis i prosent uten desimaler
+IR-sensor:        0 betyr ledig, 1 betyr opptatt, 2 betyr reservert/knapp brukt

@@ -762,7 +762,7 @@ def luftHtml(htmlFil, romnummer, co2ppm,luftkval):
     </ul>
   </div>
 
-  <!-- Oversikt -->
+  <!-- Oversikt Tabell -->
   <div class="innhold" id="Oversikt">
     <h1>Oversikt over grupperom</h1>
     <table id="myTable">
@@ -1389,19 +1389,22 @@ easteregg1*/
 ```js
 
 // Bla mellom sidene
-function side(n) {
+function side(n) { //Kan gjøre denne koden mye kortere
+	//finner elementer
   var a, b, c, d = 0;
-  a = document.getElementById("Oversikt");
-  b = document.getElementById("kart")
-  c = document.getElementById("trengerHjelp");
-  d = document.getElementById("omP");
+  a = document.getElementById("Oversikt"); 			//Tabellen
+  b = document.getElementById("kart");     			//Kartet
+  c = document.getElementById("trengerHjelp");	//Hjelp
+  d = document.getElementById("omP");						//Om Prosjektet
   if (n == 1) {
+		//Viser aktivt element. Skjuler inaktive elementer
     a.style.display = "block";
     b.style.display = "none";
     c.style.display = "none";
     d.style.display = "none";
 
-    document.getElementById("over").className = "active";
+		//Finner elementer i menyen, og gjør dem aktive/inaktive
+    document.getElementById("over").className = "active";			//Endrer klassen til elementet, slik at stilen endrer seg. Se grupperomOversikt.css
     document.getElementById("kartm").className = "inactive";
     document.getElementById("hjelp").className = "inactive";
     document.getElementById("pro").className = "inactive";
@@ -1547,28 +1550,32 @@ function sortTableLuft(n) {
 }
 
 function luftStatus() {
+	//Sorterer tabellen automatisk etter luftkvalitet, deretter status. Slik vil de ledige rommene med best luftkvaliett stå øverst.
   sortTableLuft(4);
   sortTable(3);
 }
-// Gi rom farge etter status:
+// Gi rom farge etter status i kartet:
 function fargeKode(id) {
   var boks, x, y, z, p = 0;
-  y = document.getElementById(id);
-  x = parseInt(y.className);
-  p = y.getElementsByTagName('td')[1].innerHTML;
-  /*document.getElementById('button').innerHTML = p;*/
+  y = document.getElementById(id);	//finner elementet som representerer et grupperom
+  x = parseInt(y.className);				//gjør klassenavnet om til int (luftkvaliteten)
+  p = y.getElementsByTagName('td')[1].innerHTML;	//Finner det som står i den andre td-taggen (statusen)
+  /*document.getElementById('button').innerHTML = p;*/    //For å feilsøke koden
   if (p == 'Ledig') {
+		//Hvis grupperommet er ledig, endre farge etter luftkvalitet
     if (x < 700) {
-      y.style.backgroundColor = '#57bb3e';
+      y.style.backgroundColor = '#57bb3e';		
     } else if (x < 900) {
       y.style.backgroundColor = '#FFBB00';
     } else {
       y.style.backgroundColor = '#ff7440';
     }
   }
+	//Hvis det ikke er ledig, behold default farge  
 }
 
 function statusFarge() {
+	//endrer farge i alle grupperom i kartet
   for (var i = 0; i < 5; i++) {
     fargeKode(i + 111 + 'K');
   }
@@ -1578,16 +1585,18 @@ function statusFarge() {
 }
 
 function hover(etasje1, etasje2) {
+	//aktiveres on hover. Etasje i kart utvides avhengig av hvilke etasje du hover over
   var x, y = 0;
-  x = document.getElementById(etasje1);
+  x = document.getElementById(etasje1);  //Er ikke nødvendigvis 1. etasje. Det er eteasjen som utvides.
   y = document.getElementById(etasje2);
-  x.style.width = '38%';
+  x.style.width = '38%';		//Endrer bredden til etasjen som musa hover over.
   y.style.width = '20%';
   //x.style.height = '96.6%';
 }
 
 // Etasje utvider seg onmouseover
 function hoverNot() {
+	//Når du ikke hover over noen av elementene, går alt tilbake til normalt
   var x, y = 0;
   x = document.getElementById('etasje1');
   y = document.getElementById('etasje2');
@@ -1600,7 +1609,8 @@ function hoverNot() {
 }
 
 function myFunction(x) {
-  if (x.matches) { // If media query matches
+	//Forkorter navnene til kolonnene hvis skjermen blir for liten
+  if (x.matches) { //Hvis media query matcher. Se hva x er lenger ned
     document.getElementById("romnummer").innerHTML = "Romnr.";
     document.getElementById("luftkvalitet").innerHTML = "Luftkval.";
   } else {
@@ -1609,10 +1619,10 @@ function myFunction(x) {
   }
 }
 
-var x = window.matchMedia("(max-width: 700px)");
-myFunction(x); // Call listener function at run time
-x.addListener(myFunction); // Attach listener function on state changes
-luftStatus();
-statusFarge();
+var x = window.matchMedia("(max-width: 700px)");	//Finner ut av om skjermen er større eller mindre enn 700px
+myFunction(x); //Tilpasser navnene til kolonnene når nettsiden laster ned.
+x.addListener(myFunction); //Hvis skjermen endrer størelse, tilpasser siden seg.
+luftStatus(); //Sorterer etter beste ledige grupperom
+statusFarge(); //Endrer farge på alle grupperommene på kartet.
 
 ```

@@ -2,6 +2,7 @@ import psycopg2
 from psycopg2 import sql
 from config import config
 
+
 def read(romnummer):
     """ Connect to the PostgreSQL database server """
     conn = None
@@ -38,4 +39,6 @@ def read(romnummer):
             #print('Database connection is opened.')
             avlesning = (romnummer, )+cur.fetchone()
             conn.commit()
-            print(avlesning)
+            return(avlesning)
+
+print(read(216))

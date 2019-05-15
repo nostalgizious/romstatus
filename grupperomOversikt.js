@@ -252,32 +252,40 @@ function luftStatus() {
   sortTableLuft(4);
   sortTable(3);
 }
-// Gi rom farge etter status:
-function fargeKode(id) {
-  var boks, x, y, z, p = 0;
-  y = document.getElementById(id);
-  x = parseInt(y.className);
-  p = y.getElementsByTagName('td')[1].innerHTML;
-  /*document.getElementById('button').innerHTML = p;*/
-  if (p == 'Ledig') {
-    if (x < 700) {
-      y.style.backgroundColor = '#57bb3e';
-    } else if (x < 900) {
-      y.style.backgroundColor = '#FFBB00';
-    } else {
-      y.style.backgroundColor = '#ff7440';
+
+//oppdatere Kart etter tabell
+function oppdatereKartDel(id, n) {
+  var table, rows, status, boks, LuftKval = 0;
+  table = document.getElementById('myTable');
+  rows = table.rows;
+  status = rows[n].getElementsByTagName("TD")[3].innerHTML;
+  LuftKval = rows[n].getElementsByTagName("TD")[4].innerHTML;    //(id + 'luft').className)
+  boks = document.getElementById(id + 'K');
+  boks.getElementsByTagName('td')[1].innerHTML = status;
+  boks.getElementsByTagName('td')[3].innerHTML = LuftKval;
+  if (status == 'Ledig') {
+    if (LuftKval == 'Høy') {
+      boks.style.backgroundColor = '#57BB3E';
+    }
+    else if (LuftKval == 'Middels') {
+      boks.style.backgroundColor = '#FFBB00';
+    }
+    else if (LuftKval == 'Lav') {
+      boks.style.backgroundColor = '#FF7440';
     }
   }
 }
 
-function statusFarge() {
+function statusFarge2() {
   for (var i = 0; i < 5; i++) {
-    fargeKode(i + 111 + 'K');
+    oppdatereKartDel(i + 111, i + 1);
   }
   for (var i = 0; i < 9; i++) {
-    fargeKode(i + 209 + 'K');
+    oppdatereKartDel(i + 209, i + 6);
   }
 }
+
+//
 
 function hover(etasje1, etasje2) {
   var x, y = 0;
@@ -285,7 +293,6 @@ function hover(etasje1, etasje2) {
   y = document.getElementById(etasje2);
   x.style.width = '38%';
   y.style.width = '20%';
-  //x.style.height = '96.6%';
 }
 
 // Etasje utvider seg onmouseover
@@ -314,7 +321,7 @@ function myFunction(x) {
 var x = window.matchMedia("(max-width: 700px)");
 myFunction(x); // Call listener function at run time
 x.addListener(myFunction); // Attach listener function on state changes
+statusFarge2();
 luftStatus();
-statusFarge();
 
 //easteregg2

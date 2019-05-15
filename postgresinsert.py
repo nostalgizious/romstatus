@@ -4,23 +4,15 @@ from config import config
 from config import udpconfig
 import socket
 from datetime import datetime as date
+from time import sleep
 
 udp = udpconfig()
 print(udp)
 UDP_IP = udp.get('ip')
 UDP_PORT = int(udp.get('port'))
 sock = socket.socket(socket.AF_INET, # Internet
-                     socket.SOCK_DGRAM) # UDP
+            socket.SOCK_DGRAM) # UDP
 sock.bind((UDP_IP, UDP_PORT))
-
-data, addr = sock.recvfrom(1024) # buffer size is 1024 bytes
-data = str(data)
-data = data[2:len(data)-1]
-data = data.split(",")
-rom_id = data[0]
-rom_id = str(rom_id)
-romnavn = "rom"+rom_id
-print(romnavn)
 
 def insert(romnummer, co2ppm,tempc,humidity,irsensor):
     """ Connect to the PostgreSQL database server """
@@ -57,8 +49,22 @@ def insert(romnummer, co2ppm,tempc,humidity,irsensor):
 
             datetime = str(date.now())
             info = [(id,datetime,co2ppm,tempc,humidity,irsensor)]
+            print(info)
             cur.executemany(sql.SQL('''INSERT INTO {} VALUES(%s, %s, %s, %s, %s, %s)''').format(sql.Identifier(romnummer)), info)
             conn.commit()
 
-if __name__ == '__main__':
-    insert(romnavn, data[1],data[2],data[3],data[4])
+loop = 0
+
+while loop==0 :
+    if __name__ == '__main__':
+        data, addr = sock.recvfrom(1024) # buffer size is 1024 bytes
+        data = str(data)
+        data = data[2:len(data)-1]
+        data = data.split(":")
+        romnavn = "rom"+data[0]
+        co2ppm = data[1]
+        tempc = data[2]
+        humidity = data[3]
+        irsensor = [4]
+        insert(romnavn, co2ppm, tempc, humidity, irsensor)
+        sleep(60)

@@ -218,7 +218,7 @@ PIR sensorer har to forskjellige potmetere under. Den ene kontrollerer rekkevidd
 - Laget klient
 - Testet med knapp
 - Sendt knappetrykk via UDP til server på macen
-- Testa PIR sensoren og den ultrasonisk sensoren
+- Testa PIR sensoren og den ultrasoniske sensoren
 - Lagde en kode til PIR sensoren som fungerer greit men er en del bugs og noen justeringer må til. prøver også å integrere en knapp
 
 ## Uke 7
@@ -232,10 +232,12 @@ PIR sensorer har to forskjellige potmetere under. Den ene kontrollerer rekkevidd
 - Laget python kode som kontinuerlig kan logge informasjon fra Arduino (via UDP ved hjelp av "Socket" biblioteket) inn i en SQL database (ved bruk av "SQLite3" biblioteket) (kode 3)
 - Kan lese informasjon fra SQL database og vise det i Python i både tekstform og med grafer. (skjermbilde 4)
 - Vi fikser og justerer på PIR sensor koden sånn at den skal fungere etter hvordan vi vil ha den
+- Prøver å få til en doknapp
 
 ## Uke 9
 
 - Satt opp et mye mer robust system med postgresql database og laget en ny Python kode fra bunnen av tilpasset dette databasesystemet ved bruk av psycopg2 biblioteket og som kan motta og loggføre flere parametre (co2ppm, tempc, humidity, irsensor) (kode 5)
+- Jobbet med å få PIR-koden til å aktivere og deaktivere på bestemte tider og/eller instant
 
 ## Uke 10
 
@@ -246,25 +248,30 @@ PIR sensorer har to forskjellige potmetere under. Den ene kontrollerer rekkevidd
 - Og printet første prototype til deksel til ESP8266 som nesten passer. (illustrasjon 15-17 og bilde 18-19)
 - Fått 5stk. ESP8266 i posten
 - Forsøkt å sette opp disse med samme kode som ESP32, men den har ingen støtte for WPA2-Enterprise PEAP kryptering på WiFI, og kan derfor ikke kobles til "Akademiet" nettverket.
-
 ## Uke 11
 
 - Justert 3D modell til ESP8266 så den passer perfekt og printet denne. (illustrasjon 20-21, bilde 22-24)
 - Laget HTML fil til nettsiden
 - Utforsket mulighetene til å bruke beautifulsoup4 biblioteket til Python til å oppdatere nettsiden så vi slipper å bruke PHP og JavaScript.
+- Lasta ned Arduino IDE og forskjellige drivere gjennom homebrew cask, sånn at ESP8266en skulle funke med MACen
 - Satt opp en ESP8266 med samme kode som ESP32en, koblet opp mot nettverk som benytter seg av vanlig WPA2 kryptering.
+- Laget en 3D-modell av et cover/boks til ESP8266en, PIR-sensoren og knappen.
+- Prøvde å få til doknappen på ESP8266e
 
 ## Uke 12
 
 - Tok kontakt med IT om forespørsel om å sette opp et nettverk med WPA2 kryptering på skolen, evt gi tilgang til AkaAirplay nettverket, de sa de skulle se på det.
 - Printet første forsøk på deksel til Raspberry Pi 3 B+, det ble ikke helt velllykket. (bilde 21-22)
 - Magnus lagde et annet design til deksel til Arduino og PIR-sensor kombinert og hull til knapp, printen ble ikke helt vellykket. (illustrasjon 23-24, bilde 25-26)
+- Testet plasseringen til PIR-sensoren for å finne hvilken plass i rommet som gir god oversikt, få feilkilder, strømkilde lett tilgjengelig og lett å vedlikeholde og sette opp.
+
   - Verbatim Magnus: *"Pinnene som PIR-sensoren skulle sitte i var en-to millimeter for nære hverandre noe som gjorde at man måtte tvinge sensoren på. Dette fikk den til å sitte godt fast, men pinnene knakk. Skruehullene fikk jeg ikke testa da Arduinoen ikke passet. Dette er fordi plasten mulig krymper da den smeltede plasten stivner og kjøles ned. USB-hullet er også feilplassert og står på feil side av arduinoen. (porten er over brettet, mens hullet er under). skruehullene for veggfestet er 5mm, en tilfeldig verdi da vi ikke hadde bestemt oss på noen skruer. Det er mulig teip og lim er bedre. Casen har ikke noe lokk. Dette er av design og gruppa vår sin nye teknologi gjør det mulig å bruke veggen som et lokk, noe som også reduserer plastikkforbruk om du vil. Dette gjør den sterkere og mindre avansert. De to beste måtene å lage et lokk på er en glider, noe som vil være vanskelig med så små dimensjoner, ettersom veggene er 2mm og blir mye svakere om vi skjærer skinner i den. Den andre løsningen er å lage et lokk med skruehull så skrua går gjennom casen, inn i lokket, for så å gå inn i veggen. Dette skaper litt ekstra høyde, og har egentlig ingen positive sider. Vi har mye som må forbedres av denne prototypen, men lokkdesignet vårt er patentverdig."*
 
 ## Uke 13
 
 - Skulle flytte over alle kode fra Arduino Genuino Uno til ESP8266, en fikk problemer med drivere, men fant en [løsning](https://github.com/adrianmihalko/ch340g-ch34g-ch34x-mac-os-x-driver?fbclid=IwAR3GZpZaK2d5c-Y8Lw_fUGdoAh4YidZZddZX-p-rlOhaJKi43Z6GHsxx_U8). Måtte også få USB til Serial ved hjelp av [denne](<https://www.silabs.com/products/development-tools/software/usb-to-uart-bridge-vcp-drivers?fbclid=IwAR2heKSBZxpx_mzag608V-vMJZTuRtM7cBcGZOtHfb_ZwdxsjpcSBxjjaA8>).
-
+- Måtte laste ned driveren CH340G for at ESP8266en skulle registreres av MACen
+- Fikset problemet med at MACen ikke fant ESP8266en i noen av portene, og det var nå mulig å laste opp koder på ESP8266en
 - Fant [documentation](<https://arduino-esp8266.readthedocs.io/en/latest/esp8266wifi/readme.html>) til Arduino Core til ESP8266 og forklaring på funksjoner for å kunne sette opp dette med UDP igjen.
 - Martin har fullført en prototype av nettsiden med fungerende python-basert oppdaterer (kode 27-31)
 
@@ -276,25 +283,31 @@ PIR sensorer har to forskjellige potmetere under. Den ene kontrollerer rekkevidd
 - Lagde en python fil som kontrollerer hele lesingen av databasen og skrivingen til nettsiden, samt intervaller på både oppdatering av database og nettside. (oppdateringsHastighet.py)
 - Lagde en python fil som genererer tabellene i databasen til de korresponderende rommene basert på romlisten, hvis de ikke eksisterer enda. (opprettDatabase.py)
 - Justerte Prosjektoversikt.markdown til å være kompatibelt med Github-Flavoured Markdown så det vises riktig på Github repoet.
+- Lærte oss hvordan man skulle bruke Serial.Monitoren på Arduino IDE, og hvordan man sender UDP-pakker mellom ESP8266en og MACen.
+- Lært oss hvordan man bruker applikasjonen PacketSender til å ta imot UDP-pakker fra koden.
 
 ## Uke 15-17
 
 - I stor grad en pause fra ToF
 - Noen forsøk på å klare å få ESP8266 mikrokontrollereren til å fungere med drivere på diverse PCer
 - Litt prøving på å få PIR-sensoren til å fungere med ESP8266
+- Lært oss å lodde, ved å lodde flere lys, knapper og mikrokontrollere til en lysende "blomst" som fungerte fint. Av dette lærte vi hvordan man skal klippe utstikkerer av komponenter etter at de er loddet fast, og hvordan man bør lodde for at det skal se finest ut, og hindre kortslutninger og feil.
 
 ## Uke 18
 
 - Satt sammen hele systemet på serversiden og lagde et enkelt PHP-script for å kunne sette opp en Apache webserver på macen. [Fulgte denne oppskriften](https://websitebeaver.com/set-up-localhost-on-macos-high-sierra-apache-mysql-and-php-7-with-sslhttps?fbclid=IwAR1prhCn3PLptYgAdP9RchyFGfm7qtp-SfNM8VamBQi27SePTU_2rH1fMJQ)
 - Satt opp en Raspberry Pi med Ubuntu og innstallerte PostgreSQL, Apache webserver. [Fulgte denne oppskriften](https://medium.com/@Riverside/how-to-install-apache-php-postgresql-lapp-on-ubuntu-16-04-adb00042c45d?fbclid=IwAR3OhqYvPIHUgClwcI9lFwTYM2MPnLrZbaiVlBCbY_U5ku_9Ywe6IiplY68)
 - Raspberry Pi overopphetet ved innstallering og ble veldig treg, må sannsynligvis bruke noe annet enn Ubuntu. Kanskje Raspbian.
+- Fikk plutselige problemer med både PIR-sensoren og kommunikasjonen med ESP8266en. MACen ville ikke lenger gjenkjenne porten som ESP8266en var koblet til og vi fant ut at problemet lå i USB-kabelen. Vi oppgraderte ledningen til en bedre en og probleme var fikset. Vi lærte da at ledningen har overraskende mye å si.
 
 ## Uke 19
 
 - Fant ut hvordan UDP-protokollen til ESP8266 fungerer, med udp.write til string og udp.print til tall
 - Satt opp postgresInsert.py til å lese informasjonen fra UDP og lagre det riktig inn i databasen.
+- Fikk IR-sensoren til å funke med ESP8266en selv om ESP-modulen kjører på en lavere spenning enn en Arduino Uno.
 - Fant riktige innstillinger til IR-sensor og kompatible pins på ESP8266 og fikk hele sulamitten til å fungere.
 - Testet IR-sensor i rom og koblet det opp mot en local server på en mac og fullførte en test av hele systemet, det var vellykket.
+- Fikk endelig en knapp til å fungere, vi brukte analog read. Det er annerledes å bruke LOW, HIGH på ESP8266, fordi spenningen er annerledes. Spenningsforskjellene mellom LOW og HIGH er forskjellig mellom ESP8266 og arduino UNO.
 
 # Vedlegg
 

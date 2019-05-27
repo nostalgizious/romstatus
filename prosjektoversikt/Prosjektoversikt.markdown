@@ -309,6 +309,39 @@ PIR sensorer har to forskjellige potmetere under. Den ene kontrollerer rekkevidd
 - Testet IR-sensor i rom og koblet det opp mot en local server på en mac og fullførte en test av hele systemet, det var vellykket.
 - Fikk endelig en knapp til å fungere, vi brukte analog read. Det er annerledes å bruke LOW, HIGH på ESP8266, fordi spenningen er annerledes. Spenningsforskjellene mellom LOW og HIGH er forskjellig mellom ESP8266 og arduino UNO.
 
+# Drøfting, kritisk refleksjon, forbedringsmuligheter
+
+## PLanlegging
+
+## Utførelse
+
+## Back-end
+
+### Legge data i en database
+
+### Hente data fra en database
+
+### Oppdatere html-dokument
+
+- Vi fornøyde med sluttproduktet av denne delen av programmet. Det er kort, konsist og oversiktlig. Det tok bare litt tid å skrive det, da vi enda ikke hadde lært oss html.
+
+## Front-end
+
+- Et felles problem for all front-end-koden er at den er veldig rotete og vanskelig å få oversikt over. Selv for oss som lagde den. Det er et resultat av at vi skrev koden mens vi lærte oss programmeringsspråkene. Vi testet og feilet helt til noe funket, og når det først gjorde det, turte vi ikke å gjøre noe med det. 
+- Derfor er det sikkert mye JS som kan skrives kortere. Spesielt er det mye CSS som ikke gjør noe, og som kanskje kan fjernes. I html-dokumentet er det også mye unødvendig attribrutes som heller ikke er i bruk, men som bare skaper forvirring.
+
+## Hardware
+
+### Oppdage bevegelse med Arduino
+
+### Koble Arduinoen på internett
+
+# Konklusjon, anbefalinger, oppsummering
+
+
+
+
+
 # Vedlegg
 
 ## Skjermbilde 1
@@ -1639,3 +1672,5 @@ luftStatus(); //Sorterer etter beste ledige grupperom
 statusFarge(); //Endrer farge på alle grupperommene på kartet.
 
 ```
+
+# Kilder

@@ -152,6 +152,15 @@ Her er en tegning av hvordan man kobler til en PIR sensor (spenningen til den ko
 
 PIR sensorer har to forskjellige potmetere under. Den ene kontrollerer rekkevidden på sensoren fra 3 til 7 meter mens den andre kontrollerer hvor stor ventetiden er til den neste avlesningen starter, mellom 0.3 sekunder til 5 min. Det stikker også ut 3 forskjellige pins på baksiden med en jumper som forbinder 2 av dem. dette gjør som et det blir 2 forskjellige innstillinger. Den ene heter "non-repeatable trigger" og gjør at når verdien er “high” og ventetiden er over vil den automatisk sette verdien til “LOW” og søke etter bevegelse igjen. Den andre heter“repeatable trigger”og holder verdien på “HIGH” helt til den merker en forandring.
 
+# Fremgangsmåte
+
+- Last ned Arduino IDE og åpne dens Plugin i skriverbordsmenyen øverst på skjermen.
+- Last ned CH340G -driveren med linken: https://github.com/adrianmihalko/ch340g-ch34g-ch34x-mac-os-x-driver
+- Følg bruksanvisningen på denne linken:  https://github.com/esp8266/Arduino#installing-with-boards-manager, for å laste ned riktige drivere i arduino IDE og sette opp Boards Manager riktig.
+- Sett opp ESP8266en, PIR-sensoren og de andre komponentene slik du ser på Fritzingtegningen vedlagt. 
+- Last ned koden vår, og følg instruksene skrevet inn i koden, mens du fyller ut i de feltene du trenger slik vi har beskrevet.
+
+
 # Original tidsplan
 
 **Arbeidet ble inndelt i praktisk arbeid med sensoren, og infrastruktur rundt, og oppgavene gitt til henholdsvis Magnus og Arvin, og Martin og Ferdinand**

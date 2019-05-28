@@ -10,7 +10,7 @@ char incomingPacket[255];  // buffer for incoming packets
 char  replyPacket[] = "Hi there! Got the message :-)";  // a reply string to send back
 
 const char * udpAddress = "192.168.43.17";
-const int udpPort = 52373;
+const int udpPort = 64317;
 
 int tid = 0;
 int sensor = 5;
@@ -21,9 +21,15 @@ int timer = 600;        //setter hvor lang tid den vil sjekke om rommet er ledig
 int waittime = 10;
 int val=0;
 
+int buttonpin = 0;
+int led = 4;
+int bval = 0;
+
 void setup()
 { 
   pinMode(sensor, INPUT);       //Forteller mikrokontrollere at den skal få verdier fra "sensor"
+  pinMode(buttonpin, INPUT);
+  pinMode(led, OUTPUT);
   Serial.begin(9600);
   Serial.println();
 
@@ -45,6 +51,14 @@ void loop()
 {
   int val = digitalRead(sensor);      //Seitter verdien "val" til den den leser fra "sensor" som er om det er noen i rommet(HIGH) eller ikke(LOW)
 
+    int bval = analogRead(buttonpin);
+  Serial.println(bval);
+  if (bval > 200){
+   digitalWrite(led, HIGH);
+   Serial.println("1");
+  }
+
+else{
 if(val == HIGH){
     for (tid = 0; tid < 500; tid++){
         Serial.println("1");
@@ -77,6 +91,7 @@ else if (val == LOW) {        //dersom "val" er "LOW", altså om det ikke er noe
 
     }
   }
+}
   const char* test = "magnus";
  
   int romNummer = 216;

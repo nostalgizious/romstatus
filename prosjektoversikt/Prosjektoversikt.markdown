@@ -311,9 +311,15 @@ PIR sensorer har to forskjellige potmetere under. Den ene kontrollerer rekkevidd
 
 # Drøfting, kritisk refleksjon, forbedringsmuligheter
 
-## PLanlegging
+## Planlegging
+- Planleggingen vår for prosjektet kan man se i "original tidsplan" øverst på dokumentet.
+- Det var ikke alltid like lett å følge planen, ettersom enkelte problemer vi ikke hadde tenkt oss dukket opp tilfeldig, og kostet mye tid på å rette opp. Spesielt var det mye styr med å få ESP8266en til å kommunisere med pcn, og å få PIR-sensoren til å fungere med en ESP8266 som opererer på en annen spenning.
+- Det vi burde gjort bedre neste gang er å sjekket hvordan ESP8266en var å jobbe med, hvordan den var lagt opp og hvilke problemer vi får med den og da hvilke drivere som løser dette. Dette hadde gjort at vi ikke satte for store mål til hver uke.
 
 ## Utførelse
+
+- Øtførelsen vår har vært litt opp og ned, enkelte ganger jobbet vi mer konsentrert og mer effektivt enn andre ganger. Spesielt var det rundt knappen og det å koble til ESP8266en med MACen at vi ble mer og mer utolmodige, da dette var komplisert arbeid, og vanskelig å finne løsninger til.
+- På starten av prosjektet fikk vi fort til å koble opp arduinoen til en PIR-sensor eller ultrasoniske sensorer, og utførelsen vår da var ganske effektiv, da vi brukte tidligere kunnskaper.
 
 ## Back-end
 
@@ -334,13 +340,36 @@ PIR sensorer har to forskjellige potmetere under. Den ene kontrollerer rekkevidd
 
 ### Oppdage bevegelse med Arduino
 
+- Det er mange måter å oppdage bevegelse med arduino. 
+- Først brukte vi en ultrasonisk sensor til å dele et område av et rom inn i flere soner, så vi kunne se hvilke deler av rommet som var opptatt. Vi koblet også alle sensorene sammen en gang for å få en absolutt overvåking av hele rommet når vi plasserte 3-4 ultrasoniske sensorer i et hjørne og vinklet dem slik at de ikke overlappet hverandre. Sensorene hadde en synsvinkel på rundt 20 grader og 4 stykker dekket nesten 90 grader, så om vi satt dem i et hjørne dekket de hele rommet.
+- De ultrasoniske sensoren så om det var noen nærmere sensoren enn det veggen bak var. Hvis veggen er 2m unna, men sensoren ser at noe er 1m unna, er det noen som sitter foran den.
+
+- Vi brukte også en PIR-sensor til å oppdage bevegelser i et område foran den. Når vi satt denne på veggen kunne vi sjekke bevegelser i nesten hele rommet.
+- PIR sensoren er presis nok til å oppdage folk som beveger hånda, eller skriver mens de sitter ved bordet i midten av rommet. PIR-sensoren er ikke presis nok til å oppdage scrolling på trackpaden fra et par meters avstand. Derfor kunne det være lurt å ha den i taket, men dette skaper problemer med tilgjengelighet.
+
 ### Koble Arduinoen på internett
 
-# Konklusjon, anbefalinger, oppsummering
+- Arduinoen hadde ikke Wifi-egenskaper, så derfor måtte vi gå over til en ESP8266.
+- Vi brukte først et eksempelprogram fra arduino IDE sine eksempler, som het Wifi-Scan, som sjekket om ESP8266en kunne koble seg opp mot nettet.
+- Vi fant ut at skolenettet ikke fungerte, og måtte da bruke mobildata eller private nettverk som husnettene våre.
+- Senere brukte vi en UDP-sender i koden og programmet Packet-Sender til å ta imot pakkene.
+- Først fikk vi bare sendt UDP-pakker fra ESP8266en til MACen den var koblet til, men senere kunne vi sende UDP-pakker til andre MACer helt trådløst.
 
+# Konklusjon, Anbefalinger, Oppsummering
 
+## Anbefalinger
 
+- Forhåndssjekk hvilke drivere og programmer du trenger, og hvilke problemer du kommer til å møte før du planlegger.
+- Ikke planlegg for mye hver uke i lang tid forover, fordi problemer kan stoppe opp progresjonen noe som kan gjøre at det ikke er så lett å bli ferdig.
+- Hvis man skal bruke noe annet enn adruino bør man søke opp problemer og løsninger på dette produktet, ettersom det finnes mange inkompatibilitetsproblemer med mange av dem og mange krever andre drivere. Det er også viktig at man sjekker hovedspennigna i mikrochipen du skal bruke for å sjekke om den kan drive flere av arduinos komponenter som krever 5V.
 
+## Konklusjon
+
+- Vi valgte å lage et produkt som kunne sjekke om grupperommene på skolen er ledige eller opptatte, og sende disse informasjonene til en sentral over nettet og føre dette opp på en nettside/TV-skjerm
+- Gjennom prosjektukene har vi møtt på mange problemer hvor noen av dem krevde veldig mye mer tid på å bli fikset.
+- Gjennom prosjektet har vi lært oss å kode med flere forskjellige språk, som SQL, HTML, Javascript, C++ og Python.
+- Gjennom prosjektet har vi lært oss flere praktiske ferdigheter som lodding, oppsett av komponetene på en arduino, 3D-printing og demontering av CO2 målere.
+- Målene vi satte oss på starten av året var litt store, og vi slet litt på slutten med å bli ferdig, og vi ble nesten helt ferdige. Vi hadde det fortsatt gøy, og om vi hadde hatt et par vurderingsfrie uker til, kunne vi kanskje kommet i mål.
 
 # Vedlegg
 

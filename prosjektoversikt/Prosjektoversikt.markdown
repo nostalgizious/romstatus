@@ -20,6 +20,7 @@
 - [Beskrivelse av funksjonalitet til deler](#beskrivelse-av-funksjonalitet-til-deler)
 	- [Hvordan en NDIR CO~2~ sensor fungerer](#hvordan-en-ndir-co2-sensor-fungerer)
 	- [Hvordan en PIR sensor fungerer](#hvordan-en-pir-sensor-fungerer)
+- [Fremgangsmåte](#fremgangsmte)
 - [Original tidsplan](#original-tidsplan)
 	- [Uke 5](#uke-5)
 	- [Uke 6](#uke-6)
@@ -43,6 +44,20 @@
 	- [Uke 15-17](#uke-15-17)
 	- [Uke 18](#uke-18)
 	- [Uke 19](#uke-19)
+- [Drøfting, kritisk refleksjon, forbedringsmuligheter](#drfting-kritisk-refleksjon-forbedringsmuligheter)
+	- [Planlegging](#planlegging)
+	- [Utførelse](#utfrelse)
+	- [Back-end](#back-end)
+		- [Legge data i en database](#legge-data-i-en-database)
+		- [Hente data fra en database](#hente-data-fra-en-database)
+		- [Oppdatere html-dokument](#oppdatere-html-dokument)
+	- [Front-end](#front-end)
+	- [Hardware](#hardware)
+		- [Oppdage bevegelse med Arduino](#oppdage-bevegelse-med-arduino)
+		- [Koble Arduinoen på internett](#koble-arduinoen-p-internett)
+- [Refleksjoner](#refleksjoner)
+	- [Anbefalinger](#anbefalinger)
+	- [Konklusjon](#konklusjon)
 - [Vedlegg](#vedlegg)
 	- [Skjermbilde 1](#skjermbilde-1)
 	- [Skjermbilde 2](#skjermbilde-2)
@@ -73,6 +88,7 @@
 - [Vrimle>p {](#vrimlep-)
 - [easteregg1 {](#easteregg1-)
 		- [grupperomOversikt.js](#grupperomoversiktjs)
+- [Kilder](#kilder)
 
 <!-- /TOC -->
 
@@ -157,7 +173,7 @@ PIR sensorer har to forskjellige potmetere under. Den ene kontrollerer rekkevidd
 - Last ned Arduino IDE og åpne dens Plugin i skriverbordsmenyen øverst på skjermen.
 - Last ned CH340G -driveren med linken: https://github.com/adrianmihalko/ch340g-ch34g-ch34x-mac-os-x-driver
 - Følg bruksanvisningen på denne linken:  https://github.com/esp8266/Arduino#installing-with-boards-manager, for å laste ned riktige drivere i arduino IDE og sette opp Boards Manager riktig.
-- Sett opp ESP8266en, PIR-sensoren og de andre komponentene slik du ser på Fritzingtegningen vedlagt. 
+- Sett opp ESP8266en, PIR-sensoren og de andre komponentene slik du ser på Fritzingtegningen vedlagt.
 - Last ned koden vår, og følg instruksene skrevet inn i koden, mens du fyller ut i de feltene du trenger slik vi har beskrevet.
 
 
@@ -322,19 +338,34 @@ PIR sensorer har to forskjellige potmetere under. Den ene kontrollerer rekkevidd
 
 ## Planlegging
 - Planleggingen vår for prosjektet kan man se i "original tidsplan" øverst på dokumentet.
-- Det var ikke alltid like lett å følge planen, ettersom enkelte problemer vi ikke hadde tenkt oss dukket opp tilfeldig, og kostet mye tid på å rette opp. Spesielt var det mye styr med å få ESP8266en til å kommunisere med pcn, og å få PIR-sensoren til å fungere med en ESP8266 som opererer på en annen spenning.
+- Det var ikke alltid like lett å følge planen, ettersom enkelte problemer vi ikke hadde tenkt oss dukket opp tilfeldig, og kostet mye tid på å rette opp. Spesielt var det mye styr med å få ESP8266en til å kommunisere med PCn, og å få PIR-sensoren til å fungere med en ESP8266 som opererer på en annen spenning enn Arduino Genuino Uno.
 - Det vi burde gjort bedre neste gang er å sjekket hvordan ESP8266en var å jobbe med, hvordan den var lagt opp og hvilke problemer vi får med den og da hvilke drivere som løser dette. Dette hadde gjort at vi ikke satte for store mål til hver uke.
 
 ## Utførelse
 
-- Øtførelsen vår har vært litt opp og ned, enkelte ganger jobbet vi mer konsentrert og mer effektivt enn andre ganger. Spesielt var det rundt knappen og det å koble til ESP8266en med MACen at vi ble mer og mer utolmodige, da dette var komplisert arbeid, og vanskelig å finne løsninger til.
+- Utførelsen vår har vært litt opp og ned, enkelte ganger jobbet vi mer konsentrert og mer effektivt enn andre ganger. Spesielt var det rundt knappen og det å koble til ESP8266en med MACen at vi ble mer og mer utolmodige, da dette var komplisert arbeid, og vanskelig å finne løsninger til.
 - På starten av prosjektet fikk vi fort til å koble opp arduinoen til en PIR-sensor eller ultrasoniske sensorer, og utførelsen vår da var ganske effektiv, da vi brukte tidligere kunnskaper.
 
 ## Back-end
 
+- Bestemte oss for å legge opp et system med flere forskjellig python programmer for å gjøre det mer oversiktlig og modulært.
+
+![forklaringavbackend](../romstatusoversikt.svg)
+
+
 ### Legge data i en database
 
+- Det var ikke så lett å finne et python bibliotek til å kommunisere med PostgreSQL, og når vi først famt det var ikke dokumentasjonen helt på topp.
+- Det var ikke mulig å få tilgang til eksisterende databaser i PostgreSQL ved hjelp av Psycopg2-biblioteket, så vi måtte opprette et egent scritpt til å lage det riktige database-oppsettet.
+- Vi klarte til slutt å lage et program som kunne legge inn lister fra python inn i en database, som gjorde hele oppsettet mye mer effektivt enn å måtte legge inn informasjonen i seperate databaser eller i seperate SQL prosesser.
+- Alt i alt godt fornøyd med denne koden, og den er også omtrent så oversiktlig som det er mulig å få det med bakgrunn i bruk av biblioteker.
+
 ### Hente data fra en database
+
+- Vi valgte å bruke 2 forskjellige python programmer til interaksjon med databasen for å kunne skrive inn data hver gang det blir mottatt (hver gang opptatt/ledig statusen til rommet endres), mens nettsiden kan oppdateres med faste intervaller, og man kan begrense i hvilke tidsrom på dagen den oppdateres.
+- Betydelig lettere å hente ut en liste fra en eksisterende SQL databse enn å skriv inn lister ved hjelp av Psycopg2.
+- Godt fornøyd med denne delen av systemet.
+
 
 ### Oppdatere html-dokument
 
@@ -342,14 +373,14 @@ PIR sensorer har to forskjellige potmetere under. Den ene kontrollerer rekkevidd
 
 ## Front-end
 
-- Et felles problem for all front-end-koden er at den er veldig rotete og vanskelig å få oversikt over. Selv for oss som lagde den. Det er et resultat av at vi skrev koden mens vi lærte oss programmeringsspråkene. Vi testet og feilet helt til noe funket, og når det først gjorde det, turte vi ikke å gjøre noe med det. 
-- Derfor er det sikkert mye JS som kan skrives kortere. Spesielt er det mye CSS som ikke gjør noe, og som kanskje kan fjernes. I html-dokumentet er det også mye unødvendig attribrutes som heller ikke er i bruk, men som bare skaper forvirring.
+- Et felles problem for all front-end-koden er at den er veldig rotete og vanskelig å få oversikt over. Selv for oss som lagde den. Det er et resultat av at vi skrev koden mens vi lærte oss programmeringsspråkene. Vi testet og feilet helt til noe funket, og når det først gjorde det, turte vi ikke å gjøre noe med det.
+- Derfor er det sikkert mye JS som kan skrives kortere. Spesielt er det mye CSS som ikke gjør noe, og som kanskje kan fjernes. I html-dokumentet er det også mye unødvendig attribrutes som heller ikke er i bruk, men som bare skaper forvirring. Dette kommer av at vi valgte den enkle og effektive løsningen med å bruke eksisterende biblioteker, som er praktisk i utvikling, men som ikke er det mest effektive i et endelig produkt.
 
 ## Hardware
 
 ### Oppdage bevegelse med Arduino
 
-- Det er mange måter å oppdage bevegelse med arduino. 
+- Det er mange måter å oppdage bevegelse med arduino.
 - Først brukte vi en ultrasonisk sensor til å dele et område av et rom inn i flere soner, så vi kunne se hvilke deler av rommet som var opptatt. Vi koblet også alle sensorene sammen en gang for å få en absolutt overvåking av hele rommet når vi plasserte 3-4 ultrasoniske sensorer i et hjørne og vinklet dem slik at de ikke overlappet hverandre. Sensorene hadde en synsvinkel på rundt 20 grader og 4 stykker dekket nesten 90 grader, så om vi satt dem i et hjørne dekket de hele rommet.
 - De ultrasoniske sensoren så om det var noen nærmere sensoren enn det veggen bak var. Hvis veggen er 2m unna, men sensoren ser at noe er 1m unna, er det noen som sitter foran den.
 
@@ -364,7 +395,7 @@ PIR sensorer har to forskjellige potmetere under. Den ene kontrollerer rekkevidd
 - Senere brukte vi en UDP-sender i koden og programmet Packet-Sender til å ta imot pakkene.
 - Først fikk vi bare sendt UDP-pakker fra ESP8266en til MACen den var koblet til, men senere kunne vi sende UDP-pakker til andre MACer helt trådløst.
 
-# Konklusjon, Anbefalinger, Oppsummering
+# Refleksjoner
 
 ## Anbefalinger
 
@@ -375,10 +406,12 @@ PIR sensorer har to forskjellige potmetere under. Den ene kontrollerer rekkevidd
 ## Konklusjon
 
 - Vi valgte å lage et produkt som kunne sjekke om grupperommene på skolen er ledige eller opptatte, og sende disse informasjonene til en sentral over nettet og føre dette opp på en nettside/TV-skjerm
-- Gjennom prosjektukene har vi møtt på mange problemer hvor noen av dem krevde veldig mye mer tid på å bli fikset.
-- Gjennom prosjektet har vi lært oss å kode med flere forskjellige språk, som SQL, HTML, Javascript, C++ og Python.
-- Gjennom prosjektet har vi lært oss flere praktiske ferdigheter som lodding, oppsett av komponetene på en arduino, 3D-printing og demontering av CO2 målere.
-- Målene vi satte oss på starten av året var litt store, og vi slet litt på slutten med å bli ferdig, og vi ble nesten helt ferdige. Vi hadde det fortsatt gøy, og om vi hadde hatt et par vurderingsfrie uker til, kunne vi kanskje kommet i mål.
+- Vi satt oss i varabel grad inn i Github og git-systemet, noe som kunne gjort samarbeidet om kode og 3D-tegninger lettere.
+- Vi  møtte på mange problemer hvor noen av dem krevde veldig mye mer tid på å bli fikset enn ventet.
+- Vi har lært oss å kode med flere forskjellige språk, som SQL, HTML, Javascript, C++ og Python.
+- Vi har lært oss flere praktiske ferdigheter som lodding, oppsett av komponetene på en arduino, 3D-printing og demontering av CO2 målere.
+- Målene vi satte oss på starten av året var litt store, og vi slet litt på slutten med å bli ferdig, og vi ble nesten helt ferdige. Vi hadde det fortsatt gøy, og om vi hadde hatt et par vurderingsfrie uker til, kunne vi nok kommet i mål.
+- Vi utvidet målene i løpet av de første ukene med flere ting vi tenkte kunne være mulig og praktisk, men som ikke originalt var en del av planen. Dette rakk vi ikke å gjennomføre, men burde gjøres for at prosjektet oppnår sitt fulle potensiale.
 
 # Vedlegg
 

@@ -175,7 +175,7 @@ PIR sensorer har to forskjellige potmetere under. Den ene kontrollerer rekkevidd
 	- Flytt prosjektet inn under denne mappen
 	- åpne terminalen og gå til Library
 	- skriv sudo nano /etc/apache2/httpd.conf for å redigere httpd.conf
-	- finn DocumentRoot og Directory, og endre /Library/WebServer/Documents og til /Users/dittNavn/Sites/index.php
+	- finn DocumentRoot og Directory, og endre /Library/WebServer/Documents til /Users/dittNavn/Sites/index.php
 	- hvis du nå skriver sudo apachctl start, skal du ha serveren klar med din nettside
 
 

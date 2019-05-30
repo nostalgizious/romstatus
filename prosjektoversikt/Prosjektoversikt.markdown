@@ -115,26 +115,26 @@ Ut av prosjektet sitter vi tilsammen igjen med en sammensetning av kunnskap om 3
 
 Mål for opplæringen er at eleven skal kunne
 
-- **planlegge og bygge en konstruksjon som er fast eller bevegelig, og som har en definert funksjon (høy)**
-- **bruke tredimensjonale tegninger eller skisser i utvikling av konstruksjoner (høy)**
+- **planlegge og bygge en konstruksjon som er fast eller bevegelig, og som har en definert funksjon (høy, konstruere en innretning som skal festes til hvert grupperom for å måle luftkvalitet og bevegelse i romme)**
+- **bruke tredimensjonale tegninger eller skisser i utvikling av konstruksjoner (høy, bruker 3d verktøy til å lage coveret til arduino brettet og til PIR sensoren)**
 - bruke forskjellige materialer og former for sammenføyninger og begrunne valg av materialer og byggemåte ut fra materialenes egenskaper og konstruksjonens funksjon
-- **bruke sensorer og styringssystemer i forbindelse med forsøk og konstruksjoner (høy)**
-- **dokumentere og vurdere konstruksjoners fysiske egenskaper og funksjonalitet ved hjelp av målinger og enkle beregninger (høy)**
+- **bruke sensorer og styringssystemer i forbindelse med forsøk og konstruksjoner (høy, bruker PIR sensorer og CO2 målere til å loggføre forskjellige verdier i grupperommene)**
+- **dokumentere og vurdere konstruksjoners fysiske egenskaper og funksjonalitet ved hjelp av målinger og enkle beregninger (høy, dokumentere hva vi gjør hver uke i loggen)**
 
 ### Den unge forskeren
 
 Mål for opplæringen er at eleven skal kunne
 
-- gjøre rede for hvordan et naturvitenskapelig prosjekt planlegges, gjennomføres og etterarbeides før det blir publisert (under prosses)
-- **planlegge, gjennomføre, analysere og dokumentere systematiske målinger om støy, luftforurensning, inneklima og vannkvalitet, og drøfte virkninger på helse og miljø (høy)**
+- **gjøre rede for hvordan et naturvitenskapelig prosjekt planlegges, gjennomføres og etterarbeides før det blir publisert (Jobba med alt dette under dette prosjektet, og skrev en grundige forklaringer i rapporten)**
+- **planlegge, gjennomføre, analysere og dokumentere systematiske målinger om støy, luftforurensning, inneklima og vannkvalitet, og drøfte virkninger på helse og miljø (høy, dokumentere hva vi gjør hver uke i loggen og en del er prosjektet er å måle luftkvaliteten)**
 
 ### Teknologi, naturvitenskap og samfunn
 
 Mål for opplæringen er at eleven skal kunne
 
 - drøfte etiske, miljømessige, kulturelle og politiske sider ved teknologisk utvikling
-- **beskrive den historiske utviklingen av en teknologisk innretning, forklare virkemåten og drøfte anvendelser i samfunnet (middels)**
-- gjøre rede for utvikling og produksjon av et teknologisk produkt og vurdere produktets brukervennlighet, utviklingsmuligheter og miljøpåvirkning
+- **beskrive den historiske utviklingen av en teknologisk innretning, forklare virkemåten og drøfte anvendelser i samfunnet (middels, drøfter anvendelse av produktet og hvordan det vill hjelpe skolen, men snakker ikke om utviklingen)**
+- **gjøre rede for utvikling og produksjon av et teknologisk produkt og vurdere produktets brukervennlighet, utviklingsmuligheter og miljøpåvirkning (høy, vurdere Brukervennligheten og utviklingsmuligheter i senere rapporten)**
 - beskrive prinsipper og virkemåte for noen moderne instrumenter i industri, helsevesen eller forskning, og gjøre rede for nytten og eventuelle skadevirkninger
 - kartlegge og presentere praktisk bruk av realfag i en lokal bedrift eller institusjon
 
@@ -142,12 +142,12 @@ Mål for opplæringen er at eleven skal kunne
 
 Mål for opplæringen er at eleven skal kunne
 
-- **gjøre rede for funksjonen til vanlige komponenter i elektroniske kretser, og gjenkjenne komponentene i en krets (høy )**
-- **lage elektroniske kretser ved å lodde komponenter og simulere og teste kretsene (høy)**
-- **forme og utvikle produkter som har en definert funksjon og inneholder elektronikk (høy)**
-- **dokumentere og presentere designprosesser fra idé til ferdig produkt (høy)**
+- **gjøre rede for funksjonen til vanlige komponenter i elektroniske kretser, og gjenkjenne komponentene i en krets (høy, gjør rede for hvordan de forskjellige komponentenen vi bruker fungerer og hvordan man lager en krets for et de skal fungere i rapporten)**
+- **lage elektroniske kretser ved å lodde komponenter og simulere og teste kretsene (høy, har loddet en arduino, lodda også på et lykkehjul som en øvelse)**
+- **forme og utvikle produkter som har en definert funksjon og inneholder elektronikk (høy,lager et produkt som merker bevegelse og registrere luftkvalitet, det gjør vi med elektriske komponenter)**
+- **dokumentere og presentere designprosesser fra idé til ferdig produkt (høy, dokumentere hvordan produktet fungere og arbeidsmetoden i rapporten)**
 - begrunne valg av materialer i produkter og vurdere produktenes form og funksjon, miljømessige konsekvenser, estetikk og forbedringsmuligheter
-- **utføre målinger med eller teste et eget produkt, og vurdere kvaliteten på produktet med tanke på funksjonalitet (høy)**
+- **utføre målinger med eller teste et eget produkt, og vurdere kvaliteten på produktet med tanke på funksjonalitet (høy, tester og gjør forskjellige målinger av produktet for å finne ut av hva vi kan forbedre og hvordan alle komponentene virker)**
 
 
 
@@ -351,6 +351,11 @@ Vi endte derfor opp med et produkt som finner bevegelse i grupperom, logger det 
 
 - Utførelsen vår har vært litt opp og ned, enkelte ganger jobbet vi mer konsentrert og mer effektivt enn andre ganger. Spesielt var det rundt knappen og det å koble til ESP8266en med MACen at vi ble mer og mer utolmodige, da dette var komplisert arbeid, og vanskelig å finne løsninger til.
 - På starten av prosjektet fikk vi fort til å koble opp arduinoen til en PIR-sensor eller ultrasoniske sensorer, og utførelsen vår da var ganske effektiv, da vi brukte tidligere kunnskaper.
+
+## Brukervennlighet
+
+- Vi har grundige forklaringer på alt av hva vi gjør gjennom prosjektet og har lagd rapporten som at den
+blr lett å forstå, vi har også linka til kildene vi har brukt til henvist til ting vi lasta ned fra nettet. Nettsiden er rydding og lett å forstå, man kan se på tabellen som er sortert etter beste ledige rom eller et kart med fargekode over e foskjellige rommene, dette gjør at det blir letter å finne ledige rom.
 
 ## Server
 

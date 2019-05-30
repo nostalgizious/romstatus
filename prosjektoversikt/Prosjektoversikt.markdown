@@ -335,6 +335,11 @@ PIR sensorer har to forskjellige potmetere under. Den ene kontrollerer rekkevidd
 - Testet IR-sensor i rom og koblet det opp mot en local server på en mac og fullførte en test av hele systemet, det var vellykket.
 - Fikk endelig en knapp til å fungere, vi brukte analog read. Det er annerledes å bruke LOW, HIGH på ESP8266, fordi spenningen er annerledes. Spenningsforskjellene mellom LOW og HIGH er forskjellig mellom ESP8266 og arduino UNO.
 
+# Resultat
+
+Vi endte opp med å bli ferdig med mesteparten av det vi hadde planlagt. Alt på server-siden ble ferdig; logge data i data i en database, hente dem og putte dem i et htmldokument. Mye av hardware-delen ble også ferdig. Det eneste vi mangler er en luftkvalitetssensor.
+Vi endte derfor opp med et produkt som finner bevegelse i grupperom, logger det i en database og putter resultatet på en nettside som blir hostet på en lokal server på macen.
+
 # Drøfting, kritisk refleksjon, forbedringsmuligheter
 
 ## Planlegging
@@ -346,6 +351,10 @@ PIR sensorer har to forskjellige potmetere under. Den ene kontrollerer rekkevidd
 
 - Utførelsen vår har vært litt opp og ned, enkelte ganger jobbet vi mer konsentrert og mer effektivt enn andre ganger. Spesielt var det rundt knappen og det å koble til ESP8266en med MACen at vi ble mer og mer utolmodige, da dette var komplisert arbeid, og vanskelig å finne løsninger til.
 - På starten av prosjektet fikk vi fort til å koble opp arduinoen til en PIR-sensor eller ultrasoniske sensorer, og utførelsen vår da var ganske effektiv, da vi brukte tidligere kunnskaper.
+
+## Server
+
+- Selv om vi endte opp med en lokal server, ser vi ikke noe problem med det. "Ulempen" med at man kun kan koble seg opp til serveren via nettverket som serveren er koblet til, er egentlig bare positivt. Da kan ingen ukjente få tilgang til nettsiden.
 
 ## Back-end
 

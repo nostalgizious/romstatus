@@ -264,7 +264,7 @@ function oppdatereKartDel(id, n) {
   boks.getElementsByTagName('td')[1].innerHTML = status;
   boks.getElementsByTagName('td')[3].innerHTML = LuftKval;
   if (status == 'Ledig') {
-    if (LuftKval == 'Høy') {
+    if (LuftKval == 'Hoy') {
       boks.style.backgroundColor = '#57BB3E';
     }
     else if (LuftKval == 'Middels') {

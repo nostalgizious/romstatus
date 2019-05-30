@@ -360,7 +360,7 @@ Vi endte derfor opp med et produkt som finner bevegelse i grupperom, logger det 
 
 - Bestemte oss for å legge opp et system med flere forskjellig python programmer for å gjøre det mer oversiktlig og modulært.
 
-![forklaringavbackend](../romstatusoversikt.svg)
+![forklaringavbackend](vedlegg/romstatusOversikt.png)
 
 
 ### Legge data i en database
@@ -1524,7 +1524,7 @@ function side(n) {
   c = document.getElementById("trengerHjelp");
   d = document.getElementById("omP");
   if (n == 1) {
-    //Gjemmer/viser dem 
+    //Gjemmer/viser dem
     a.style.display = "block";  
     b.style.display = "none";
     c.style.display = "none";
@@ -1574,7 +1574,7 @@ function sortTable(n) {
   switching = true;
   // Setter retning oppover:
   dir = "asc";
-  
+
   while (switching) {
     //Starter med å si at ingen bytting har blitt gjort:
     switching = false;

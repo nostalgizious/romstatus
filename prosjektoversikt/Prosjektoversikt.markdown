@@ -404,7 +404,7 @@ PIR sensorer har to forskjellige potmetere under. Den ene kontrollerer rekkevidd
 
 # Konklusjon
 
-- Vi satte oss noen store mål med dette prosjektet. Ingen før oss hadde noen gang blitt ferdig med det. Derfor har vi hatt litt lite tid, og de siste ukene har vært litt stressende. Likevel er vi glade for at vi tok på oss utfordringen. De siste månedene har vært utrolig lærerike og spennende. Minst like viktig er også erfaringen med å jobbe under press, følge en plan og bli ferdig innen en (litt løst satt) frist.
+Vi satte oss noen store mål med dette prosjektet. Ingen før oss hadde noen gang blitt ferdig med det. Derfor har vi hatt litt lite tid, og de siste ukene har vært litt stressende. Likevel er vi glade for at vi tok på oss utfordringen. De siste månedene har vært utrolig lærerike og spennende. Minst like viktig er også erfaringen med å jobbe under press, følge en plan og bli ferdig innen en (litt løst satt) frist.
 
 ## Fjerne alt unner denne overskriften?
 - **Vi valgte å lage et produkt som kunne sjekke om grupperommene på skolen er ledige eller opptatte, og sende disse informasjonene til en sentral over nettet og føre dette opp på en nettside/TV-skjerm

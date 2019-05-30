@@ -80,8 +80,6 @@
 	- [Kode 27-31](#kode-27-31)
 		- [htmlOppdaterer.py](#htmloppdatererpy)
 		- [oppdatererLib.py](#oppdatererlibpy)
-- [oppdatere status:](#oppdatere-status)
-- [Oppdatere luftkvalitet:](#oppdatere-luftkvalitet)
 		- [grupperomOversikt.html](#grupperomoversikthtml)
 		- [oversiktGrupperom.css](#oversiktgrupperomcss)
 		- [grupperomOversikt.js](#grupperomoversiktjs)

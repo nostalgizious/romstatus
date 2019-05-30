@@ -858,12 +858,10 @@ def luftHtml(htmlFil, romnummer, co2ppm,luftkval):
 
 ### grupperomOversikt.html
 ```HTML
-<!DOCTYPE html>
-<html>
-
-<head>
-  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-  <link rel="stylesheet" type="text/css" href="grupperomOversikt.css">
+<html><head>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <link href="grupperomOversikt.css" rel="stylesheet" type="text/css"/>
+  <meta charset="utf-8"/>
 </head>
 
 <body>
@@ -875,11 +873,11 @@ def luftHtml(htmlFil, romnummer, co2ppm,luftkval):
       <li class="inactive" id="hjelp" onclick="side(3)">Hjelp</li>
       <li class="inactive" id="pro" onclick="side(4)">Om Prosjektet</li>
       <li class="inactive" id="canvas" onclick="window.location.href = 'https://akademiet.instructure.com';">Canvas</li>
-      <p id="easteregg1" ondblclick="alert('01110000 01101100 01100001 01100011 01100101 01101000 01101111 01101100 01100100 01100101 01110010')">Påskeegg?</p>
+      <p id="easteregg1" ondblclick="alert('01110000 01101100 01100001 01100011 01100101 01101000 01101111 01101100 01100100 01100101 01110010')">Paskeegg?</p>
     </ul>
   </div>
 
-  <!-- Oversikt Tabell -->
+  <!-- Oversikt -->
   <div class="innhold" id="Oversikt">
     <h1>Oversikt over grupperom</h1>
     <table id="myTable">
@@ -894,130 +892,130 @@ def luftHtml(htmlFil, romnummer, co2ppm,luftkval):
       </thead>
 
       <tbody>
-        <tr id="111" class="tabell">
+        <tr class="tabell" id="111">
           <td id="etasje">1</td>
           <td>111</td>
           <td id="navn">Kahlo</td>
-          <td id="111status">Ledig</td>
-          <td id="111luft" name="100" title="100">Høy</td>
+          <td id="111status">Opptatt</td>
+          <td id="111luft" name="370" title="370">Hoy</td>
         </tr>
-        <tr id="112" class="tabell">
+        <tr class="tabell" id="112">
           <td id="etasje">1</td>
           <td>112</td>
           <td id="navn">Bergman</td>
           <td id="112status">Ledig</td>
-          <td id="112luft" name="100" title="100">Høy</td>
+          <td id="112luft" name="100" title="100">Hoy</td>
         </tr>
-        <tr id="113" class="tabell">
+        <tr class="tabell" id="113">
           <td id="etasje">1</td>
           <td>113</td>
           <td id="navn">Kafka</td>
           <td id="113status">Ledig</td>
-          <td id="113luft" name="100" title="100">Høy</td>
+          <td id="113luft" name="750" title="750">Middels</td>
         </tr>
-        <tr id="114" class="tabell">
+        <tr class="tabell" id="114">
           <td id="etasje">1</td>
           <td>114</td>
           <td id="navn">Kurosawa</td>
-          <td id="114status">Ledig</td>
-          <td id="114luft" name="100" title="100">Høy</td>
+          <td id="114status">Opptatt</td>
+          <td id="114luft" name="750" title="750">Middels</td>
         </tr>
-        <tr id="115" class="tabell">
+        <tr class="tabell" id="115">
           <td id="etasje">1</td>
           <td>115</td>
           <td id="navn">Hemingway</td>
           <td id="115status">Ledig</td>
-          <td id="115luft" name="100" title="100">Høy</td>
+          <td id="115luft" name="1000" title="1000">Lav</td>
         </tr>
-        <tr id="209" class="tabell">
+        <tr class="tabell" id="209">
           <td id="etasje">2</td>
           <td>209</td>
           <td id="navn">Ullmann</td>
-          <td id="209status">Ledig</td>
-          <td id="209luft" name="100" title="100">Høy</td>
+          <td id="209status">Opptatt</td>
+          <td id="209luft" name="100" title="100">Hoy</td>
         </tr>
-        <tr id="210" class="tabell">
+        <tr class="tabell" id="210">
           <td id="etasje">2</td>
           <td>210</td>
           <td id="navn">Dahl</td>
-          <td id="210status">Ledig</td>
-          <td id="210luft" name="100" title="100">Høy</td>
+          <td id="210status">Opptatt</td>
+          <td id="210luft" name="100" title="100">Hoy</td>
         </tr>
-        <tr id="211" class="tabell">
+        <tr class="tabell" id="211">
           <td id="etasje">2</td>
           <td>211</td>
           <td id="navn">Hepburn</td>
           <td id="211status">Ledig</td>
-          <td id="211luft" name="100" title="100">Høy</td>
+          <td id="211luft" name="100" title="100">Hoy</td>
         </tr>
-        <tr id="212" class="tabell">
+        <tr class="tabell" id="212">
           <td id="etasje">2</td>
           <td>212</td>
           <td id="navn">Streep</td>
           <td id="212status">Ledig</td>
-          <td id="212luft" name="100" title="100">Høy</td>
+          <td id="212luft" name="1100" title="1100">Lav</td>
         </tr>
-        <tr id="213" class="tabell">
+        <tr class="tabell" id="213">
           <td id="etasje">2</td>
           <td>213</td>
           <td id="navn">Welles</td>
           <td id="213status">Ledig</td>
-          <td id="213luft" name="100" title="100">Høy</td>
+          <td id="213luft" name="100" title="100">Hoy</td>
         </tr>
-        <tr id="214" class="tabell">
+        <tr class="tabell" id="214">
           <td id="etasje">2</td>
           <td>214</td>
           <td id="navn">Shelley</td>
           <td id="214status">Ledig</td>
-          <td id="214luft" name="100" title="100">Høy</td>
+          <td id="214luft" name="100" title="100">Hoy</td>
         </tr>
-        <tr id="215" class="tabell">
+        <tr class="tabell" id="215">
           <td id="etasje">2</td>
           <td>215</td>
           <td id="navn">Scorsese</td>
-          <td id="215status">Ledig</td>
-          <td id="215luft" name="100" title="100">Høy</td>
+          <td id="215status">Opptatt</td>
+          <td id="215luft" name="100" title="100">Hoy</td>
         </tr>
-        <tr id="216" class="tabell">
+        <tr class="tabell" id="216">
           <td id="etasje">2</td>
           <td>216</td>
           <td id="navn">Lee</td>
-          <td id="216status">Ledig</td>
-          <td id="216luft" name="100" title="100">Høy</td>
+          <td id="216status">Opptatt</td>
+          <td id="216luft" name="369" title="369">Hoy</td>
         </tr>
-        <tr id="217" class="tabell">
+        <tr class="tabell" id="217">
           <td id="etasje">2</td>
           <td>217</td>
           <td id="navn">Leone</td>
           <td id="217status">Ledig</td>
-          <td id="217luft" name="100" title="100">Høy</td>
+          <td id="217luft" name="669" title="669">Hoy</td>
         </tr>
       </tbody>
     </table>
   </div>
 
   <div id="kart">
-    <div id="Vrimle" class="unclick">
+    <div class="unclick" id="Vrimle">
       <p id="Vrimle">Vrimle</p>
     </div>
-    <div id="etasje1" class="unclick" onmouseover="hover('etasje1', 'etasje2')" onmouseout="hoverNot()">
-      <div id="111K" name="grupperom" class="111">
+    <div class="unclick" id="etasje1" onmouseout="hoverNot()" onmouseover="hover('etasje1', 'etasje2')">
+      <div class="111" id="111K" name="grupperom">
         <div>111</div>
         <table>
-          <tr>
+          <tbody><tr>
             <td>Status:</td>
             <td>Ledig</td>
           </tr>
           <tr>
             <td>Luftkvalitet:</td>
-            <td>Høy</td>
+            <td>Hoy</td>
           </tr>
-        </table>
+        </tbody></table>
       </div>
-      <div id="112K" name="grupperom" class="200">
+      <div class="200" id="112K" name="grupperom">
         <div>112</div>
         <table>
-          <tr>
+          <tbody><tr>
             <td>Status:</td>
             <td>Opptatt</td>
           </tr>
@@ -1025,12 +1023,12 @@ def luftHtml(htmlFil, romnummer, co2ppm,luftkval):
             <td>Luftkvalitet:</td>
             <td>Lav</td>
           </tr>
-        </table>
+        </tbody></table>
       </div>
-      <div id="113K" name="grupperom" class="700">
+      <div class="700" id="113K" name="grupperom">
         <div>113</div>
         <table>
-          <tr>
+          <tbody><tr>
             <td>Status:</td>
             <td>Opptatt</td>
           </tr>
@@ -1038,40 +1036,40 @@ def luftHtml(htmlFil, romnummer, co2ppm,luftkval):
             <td>Luftkvalitet:</td>
             <td>Middels</td>
           </tr>
-        </table>
+        </tbody></table>
       </div>
-      <div id="114K" name="grupperom" class="500">
+      <div class="500" id="114K" name="grupperom">
         <div>114</div>
         <table>
-          <tr>
+          <tbody><tr>
             <td>Status:</td>
-            <td>Ledig</td>
+            <td id="status">Ledig</td>
           </tr>
           <tr>
             <td>Luftkvalitet:</td>
-            <td>Høy</td>
+            <td>Hoy</td>
           </tr>
-        </table>
+        </tbody></table>
       </div>
-      <div id="115K" name="grupperom" class="800">
+      <div class="800" id="115K" name="grupperom">
         <div>115</div>
         <table>
-          <tr>
+          <tbody><tr>
             <td>Status:</td>
             <td>Opptatt</td>
           </tr>
           <tr>
             <td>Luftkvalitet:</td>
-            <td>Høy</td>
+            <td>Hoy</td>
           </tr>
-        </table>
+        </tbody></table>
       </div>
     </div>
-    <div id="etasje2" class="unclick" onmouseover="hover('etasje2', 'etasje1')" onmouseout="hoverNot()">
-      <div id="209K" name="grupperom" class="111">
+    <div class="unclick" id="etasje2" onmouseout="hoverNot()" onmouseover="hover('etasje2', 'etasje1')">
+      <div class="111" id="209K" name="grupperom">
         <div>209</div>
         <table>
-          <tr>
+          <tbody><tr>
             <td>Status:</td>
             <td>Opptatt</td>
           </tr>
@@ -1079,12 +1077,12 @@ def luftHtml(htmlFil, romnummer, co2ppm,luftkval):
             <td>Luftkvalitet:</td>
             <td>Lav</td>
           </tr>
-        </table>
+        </tbody></table>
       </div>
-      <div id="210K" name="grupperom" class="1000">
+      <div class="1000" id="210K" name="grupperom">
         <div>210</div>
         <table>
-          <tr>
+          <tbody><tr>
             <td>Status:</td>
             <td>Ledig</td>
           </tr>
@@ -1092,12 +1090,12 @@ def luftHtml(htmlFil, romnummer, co2ppm,luftkval):
             <td>Luftkvalitet:</td>
             <td>Lav</td>
           </tr>
-        </table>
+        </tbody></table>
       </div>
-      <div id="211K" name="grupperom" class="111">
+      <div class="111" id="211K" name="grupperom">
         <div>211</div>
         <table>
-          <tr>
+          <tbody><tr>
             <td>Status:</td>
             <td>Opptatt</td>
           </tr>
@@ -1105,25 +1103,25 @@ def luftHtml(htmlFil, romnummer, co2ppm,luftkval):
             <td>Luftkvalitet:</td>
             <td>Lav</td>
           </tr>
-        </table>
+        </tbody></table>
       </div>
-      <div id="212K" name="grupperom" class="600">
+      <div class="600" id="212K" name="grupperom">
         <div>212</div>
         <table>
-          <tr>
+          <tbody><tr>
             <td>Status:</td>
             <td>Ledig</td>
           </tr>
           <tr>
             <td>Luftkvalitet:</td>
-            <td>Høy</td>
+            <td>Hoy</td>
           </tr>
-        </table>
+        </tbody></table>
       </div>
-      <div id="213K" name="grupperom" class="800">
+      <div class="800" id="213K" name="grupperom">
         <div>213</div>
         <table>
-          <tr>
+          <tbody><tr>
             <td>Status:</td>
             <td>Ledig</td>
           </tr>
@@ -1131,25 +1129,25 @@ def luftHtml(htmlFil, romnummer, co2ppm,luftkval):
             <td>Luftkvalitet:</td>
             <td>Middels</td>
           </tr>
-        </table>
+        </tbody></table>
       </div>
-      <div id="214K" name="grupperom" class="500">
+      <div class="500" id="214K" name="grupperom">
         <div>214</div>
         <table>
-          <tr>
+          <tbody><tr>
             <td>Status:</td>
             <td>Opptatt</td>
           </tr>
           <tr>
             <td>Luftkvalitet:</td>
-            <td>Høy</td>
+            <td>Hoy</td>
           </tr>
-        </table>
+        </tbody></table>
       </div>
-      <div id="215K" name="grupperom" class="111">
+      <div class="111" id="215K" name="grupperom">
         <div>215</div>
         <table>
-          <tr>
+          <tbody><tr>
             <td>Status:</td>
             <td>Ledig</td>
           </tr>
@@ -1157,12 +1155,12 @@ def luftHtml(htmlFil, romnummer, co2ppm,luftkval):
             <td>Luftkvalitet:</td>
             <td>Middels</td>
           </tr>
-        </table>
+        </tbody></table>
       </div>
-      <div id="216K" name="grupperom" class="700">
+      <div class="700" id="216K" name="grupperom">
         <div>216</div>
         <table>
-          <tr>
+          <tbody><tr>
             <td>Status:</td>
             <td>Ledig</td>
           </tr>
@@ -1170,12 +1168,12 @@ def luftHtml(htmlFil, romnummer, co2ppm,luftkval):
             <td>Luftkvalitet:</td>
             <td>Middels</td>
           </tr>
-        </table>
+        </tbody></table>
       </div>
-      <div id="217K" name="grupperom" class="111">
+      <div class="111" id="217K" name="grupperom">
         <div>217</div>
         <table>
-          <tr>
+          <tbody><tr>
             <td>Status:</td>
             <td>Opptatt</td>
           </tr>
@@ -1183,7 +1181,7 @@ def luftHtml(htmlFil, romnummer, co2ppm,luftkval):
             <td>Luftkvalitet:</td>
             <td>Lav</td>
           </tr>
-        </table>
+        </tbody></table>
       </div>
     </div>
   </div>
@@ -1203,8 +1201,9 @@ def luftHtml(htmlFil, romnummer, co2ppm,luftkval):
       zzril delenit augue duis dolore te feugait nulla facilisi.</p>
   </div>
   <script src="grupperomOversikt.js" type="text/javascript"></script>
-    </body>
-</html>
+
+</body></html>
+
 ```
 
 ### oversiktGrupperom.css

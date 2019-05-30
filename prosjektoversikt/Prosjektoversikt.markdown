@@ -4,8 +4,7 @@
 
 *Et prosjekt av Magnus Hovda, Arvin Das, Martin S. Winther og Ferdinand O. Schnell*
 
-![nettsideeksempel1](vedlegg/nettsideeksempel1.png)
-![nettsideeksempel2](vedlegg/nettsideeksempel2.png)
+![nettsideeksempel](vedlegg/nettsideeksempel.png)
 
 <!-- TOC depthFrom:1 depthTo:6 withLinks:1 updateOnSave:1 orderedList:0 -->
 
@@ -21,7 +20,6 @@
 - [Beskrivelse av funksjonalitet til deler](#beskrivelse-av-funksjonalitet-til-deler)
 	- [Hvordan en NDIR CO~2~ sensor fungerer](#hvordan-en-ndir-co2-sensor-fungerer)
 	- [Hvordan en PIR sensor fungerer](#hvordan-en-pir-sensor-fungerer)
-- [Fremgangsmåte](#fremgangsmte)
 - [Original tidsplan](#original-tidsplan)
 	- [Uke 5](#uke-5)
 	- [Uke 6](#uke-6)
@@ -45,20 +43,6 @@
 	- [Uke 15-17](#uke-15-17)
 	- [Uke 18](#uke-18)
 	- [Uke 19](#uke-19)
-- [Drøfting, kritisk refleksjon, forbedringsmuligheter](#drfting-kritisk-refleksjon-forbedringsmuligheter)
-	- [Planlegging](#planlegging)
-	- [Utførelse](#utfrelse)
-	- [Back-end](#back-end)
-		- [Legge data i en database](#legge-data-i-en-database)
-		- [Hente data fra en database](#hente-data-fra-en-database)
-		- [Oppdatere html-dokument](#oppdatere-html-dokument)
-	- [Front-end](#front-end)
-	- [Hardware](#hardware)
-		- [Oppdage bevegelse med Arduino](#oppdage-bevegelse-med-arduino)
-		- [Koble Arduinoen på internett](#koble-arduinoen-p-internett)
-- [Refleksjoner](#refleksjoner)
-	- [Anbefalinger](#anbefalinger)
-	- [Konklusjon](#konklusjon)
 - [Vedlegg](#vedlegg)
 	- [Skjermbilde 1](#skjermbilde-1)
 	- [Skjermbilde 2](#skjermbilde-2)
@@ -89,7 +73,6 @@
 - [Vrimle>p {](#vrimlep-)
 - [easteregg1 {](#easteregg1-)
 		- [grupperomOversikt.js](#grupperomoversiktjs)
-- [Kilder](#kilder)
 
 <!-- /TOC -->
 
@@ -115,26 +98,26 @@ Ut av prosjektet sitter vi tilsammen igjen med en sammensetning av kunnskap om 3
 
 Mål for opplæringen er at eleven skal kunne
 
-- **planlegge og bygge en konstruksjon som er fast eller bevegelig, og som har en definert funksjon (høy)**
-- **bruke tredimensjonale tegninger eller skisser i utvikling av konstruksjoner (høy)**
+- **planlegge og bygge en konstruksjon som er fast eller bevegelig, og som har en definert funksjon (høy, konstruere en innretning som skal festes til hvert grupperom for å måle luftkvalitet og bevegelse i romme)**
+- **bruke tredimensjonale tegninger eller skisser i utvikling av konstruksjoner (høy, bruker 3d verktøy til å lage coveret til arduino brettet og til PIR sensoren)**
 - bruke forskjellige materialer og former for sammenføyninger og begrunne valg av materialer og byggemåte ut fra materialenes egenskaper og konstruksjonens funksjon
-- **bruke sensorer og styringssystemer i forbindelse med forsøk og konstruksjoner (høy)**
-- **dokumentere og vurdere konstruksjoners fysiske egenskaper og funksjonalitet ved hjelp av målinger og enkle beregninger (høy)**
+- **bruke sensorer og styringssystemer i forbindelse med forsøk og konstruksjoner (høy, bruker PIR sensorer og CO2 målere til å loggføre forskjellige verdier i grupperommene)**
+- **dokumentere og vurdere konstruksjoners fysiske egenskaper og funksjonalitet ved hjelp av målinger og enkle beregninger (høy, dokumentere hva vi gjør hver uke i loggen)**
 
 ### Den unge forskeren
 
 Mål for opplæringen er at eleven skal kunne
 
-- gjøre rede for hvordan et naturvitenskapelig prosjekt planlegges, gjennomføres og etterarbeides før det blir publisert (under prosses)
-- **planlegge, gjennomføre, analysere og dokumentere systematiske målinger om støy, luftforurensning, inneklima og vannkvalitet, og drøfte virkninger på helse og miljø (høy)**
+- **gjøre rede for hvordan et naturvitenskapelig prosjekt planlegges, gjennomføres og etterarbeides før det blir publisert (Jobba med alt dette under dette prosjektet, og skrev en grundige forklaringer i rapporten)**
+- **planlegge, gjennomføre, analysere og dokumentere systematiske målinger om støy, luftforurensning, inneklima og vannkvalitet, og drøfte virkninger på helse og miljø (høy, dokumentere hva vi gjør hver uke i loggen og en del er prosjektet er å måle luftkvaliteten)**
 
 ### Teknologi, naturvitenskap og samfunn
 
 Mål for opplæringen er at eleven skal kunne
 
 - drøfte etiske, miljømessige, kulturelle og politiske sider ved teknologisk utvikling
-- **beskrive den historiske utviklingen av en teknologisk innretning, forklare virkemåten og drøfte anvendelser i samfunnet (middels)**
-- gjøre rede for utvikling og produksjon av et teknologisk produkt og vurdere produktets brukervennlighet, utviklingsmuligheter og miljøpåvirkning
+- **beskrive den historiske utviklingen av en teknologisk innretning, forklare virkemåten og drøfte anvendelser i samfunnet (middels, drøfter anvendelse av produktet og hvordan det vill hjelpe skolen, men snakker ikke om utviklingen)**
+- **gjøre rede for utvikling og produksjon av et teknologisk produkt og vurdere produktets brukervennlighet, utviklingsmuligheter og miljøpåvirkning (høy, vurdere Brukervennligheten og utviklingsmuligheter i senere rapporten)**
 - beskrive prinsipper og virkemåte for noen moderne instrumenter i industri, helsevesen eller forskning, og gjøre rede for nytten og eventuelle skadevirkninger
 - kartlegge og presentere praktisk bruk av realfag i en lokal bedrift eller institusjon
 
@@ -142,12 +125,12 @@ Mål for opplæringen er at eleven skal kunne
 
 Mål for opplæringen er at eleven skal kunne
 
-- **gjøre rede for funksjonen til vanlige komponenter i elektroniske kretser, og gjenkjenne komponentene i en krets (høy )**
-- **lage elektroniske kretser ved å lodde komponenter og simulere og teste kretsene (høy)**
-- **forme og utvikle produkter som har en definert funksjon og inneholder elektronikk (høy)**
-- **dokumentere og presentere designprosesser fra idé til ferdig produkt (høy)**
+- **gjøre rede for funksjonen til vanlige komponenter i elektroniske kretser, og gjenkjenne komponentene i en krets (høy, gjør rede for hvordan de forskjellige komponentenen vi bruker fungerer og hvordan man lager en krets for et de skal fungere i rapporten)**
+- **lage elektroniske kretser ved å lodde komponenter og simulere og teste kretsene (høy, har loddet en arduino, lodda også på et lykkehjul som en øvelse)**
+- **forme og utvikle produkter som har en definert funksjon og inneholder elektronikk (høy,lager et produkt som merker bevegelse og registrere luftkvalitet, det gjør vi med elektriske komponenter)**
+- **dokumentere og presentere designprosesser fra idé til ferdig produkt (høy, dokumentere hvordan produktet fungere og arbeidsmetoden i rapporten)**
 - begrunne valg av materialer i produkter og vurdere produktenes form og funksjon, miljømessige konsekvenser, estetikk og forbedringsmuligheter
-- **utføre målinger med eller teste et eget produkt, og vurdere kvaliteten på produktet med tanke på funksjonalitet (høy)**
+- **utføre målinger med eller teste et eget produkt, og vurdere kvaliteten på produktet med tanke på funksjonalitet (høy, tester og gjør forskjellige målinger av produktet for å finne ut av hva vi kan forbedre og hvordan alle komponentene virker)**
 
 
 
@@ -161,22 +144,31 @@ Alle molekyler har sitt unike absorpsjonsspekter, hvor enkelte bølgelengder bli
 
 ![img](vedlegg/pirsensorillustrasjon.png)
 
-Her er en tegning av hvordan man kobler til en PIR sensor (spenningen til den konstante 5 volten ). En PIR sensor blir brukt til å registrere bevegelse i et rom og den kan bare registrere verdiene “HIGH” eller “LOW” altså, bevegelse eller ikke bevegelse. Den merker bevegelse ved å måle differansen mellom den infrarøde strålingene som kommer fra objekter. Altså en person kan så stille rett foran den uten av den vil bli “HIGH” men så fort den personen beveger seg vil den registrere det og bli “HIGH”.(PIR=passive infrared radiation). Bilder under er selve komponenten som registrerer den infrarøde strålingen.
+- Her er en tegning av hvordan man kobler til en PIR sensor (spenningen til den konstante 5 volten ). En PIR sensor blir brukt til å registrere bevegelse i et rom og den kan bare registrere verdiene “HIGH” eller “LOW” altså, bevegelse eller ikke bevegelse. Den merker bevegelse ved å måle differansen mellom den infrarøde strålingene som kommer fra objekter. Altså en person kan så stille rett foran den uten av den vil bli “HIGH” men så fort den personen beveger seg vil den registrere det og bli “HIGH”.(PIR=passive infrared radiation). Bilder under er selve komponenten som registrerer den infrarøde strålingen.
 
 ![img](vedlegg/pirsensorbilde.png)
 
 ![img](vedlegg/pirsensorbilde2.png)
 
-PIR sensorer har to forskjellige potmetere under. Den ene kontrollerer rekkevidden på sensoren fra 3 til 7 meter mens den andre kontrollerer hvor stor ventetiden er til den neste avlesningen starter, mellom 0.3 sekunder til 5 min. Det stikker også ut 3 forskjellige pins på baksiden med en jumper som forbinder 2 av dem. dette gjør som et det blir 2 forskjellige innstillinger. Den ene heter "non-repeatable trigger" og gjør at når verdien er “high” og ventetiden er over vil den automatisk sette verdien til “LOW” og søke etter bevegelse igjen. Den andre heter“repeatable trigger”og holder verdien på “HIGH” helt til den merker en forandring.
+- PIR sensorer har to forskjellige potmetere under. Den ene kontrollerer rekkevidden på sensoren fra 3 til 7 meter mens den andre kontrollerer hvor stor ventetiden er til den neste avlesningen starter, mellom 0.3 sekunder til 5 min. Det stikker også ut 3 forskjellige pins på baksiden med en jumper som forbinder 2 av dem. dette gjør som et det blir 2 forskjellige innstillinger. Den ene heter "non-repeatable trigger" og gjør at når verdien er “high” og ventetiden er over vil den automatisk sette verdien til “LOW” og søke etter bevegelse igjen. Den andre heter“repeatable trigger”og holder verdien på “HIGH” helt til den merker en forandring.
 
-# Fremgangsmåte
+![img](vedlegg/pirsensor.fzz)
+![img](vedlegg/pirsensor.fzz)
+over kan du se hvordan vi kobla til pirsensoren for produktet vårt.
 
-- Last ned Arduino IDE og åpne dens Plugin i skriverbordsmenyen øverst på skjermen.
-- Last ned CH340G -driveren med linken: https://github.com/adrianmihalko/ch340g-ch34g-ch34x-mac-os-x-driver
-- Følg bruksanvisningen på denne linken:  https://github.com/esp8266/Arduino#installing-with-boards-manager, for å laste ned riktige drivere i arduino IDE og sette opp Boards Manager riktig.
-- Sett opp ESP8266en, PIR-sensoren og de andre komponentene slik du ser på Fritzingtegningen vedlagt.
-- Last ned koden vår, og følg instruksene skrevet inn i koden, mens du fyller ut i de feltene du trenger slik vi har beskrevet.
+## Litt info om Node esp8266en
 
+- NodeMCU er en åpen kildekode- IOT- plattform. Det inkluderer fastvare som kjører på ESP8266 Wi-Fi SoC fra Espressif Systems , og maskinvare som er basert på ESP-12-modulen. Fastvaren bruker Lua skriptspråk. Den er basert på eLua-prosjektet, og er bygget på Espressif Non-OS SDK for ESP8266.
+
+- ESP8266 er en Wi-Fi SoC integrert med en Tensilica Xtensa LX106 kjerne, mye brukt i IOT applikasjoner. Ved sommeren 2016 inkluderte NodeMCU mer enn 40 forskjellige moduler. På grunn av ressursbegrensninger må brukerne velge modulene som er relevante for prosjektet og bygge en firmware skreddersydd for deres behov.
+
+- Vi valgte å bruke denne arduinoen fordi den var billigere enn de andre, og den hadde Wi-Fi noe som er svært nødvendig for sluttproduktet vårt.
+
+Under kan man se pin-utgangene til esp8266en.
+
+![img](vedlegg/esp8266oinout.jpg)
+![img](vedlegg/esp8266vsarduino.png)
+Her kan du se forskjellen på pinnene mellom esp8266 en og en arduino.
 
 # Original tidsplan
 
@@ -335,47 +327,22 @@ PIR sensorer har to forskjellige potmetere under. Den ene kontrollerer rekkevidd
 - Testet IR-sensor i rom og koblet det opp mot en local server på en mac og fullførte en test av hele systemet, det var vellykket.
 - Fikk endelig en knapp til å fungere, vi brukte analog read. Det er annerledes å bruke LOW, HIGH på ESP8266, fordi spenningen er annerledes. Spenningsforskjellene mellom LOW og HIGH er forskjellig mellom ESP8266 og arduino UNO.
 
-# Resultat
-
-Vi endte opp med å bli ferdig med mesteparten av det vi hadde planlagt. Alt på server-siden ble ferdig; logge data i data i en database, hente dem og putte dem i et htmldokument. Mye av hardware-delen ble også ferdig. Det eneste vi mangler er en luftkvalitetssensor.
-Vi endte derfor opp med et produkt som finner bevegelse i grupperom, logger det i en database og putter resultatet på en nettside som blir hostet på en lokal server på macen.
-
 # Drøfting, kritisk refleksjon, forbedringsmuligheter
 
-## Planlegging
-- Planleggingen vår for prosjektet kan man se i "original tidsplan" øverst på dokumentet.
-- Det var ikke alltid like lett å følge planen, ettersom enkelte problemer vi ikke hadde tenkt oss dukket opp tilfeldig, og kostet mye tid på å rette opp. Spesielt var det mye styr med å få ESP8266en til å kommunisere med PCn, og å få PIR-sensoren til å fungere med en ESP8266 som opererer på en annen spenning enn Arduino Genuino Uno.
-- Det vi burde gjort bedre neste gang er å sjekket hvordan ESP8266en var å jobbe med, hvordan den var lagt opp og hvilke problemer vi får med den og da hvilke drivere som løser dette. Dette hadde gjort at vi ikke satte for store mål til hver uke.
+## PLanlegging
 
 ## Utførelse
 
-- Utførelsen vår har vært litt opp og ned, enkelte ganger jobbet vi mer konsentrert og mer effektivt enn andre ganger. Spesielt var det rundt knappen og det å koble til ESP8266en med MACen at vi ble mer og mer utolmodige, da dette var komplisert arbeid, og vanskelig å finne løsninger til.
-- På starten av prosjektet fikk vi fort til å koble opp arduinoen til en PIR-sensor eller ultrasoniske sensorer, og utførelsen vår da var ganske effektiv, da vi brukte tidligere kunnskaper.
+## Brukervennlighet
 
-## Server
-
-- Selv om vi endte opp med en lokal server, ser vi ikke noe problem med det. "Ulempen" med at man kun kan koble seg opp til serveren via nettverket som serveren er koblet til, er egentlig bare positivt. Da kan ingen ukjente få tilgang til nettsiden.
+- Vi har grundige forklaringer på alt av hva vi gjør gjennom prosjektet og har lagd rapporten som at den
+blr lett å forstå, vi har også linka til kildene vi har brukt til henvist til ting vi lasta ned fra nettet. Nettsiden er rydding og lett å forstå, man kan se på tabellen som er sortert etter beste ledige rom eller et kart med fargekode over e foskjellige rommene, dette gjør at det blir letter å finne ledige rom.
 
 ## Back-end
 
-- Bestemte oss for å legge opp et system med flere forskjellig python programmer for å gjøre det mer oversiktlig og modulært.
-
-![forklaringavbackend](../romstatusoversikt.svg)
-
-
 ### Legge data i en database
 
-- Det var ikke så lett å finne et python bibliotek til å kommunisere med PostgreSQL, og når vi først famt det var ikke dokumentasjonen helt på topp.
-- Det var ikke mulig å få tilgang til eksisterende databaser i PostgreSQL ved hjelp av Psycopg2-biblioteket, så vi måtte opprette et egent scritpt til å lage det riktige database-oppsettet.
-- Vi klarte til slutt å lage et program som kunne legge inn lister fra python inn i en database, som gjorde hele oppsettet mye mer effektivt enn å måtte legge inn informasjonen i seperate databaser eller i seperate SQL prosesser.
-- Alt i alt godt fornøyd med denne koden, og den er også omtrent så oversiktlig som det er mulig å få det med bakgrunn i bruk av biblioteker.
-
 ### Hente data fra en database
-
-- Vi valgte å bruke 2 forskjellige python programmer til interaksjon med databasen for å kunne skrive inn data hver gang det blir mottatt (hver gang opptatt/ledig statusen til rommet endres), mens nettsiden kan oppdateres med faste intervaller, og man kan begrense i hvilke tidsrom på dagen den oppdateres.
-- Betydelig lettere å hente ut en liste fra en eksisterende SQL databse enn å skriv inn lister ved hjelp av Psycopg2.
-- Godt fornøyd med denne delen av systemet.
-
 
 ### Oppdatere html-dokument
 
@@ -384,45 +351,19 @@ Vi endte derfor opp med et produkt som finner bevegelse i grupperom, logger det 
 ## Front-end
 
 - Et felles problem for all front-end-koden er at den er veldig rotete og vanskelig å få oversikt over. Selv for oss som lagde den. Det er et resultat av at vi skrev koden mens vi lærte oss programmeringsspråkene. Vi testet og feilet helt til noe funket, og når det først gjorde det, turte vi ikke å gjøre noe med det.
-- Derfor er det sikkert mye JS som kan skrives kortere. Spesielt er det mye CSS som ikke gjør noe, og som kanskje kan fjernes. I html-dokumentet er det også mye unødvendig attribrutes som heller ikke er i bruk, men som bare skaper forvirring. Dette kommer av at vi valgte den enkle og effektive løsningen med å bruke eksisterende biblioteker, som er praktisk i utvikling, men som ikke er det mest effektive i et endelig produkt.
+- Derfor er det sikkert mye JS som kan skrives kortere. Spesielt er det mye CSS som ikke gjør noe, og som kanskje kan fjernes. I html-dokumentet er det også mye unødvendig attribrutes som heller ikke er i bruk, men som bare skaper forvirring.
 
 ## Hardware
 
 ### Oppdage bevegelse med Arduino
 
-- Det er mange måter å oppdage bevegelse med arduino.
-- Først brukte vi en ultrasonisk sensor til å dele et område av et rom inn i flere soner, så vi kunne se hvilke deler av rommet som var opptatt. Vi koblet også alle sensorene sammen en gang for å få en absolutt overvåking av hele rommet når vi plasserte 3-4 ultrasoniske sensorer i et hjørne og vinklet dem slik at de ikke overlappet hverandre. Sensorene hadde en synsvinkel på rundt 20 grader og 4 stykker dekket nesten 90 grader, så om vi satt dem i et hjørne dekket de hele rommet.
-- De ultrasoniske sensoren så om det var noen nærmere sensoren enn det veggen bak var. Hvis veggen er 2m unna, men sensoren ser at noe er 1m unna, er det noen som sitter foran den.
-
-- Vi brukte også en PIR-sensor til å oppdage bevegelser i et område foran den. Når vi satt denne på veggen kunne vi sjekke bevegelser i nesten hele rommet.
-- PIR sensoren er presis nok til å oppdage folk som beveger hånda, eller skriver mens de sitter ved bordet i midten av rommet. PIR-sensoren er ikke presis nok til å oppdage scrolling på trackpaden fra et par meters avstand. Derfor kunne det være lurt å ha den i taket, men dette skaper problemer med tilgjengelighet.
-
 ### Koble Arduinoen på internett
 
-- Arduinoen hadde ikke Wifi-egenskaper, så derfor måtte vi gå over til en ESP8266.
-- Vi brukte først et eksempelprogram fra arduino IDE sine eksempler, som het Wifi-Scan, som sjekket om ESP8266en kunne koble seg opp mot nettet.
-- Vi fant ut at skolenettet ikke fungerte, og måtte da bruke mobildata eller private nettverk som husnettene våre.
-- Senere brukte vi en UDP-sender i koden og programmet Packet-Sender til å ta imot pakkene.
-- Først fikk vi bare sendt UDP-pakker fra ESP8266en til MACen den var koblet til, men senere kunne vi sende UDP-pakker til andre MACer helt trådløst.
+# Konklusjon, anbefalinger, oppsummering
 
-## Anbefalinger
 
-- Forhåndssjekk hvilke drivere og programmer du trenger, og hvilke problemer du kommer til å møte før du planlegger.
-- Ikke planlegg for mye hver uke i lang tid forover, fordi problemer kan stoppe opp progresjonen noe som kan gjøre at det ikke er så lett å bli ferdig.
-- Hvis man skal bruke noe annet enn adruino bør man søke opp problemer og løsninger på dette produktet, ettersom det finnes mange inkompatibilitetsproblemer med mange av dem og mange krever andre drivere. Det er også viktig at man sjekker hovedspennigna i mikrochipen du skal bruke for å sjekke om den kan drive flere av arduinos komponenter som krever 5V.
 
-# Konklusjon
 
-Vi satte oss noen store mål med dette prosjektet. Ingen før oss hadde noen gang blitt ferdig med det. Derfor har vi hatt litt lite tid, og de siste ukene har vært litt stressende. Likevel er vi glade for at vi tok på oss utfordringen. De siste månedene har vært utrolig lærerike og spennende. Minst like viktig er også erfaringen med å jobbe under press, følge en plan og bli ferdig innen en (litt løst satt) frist.
-
-## Fjerne alt unner denne overskriften?
-- **Vi valgte å lage et produkt som kunne sjekke om grupperommene på skolen er ledige eller opptatte, og sende disse informasjonene til en sentral over nettet og føre dette opp på en nettside/TV-skjerm
-- **Vi satt oss i varabel grad inn i Github og git-systemet, noe som kunne gjort samarbeidet om kode og 3D-tegninger lettere.
-- **Vi  møtte på mange problemer hvor noen av dem krevde veldig mye mer tid på å bli fikset enn ventet.
-- **Vi har lært oss å kode med flere forskjellige språk, som SQL, HTML, Javascript, C++ og Python.
-- **Vi har lært oss flere praktiske ferdigheter som lodding, oppsett av komponetene på en arduino, 3D-printing og demontering av CO2 målere.
-- **Målene vi satte oss på starten av året var litt store, og vi slet litt på slutten med å bli ferdig, og vi ble nesten helt ferdige. Vi hadde det fortsatt gøy, og om vi hadde hatt et par vurderingsfrie uker til, kunne vi nok kommet i mål.
-- **Vi utvidet målene i løpet av de første ukene med flere ting vi tenkte kunne være mulig og praktisk, men som ikke originalt var en del av planen. Dette rakk vi ikke å gjennomføre, men burde gjøres for at prosjektet oppnår sitt fulle potensiale.
 
 # Vedlegg
 
@@ -743,6 +684,7 @@ if __name__ == '__main__':
     insert(romnavn, data[1],data[2],data[3],data[4])
 ```
 
+
 ## Illustrasjon 6-8
 
 ![Førsteutkast Arduino](vedlegg/forsteutkastarduino.png)
@@ -869,10 +811,12 @@ def luftHtml(htmlFil, romnummer, co2ppm,luftkval):
 
 ### grupperomOversikt.html
 ```HTML
-<html><head>
-  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-  <link href="grupperomOversikt.css" rel="stylesheet" type="text/css"/>
-  <meta charset="utf-8"/>
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <link rel="stylesheet" type="text/css" href="grupperomOversikt.css">
 </head>
 
 <body>
@@ -884,11 +828,11 @@ def luftHtml(htmlFil, romnummer, co2ppm,luftkval):
       <li class="inactive" id="hjelp" onclick="side(3)">Hjelp</li>
       <li class="inactive" id="pro" onclick="side(4)">Om Prosjektet</li>
       <li class="inactive" id="canvas" onclick="window.location.href = 'https://akademiet.instructure.com';">Canvas</li>
-      <p id="easteregg1" ondblclick="alert('01110000 01101100 01100001 01100011 01100101 01101000 01101111 01101100 01100100 01100101 01110010')">Paskeegg?</p>
+      <p id="easteregg1" ondblclick="alert('01110000 01101100 01100001 01100011 01100101 01101000 01101111 01101100 01100100 01100101 01110010')">Påskeegg?</p>
     </ul>
   </div>
 
-  <!-- Oversikt -->
+  <!-- Oversikt Tabell -->
   <div class="innhold" id="Oversikt">
     <h1>Oversikt over grupperom</h1>
     <table id="myTable">
@@ -903,130 +847,130 @@ def luftHtml(htmlFil, romnummer, co2ppm,luftkval):
       </thead>
 
       <tbody>
-        <tr class="tabell" id="111">
+        <tr id="111" class="tabell">
           <td id="etasje">1</td>
           <td>111</td>
           <td id="navn">Kahlo</td>
-          <td id="111status">Opptatt</td>
-          <td id="111luft" name="370" title="370">Hoy</td>
+          <td id="111status">Ledig</td>
+          <td id="111luft" name="100" title="100">Høy</td>
         </tr>
-        <tr class="tabell" id="112">
+        <tr id="112" class="tabell">
           <td id="etasje">1</td>
           <td>112</td>
           <td id="navn">Bergman</td>
           <td id="112status">Ledig</td>
-          <td id="112luft" name="100" title="100">Hoy</td>
+          <td id="112luft" name="100" title="100">Høy</td>
         </tr>
-        <tr class="tabell" id="113">
+        <tr id="113" class="tabell">
           <td id="etasje">1</td>
           <td>113</td>
           <td id="navn">Kafka</td>
           <td id="113status">Ledig</td>
-          <td id="113luft" name="750" title="750">Middels</td>
+          <td id="113luft" name="100" title="100">Høy</td>
         </tr>
-        <tr class="tabell" id="114">
+        <tr id="114" class="tabell">
           <td id="etasje">1</td>
           <td>114</td>
           <td id="navn">Kurosawa</td>
-          <td id="114status">Opptatt</td>
-          <td id="114luft" name="750" title="750">Middels</td>
+          <td id="114status">Ledig</td>
+          <td id="114luft" name="100" title="100">Høy</td>
         </tr>
-        <tr class="tabell" id="115">
+        <tr id="115" class="tabell">
           <td id="etasje">1</td>
           <td>115</td>
           <td id="navn">Hemingway</td>
           <td id="115status">Ledig</td>
-          <td id="115luft" name="1000" title="1000">Lav</td>
+          <td id="115luft" name="100" title="100">Høy</td>
         </tr>
-        <tr class="tabell" id="209">
+        <tr id="209" class="tabell">
           <td id="etasje">2</td>
           <td>209</td>
           <td id="navn">Ullmann</td>
-          <td id="209status">Opptatt</td>
-          <td id="209luft" name="100" title="100">Hoy</td>
+          <td id="209status">Ledig</td>
+          <td id="209luft" name="100" title="100">Høy</td>
         </tr>
-        <tr class="tabell" id="210">
+        <tr id="210" class="tabell">
           <td id="etasje">2</td>
           <td>210</td>
           <td id="navn">Dahl</td>
-          <td id="210status">Opptatt</td>
-          <td id="210luft" name="100" title="100">Hoy</td>
+          <td id="210status">Ledig</td>
+          <td id="210luft" name="100" title="100">Høy</td>
         </tr>
-        <tr class="tabell" id="211">
+        <tr id="211" class="tabell">
           <td id="etasje">2</td>
           <td>211</td>
           <td id="navn">Hepburn</td>
           <td id="211status">Ledig</td>
-          <td id="211luft" name="100" title="100">Hoy</td>
+          <td id="211luft" name="100" title="100">Høy</td>
         </tr>
-        <tr class="tabell" id="212">
+        <tr id="212" class="tabell">
           <td id="etasje">2</td>
           <td>212</td>
           <td id="navn">Streep</td>
           <td id="212status">Ledig</td>
-          <td id="212luft" name="1100" title="1100">Lav</td>
+          <td id="212luft" name="100" title="100">Høy</td>
         </tr>
-        <tr class="tabell" id="213">
+        <tr id="213" class="tabell">
           <td id="etasje">2</td>
           <td>213</td>
           <td id="navn">Welles</td>
           <td id="213status">Ledig</td>
-          <td id="213luft" name="100" title="100">Hoy</td>
+          <td id="213luft" name="100" title="100">Høy</td>
         </tr>
-        <tr class="tabell" id="214">
+        <tr id="214" class="tabell">
           <td id="etasje">2</td>
           <td>214</td>
           <td id="navn">Shelley</td>
           <td id="214status">Ledig</td>
-          <td id="214luft" name="100" title="100">Hoy</td>
+          <td id="214luft" name="100" title="100">Høy</td>
         </tr>
-        <tr class="tabell" id="215">
+        <tr id="215" class="tabell">
           <td id="etasje">2</td>
           <td>215</td>
           <td id="navn">Scorsese</td>
-          <td id="215status">Opptatt</td>
-          <td id="215luft" name="100" title="100">Hoy</td>
+          <td id="215status">Ledig</td>
+          <td id="215luft" name="100" title="100">Høy</td>
         </tr>
-        <tr class="tabell" id="216">
+        <tr id="216" class="tabell">
           <td id="etasje">2</td>
           <td>216</td>
           <td id="navn">Lee</td>
-          <td id="216status">Opptatt</td>
-          <td id="216luft" name="369" title="369">Hoy</td>
+          <td id="216status">Ledig</td>
+          <td id="216luft" name="100" title="100">Høy</td>
         </tr>
-        <tr class="tabell" id="217">
+        <tr id="217" class="tabell">
           <td id="etasje">2</td>
           <td>217</td>
           <td id="navn">Leone</td>
           <td id="217status">Ledig</td>
-          <td id="217luft" name="669" title="669">Hoy</td>
+          <td id="217luft" name="100" title="100">Høy</td>
         </tr>
       </tbody>
     </table>
   </div>
 
   <div id="kart">
-    <div class="unclick" id="Vrimle">
+    <div id="Vrimle" class="unclick">
       <p id="Vrimle">Vrimle</p>
     </div>
-    <div class="unclick" id="etasje1" onmouseout="hoverNot()" onmouseover="hover('etasje1', 'etasje2')">
-      <div class="111" id="111K" name="grupperom">
+    <div id="etasje1" class="unclick" onmouseover="hover('etasje1', 'etasje2')" onmouseout="hoverNot()">
+      <div id="111K" name="grupperom" class="111">
         <div>111</div>
         <table>
-          <tbody><tr>
+          <tr>
             <td>Status:</td>
             <td>Ledig</td>
           </tr>
           <tr>
             <td>Luftkvalitet:</td>
-            <td>Hoy</td>
+            <td>Høy</td>
           </tr>
-        </tbody></table>
+        </table>
       </div>
-      <div class="200" id="112K" name="grupperom">
+      <div id="112K" name="grupperom" class="200">
         <div>112</div>
         <table>
-          <tbody><tr>
+          <tr>
             <td>Status:</td>
             <td>Opptatt</td>
           </tr>
@@ -1034,12 +978,12 @@ def luftHtml(htmlFil, romnummer, co2ppm,luftkval):
             <td>Luftkvalitet:</td>
             <td>Lav</td>
           </tr>
-        </tbody></table>
+        </table>
       </div>
-      <div class="700" id="113K" name="grupperom">
+      <div id="113K" name="grupperom" class="700">
         <div>113</div>
         <table>
-          <tbody><tr>
+          <tr>
             <td>Status:</td>
             <td>Opptatt</td>
           </tr>
@@ -1047,40 +991,40 @@ def luftHtml(htmlFil, romnummer, co2ppm,luftkval):
             <td>Luftkvalitet:</td>
             <td>Middels</td>
           </tr>
-        </tbody></table>
+        </table>
       </div>
-      <div class="500" id="114K" name="grupperom">
+      <div id="114K" name="grupperom" class="500">
         <div>114</div>
         <table>
-          <tbody><tr>
+          <tr>
             <td>Status:</td>
-            <td id="status">Ledig</td>
+            <td>Ledig</td>
           </tr>
           <tr>
             <td>Luftkvalitet:</td>
-            <td>Hoy</td>
+            <td>Høy</td>
           </tr>
-        </tbody></table>
+        </table>
       </div>
-      <div class="800" id="115K" name="grupperom">
+      <div id="115K" name="grupperom" class="800">
         <div>115</div>
         <table>
-          <tbody><tr>
+          <tr>
             <td>Status:</td>
             <td>Opptatt</td>
           </tr>
           <tr>
             <td>Luftkvalitet:</td>
-            <td>Hoy</td>
+            <td>Høy</td>
           </tr>
-        </tbody></table>
+        </table>
       </div>
     </div>
-    <div class="unclick" id="etasje2" onmouseout="hoverNot()" onmouseover="hover('etasje2', 'etasje1')">
-      <div class="111" id="209K" name="grupperom">
+    <div id="etasje2" class="unclick" onmouseover="hover('etasje2', 'etasje1')" onmouseout="hoverNot()">
+      <div id="209K" name="grupperom" class="111">
         <div>209</div>
         <table>
-          <tbody><tr>
+          <tr>
             <td>Status:</td>
             <td>Opptatt</td>
           </tr>
@@ -1088,12 +1032,12 @@ def luftHtml(htmlFil, romnummer, co2ppm,luftkval):
             <td>Luftkvalitet:</td>
             <td>Lav</td>
           </tr>
-        </tbody></table>
+        </table>
       </div>
-      <div class="1000" id="210K" name="grupperom">
+      <div id="210K" name="grupperom" class="1000">
         <div>210</div>
         <table>
-          <tbody><tr>
+          <tr>
             <td>Status:</td>
             <td>Ledig</td>
           </tr>
@@ -1101,12 +1045,12 @@ def luftHtml(htmlFil, romnummer, co2ppm,luftkval):
             <td>Luftkvalitet:</td>
             <td>Lav</td>
           </tr>
-        </tbody></table>
+        </table>
       </div>
-      <div class="111" id="211K" name="grupperom">
+      <div id="211K" name="grupperom" class="111">
         <div>211</div>
         <table>
-          <tbody><tr>
+          <tr>
             <td>Status:</td>
             <td>Opptatt</td>
           </tr>
@@ -1114,25 +1058,25 @@ def luftHtml(htmlFil, romnummer, co2ppm,luftkval):
             <td>Luftkvalitet:</td>
             <td>Lav</td>
           </tr>
-        </tbody></table>
+        </table>
       </div>
-      <div class="600" id="212K" name="grupperom">
+      <div id="212K" name="grupperom" class="600">
         <div>212</div>
         <table>
-          <tbody><tr>
+          <tr>
             <td>Status:</td>
             <td>Ledig</td>
           </tr>
           <tr>
             <td>Luftkvalitet:</td>
-            <td>Hoy</td>
+            <td>Høy</td>
           </tr>
-        </tbody></table>
+        </table>
       </div>
-      <div class="800" id="213K" name="grupperom">
+      <div id="213K" name="grupperom" class="800">
         <div>213</div>
         <table>
-          <tbody><tr>
+          <tr>
             <td>Status:</td>
             <td>Ledig</td>
           </tr>
@@ -1140,25 +1084,25 @@ def luftHtml(htmlFil, romnummer, co2ppm,luftkval):
             <td>Luftkvalitet:</td>
             <td>Middels</td>
           </tr>
-        </tbody></table>
+        </table>
       </div>
-      <div class="500" id="214K" name="grupperom">
+      <div id="214K" name="grupperom" class="500">
         <div>214</div>
         <table>
-          <tbody><tr>
+          <tr>
             <td>Status:</td>
             <td>Opptatt</td>
           </tr>
           <tr>
             <td>Luftkvalitet:</td>
-            <td>Hoy</td>
+            <td>Høy</td>
           </tr>
-        </tbody></table>
+        </table>
       </div>
-      <div class="111" id="215K" name="grupperom">
+      <div id="215K" name="grupperom" class="111">
         <div>215</div>
         <table>
-          <tbody><tr>
+          <tr>
             <td>Status:</td>
             <td>Ledig</td>
           </tr>
@@ -1166,12 +1110,12 @@ def luftHtml(htmlFil, romnummer, co2ppm,luftkval):
             <td>Luftkvalitet:</td>
             <td>Middels</td>
           </tr>
-        </tbody></table>
+        </table>
       </div>
-      <div class="700" id="216K" name="grupperom">
+      <div id="216K" name="grupperom" class="700">
         <div>216</div>
         <table>
-          <tbody><tr>
+          <tr>
             <td>Status:</td>
             <td>Ledig</td>
           </tr>
@@ -1179,12 +1123,12 @@ def luftHtml(htmlFil, romnummer, co2ppm,luftkval):
             <td>Luftkvalitet:</td>
             <td>Middels</td>
           </tr>
-        </tbody></table>
+        </table>
       </div>
-      <div class="111" id="217K" name="grupperom">
+      <div id="217K" name="grupperom" class="111">
         <div>217</div>
         <table>
-          <tbody><tr>
+          <tr>
             <td>Status:</td>
             <td>Opptatt</td>
           </tr>
@@ -1192,7 +1136,7 @@ def luftHtml(htmlFil, romnummer, co2ppm,luftkval):
             <td>Luftkvalitet:</td>
             <td>Lav</td>
           </tr>
-        </tbody></table>
+        </table>
       </div>
     </div>
   </div>
@@ -1212,9 +1156,8 @@ def luftHtml(htmlFil, romnummer, co2ppm,luftkval):
       zzril delenit augue duis dolore te feugait nulla facilisi.</p>
   </div>
   <script src="grupperomOversikt.js" type="text/javascript"></script>
-
-</body></html>
-
+    </body>
+</html>
 ```
 
 ### oversiktGrupperom.css
@@ -1516,21 +1459,22 @@ easteregg1*/
 ```js
 
 // Bla mellom sidene
-function side(n) {
-  //Finner elementer
+function side(n) { //Kan gjøre denne koden mye kortere
+	//finner elementer
   var a, b, c, d = 0;
-  a = document.getElementById("Oversikt");
-  b = document.getElementById("kart")
-  c = document.getElementById("trengerHjelp");
-  d = document.getElementById("omP");
+  a = document.getElementById("Oversikt"); 			//Tabellen
+  b = document.getElementById("kart");     			//Kartet
+  c = document.getElementById("trengerHjelp");	//Hjelp
+  d = document.getElementById("omP");						//Om Prosjektet
   if (n == 1) {
-    //Gjemmer/viser dem 
-    a.style.display = "block";  
+		//Viser aktivt element. Skjuler inaktive elementer
+    a.style.display = "block";
     b.style.display = "none";
     c.style.display = "none";
     d.style.display = "none";
-    //Endrer stilen til elementene i menyen avhengig om de er aktive eller ikke
-    document.getElementById("over").className = "active";
+
+		//Finner elementer i menyen, og gjør dem aktive/inaktive
+    document.getElementById("over").className = "active";			//Endrer klassen til elementet, slik at stilen endrer seg. Se grupperomOversikt.css
     document.getElementById("kartm").className = "inactive";
     document.getElementById("hjelp").className = "inactive";
     document.getElementById("pro").className = "inactive";
@@ -1565,49 +1509,53 @@ function side(n) {
 }
 
 // Sorter tabellen
-/*
-Sorterer først oppover. Hvis den har sortert gjennom hele uten at noe er blitt forandret, sorterer den nedover.
-*/
 function sortTable(n) {
   var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
   table = document.getElementById("myTable");
   switching = true;
-  // Setter retning oppover:
+  // Set the sorting direction to ascending:
   dir = "asc";
-  
+  /* Make a loop that will continue until
+  no switching has been done: */
   while (switching) {
-    //Starter med å si at ingen bytting har blitt gjort:
+    // Start by saying: no switching is done:
     switching = false;
     rows = table.rows;
-    /*Looper gjennom alle radene utenom den øverste: */
+    /* Loop through all table rows (except the
+    first, which contains table headers): */
     for (i = 1; i < (rows.length - 1); i++) {
-      //Antar at det ikke burde byttes:
+      // Start by saying there should be no switching:
       shouldSwitch = false;
-      /* Finner to elementer, den ene fra raden over den andre */
+      /* Get the two elements you want to compare,
+      one from current row and one from the next: */
       x = rows[i].getElementsByTagName("TD")[n];
       y = rows[i + 1].getElementsByTagName("TD")[n];
-      /* Sjekker om de burde bytte plass avhengig av retning */
+      /* Check if the two rows should switch place,
+      based on the direction, asc or desc: */
       if (dir == "asc") {
         if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
-          // Hvis retningen er oppover, og den over er mindre enn den under, burde de bytte
+          // If so, mark as a switch and break the loop:
           shouldSwitch = true;
-          break; //avbryter for-loopen
+          break;
         }
       } else if (dir == "desc") {
         if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+          // If so, mark as a switch and break the loop:
           shouldSwitch = true;
           break;
         }
       }
     }
     if (shouldSwitch) {
-      /* Hvis vi kom fram til at de burde bytte plass: */
+      /* If a switch has been marked, make the switch
+      and mark that a switch has been done: */
       rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
-      switching = true; //Sier at vi har byttet en gang
-      // Hver gang vi bytter, øker switchcount med 1:
+      switching = true;
+      // Each time a switch is done, increase this count by 1:
       switchcount++;
     } else {
-      /* Hvis ingen rader har byttet plass, har ikke switchcount økt. Da prøver vi å sortere andre veien. */
+      /* If no switching has been done AND the direction is "asc",
+      set the direction to "desc" and run the while loop again. */
       if (switchcount == 0 && dir == "asc") {
         dir = "desc";
         switching = true;
@@ -1616,35 +1564,53 @@ function sortTable(n) {
   }
 }
 
-function sortTableLuft(n) { //Samme som funksjonen over, bare med luftkvalitet
+function sortTableLuft(n) {
   var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
   table = document.getElementById("myTable");
   switching = true;
+  // Set the sorting direction to ascending:
   dir = "asc";
+  /* Make a loop that will continue until
+  no switching has been done: */
   while (switching) {
+    // Start by saying: no switching is done:
     switching = false;
     rows = table.rows;
+    /* Loop through all table rows (except the
+    first, which contains table headers): */
     for (i = 1; i < (rows.length - 1); i++) {
+      // Start by saying there should be no switching:
       shouldSwitch = false;
+      /* Get the two elements you want to compare,
+      one from current row and one from the next: */
       x = rows[i].getElementsByTagName("TD")[n];
       y = rows[i + 1].getElementsByTagName("TD")[n];
+      /* Check if the two rows should switch place,
+      based on the direction, asc or desc: */
       if (dir == "asc") {
-        if (Number(x.title) > Number(y.title)) { //Sorterer etter tittel-attribute i stedet for string
+        if (Number(x.title) > Number(y.title)) {
+          // If so, mark as a switch and break the loop:
           shouldSwitch = true;
           break;
         }
       } else if (dir == "desc") {
         if (Number(x.title) < Number(y.title)) {
+          // If so, mark as a switch and break the loop:
           shouldSwitch = true;
           break;
         }
       }
     }
     if (shouldSwitch) {
+      /* If a switch has been marked, make the switch
+      and mark that a switch has been done: */
       rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
       switching = true;
+      // Each time a switch is done, increase this count by 1:
       switchcount++;
     } else {
+      /* If no switching has been done AND the direction is "asc",
+      set the direction to "desc" and run the while loop again. */
       if (switchcount == 0 && dir == "asc") {
         dir = "desc";
         switching = true;
@@ -1654,54 +1620,53 @@ function sortTableLuft(n) { //Samme som funksjonen over, bare med luftkvalitet
 }
 
 function luftStatus() {
+	//Sorterer tabellen automatisk etter luftkvalitet, deretter status. Slik vil de ledige rommene med best luftkvaliett stå øverst.
   sortTableLuft(4);
   sortTable(3);
 }
-
-//oppdatere Kart etter tabell
-function oppdatereKartDel(id, n) {
-  var table, rows, status, boks, LuftKval = 0;
-  table = document.getElementById('myTable');
-  rows = table.rows;
-  status = rows[n].getElementsByTagName("TD")[3].innerHTML;  //Finner string i den tredje kollonen i den n. raden
-  LuftKval = rows[n].getElementsByTagName("TD")[4].innerHTML;
-  boks = document.getElementById(id + 'K');
-  boks.getElementsByTagName('td')[1].innerHTML = status;    //Finner string i celle i tabell i kart og erstatter med status
-  boks.getElementsByTagName('td')[3].innerHTML = LuftKval;
-  if (status == 'Ledig') {  //endrer farge hvis ledig
-    if (LuftKval == 'Hoy') {  
-      boks.style.backgroundColor = '#57BB3E'; //Til grønn
-    }
-    else if (LuftKval == 'Middels') {
-      boks.style.backgroundColor = '#FFBB00'; //Til gul
-    }
-    else if (LuftKval == 'Lav') {
-      boks.style.backgroundColor = '#FF7440';  //Til rød
+// Gi rom farge etter status i kartet:
+function fargeKode(id) {
+  var boks, x, y, z, p = 0;
+  y = document.getElementById(id);	//finner elementet som representerer et grupperom
+  x = parseInt(y.className);				//gjør klassenavnet om til int (luftkvaliteten)
+  p = y.getElementsByTagName('td')[1].innerHTML;	//Finner det som står i den andre td-taggen (statusen)
+  /*document.getElementById('button').innerHTML = p;*/    //For å feilsøke koden
+  if (p == 'Ledig') {
+		//Hvis grupperommet er ledig, endre farge etter luftkvalitet
+    if (x < 700) {
+      y.style.backgroundColor = '#57bb3e';		
+    } else if (x < 900) {
+      y.style.backgroundColor = '#FFBB00';
+    } else {
+      y.style.backgroundColor = '#ff7440';
     }
   }
+	//Hvis det ikke er ledig, behold default farge  
 }
 
-function statusFarge2() {   //Kaller funksjonen oppdatereKartDel for alle rom
+function statusFarge() {
+	//endrer farge i alle grupperom i kartet
   for (var i = 0; i < 5; i++) {
-    oppdatereKartDel(i + 111, i + 1);
+    fargeKode(i + 111 + 'K');
   }
   for (var i = 0; i < 9; i++) {
-    oppdatereKartDel(i + 209, i + 6);
+    fargeKode(i + 209 + 'K');
   }
 }
 
-//
-
-function hover(etasje1, etasje2) {  //Hvis du peker på en av etasjene i kartet, utvides de
+function hover(etasje1, etasje2) {
+	//aktiveres on hover. Etasje i kart utvides avhengig av hvilke etasje du hover over
   var x, y = 0;
-  x = document.getElementById(etasje1); //etasje1 er ikke første etasje, men etasjen du peker på
-  y = document.getElementById(etasje2); //etasjen du ikke peker på hvis du peker på en etasje
-  x.style.width = '38%';
+  x = document.getElementById(etasje1);  //Er ikke nødvendigvis 1. etasje. Det er eteasjen som utvides.
+  y = document.getElementById(etasje2);
+  x.style.width = '38%';		//Endrer bredden til etasjen som musa hover over.
   y.style.width = '20%';
+  //x.style.height = '96.6%';
 }
 
-
-function hoverNot() {   //Etasjene går tilbake til vanlig størelse hvis du ikke peker på dem
+// Etasje utvider seg onmouseover
+function hoverNot() {
+	//Når du ikke hover over noen av elementene, går alt tilbake til normalt
   var x, y = 0;
   x = document.getElementById('etasje1');
   y = document.getElementById('etasje2');
@@ -1713,8 +1678,9 @@ function hoverNot() {   //Etasjene går tilbake til vanlig størelse hvis du ikk
   x.style.height = '100%';
 }
 
-function myFunction(x) {  //Forkorter tabelloverskrifter hvis skjrmen blir for liten
-  if (x.matches) { // If media query matches
+function myFunction(x) {
+	//Forkorter navnene til kolonnene hvis skjermen blir for liten
+  if (x.matches) { //Hvis media query matcher. Se hva x er lenger ned
     document.getElementById("romnummer").innerHTML = "Romnr.";
     document.getElementById("luftkvalitet").innerHTML = "Luftkval.";
   } else {
@@ -1723,12 +1689,471 @@ function myFunction(x) {  //Forkorter tabelloverskrifter hvis skjrmen blir for l
   }
 }
 
-var x = window.matchMedia("(max-width: 700px)");
-myFunction(x); // Call listener function at run time
-x.addListener(myFunction); // Attach listener function on state changes
-statusFarge2();
-luftStatus();
+var x = window.matchMedia("(max-width: 700px)");	//Finner ut av om skjermen er større eller mindre enn 700px
+myFunction(x); //Tilpasser navnene til kolonnene når nettsiden laster ned.
+x.addListener(myFunction); //Hvis skjermen endrer størelse, tilpasser siden seg.
+luftStatus(); //Sorterer etter beste ledige grupperom
+statusFarge(); //Endrer farge på alle grupperommene på kartet.
 
+```
+# Testkoder for pirsensoren
+
+## pirsensortest
+```C
+int ledPin = 13;                // choose the pin for the LED
+int inputPin = 2;               // choose the input pin (for PIR sensor)
+int pirState = LOW;             // we start, assuming no motion detected
+int val = 0;                    // variable for reading the pin status
+
+void setup() {
+  pinMode(ledPin, OUTPUT);      // declare LED as output
+  pinMode(inputPin, INPUT);     // declare sensor as input
+
+  Serial.begin(9600);
+}
+
+void loop(){
+  val = digitalRead(inputPin);  // read input value
+  if (val == HIGH) {            // check if the input is HIGH
+    digitalWrite(ledPin, HIGH);  // turn LED ON
+    if (pirState == LOW) {
+      // we have just turned on
+      Serial.println("Motion detected!");
+      // We only want to print on the output change, not state
+      pirState = HIGH;
+    }
+  } else {
+    digitalWrite(ledPin, LOW); // turn LED OFF
+    if (pirState == HIGH){
+      // we have just turned of
+      Serial.println("Motion ended!");
+      // We only want to print on the output change, not state
+      pirState = LOW;
+    }
+  }
+}
+```
+## knapptester
+
+```C
+int knapp = 6;
+int verdi = 0;
+
+
+void setup() {
+  pinMode(knapp,OUTPUT);
+  Serial.begin(9600);
+}
+
+void loop() {
+  while (digitalRead(knapp) != verdi) {
+    Serial.println(digitalRead(knapp));
+    verdi = digitalRead(knapp);
+    delay(100);
+
+  }
+
+}
+```
+
+## pir og knapp-tester
+
+```C
+ int led1 = 5;
+int led2 = 6;
+int sensor = 10;
+int buttonpin = 4;
+int buttonval = 0;
+int avlesning = 0;
+  //bestemmer variabler for pinene som blir brukt i programmet slik at de lett kan endres
+int timer = 4;				//setter hvor lang tid den vil sjekke om rommet er ledig før den bytter om til grønt lys
+int waittime = 10;        //setter hvor lang tid den vil holde grupperommet hvis knappen blir trykket inn
+void setup() {
+    pinMode(sensor, INPUT);       //Forteller mikrokontrollere at den skal få verdier fra "sensor"
+    pinMode(led1, OUTPUT);        //Forteller mikrokontrollere at den skal sende verdier fra "led1"
+    pinMode(led2, OUTPUT);				//Forteller mikrokontrollere at den skal sende verdier fra "led2"
+    pinMode(buttonpin, INPUT);			//orteller at den skal sende et signal i "buttonpin" dersom en knapp som er koblet til denne vil den gi et signal "HIGH"
+    Serial.begin(9600);         //Starter skjerm med hastighet 9600 slik at feilsøking vil bli enklere
+}
+
+void loop() {
+
+int buttonval = digitalRead(buttonpin);
+int val = digitalRead(sensor);			//Setter verdien "val" til den den leser fra "sensor" som er om det er noen i rommet(HIGH) eller ikke(LOW)
+if (buttonval == HIGH){ //dett vil aldri skje, må flytte den lengre opp
+    int avlesning = 1;
+    digitalWrite(led1, HIGH);				//skrur på "led1"
+    digitalWrite(led2, LOW);
+    Serial.println("på");
+    delay(5000);
+ }
+else if (buttonval == LOW) {				//dersom "val" er "HIGH", altså om det er noen i rommet
+  if(val == HIGH){
+  digitalWrite(led1, HIGH);				//skrur på "led1"
+  digitalWrite(led2, LOW);
+  Serial.println("1");			//printer "motion detected" slik at det blir enkelt å feilsøke
+  int avlesning = 1;
+  delay(20000);
+  }
+  }
+
+  else if (val == LOW) {				//dersom "val" er "LOW", altså om det ikke er noen i rommet kjører den koden under
+    int number;
+    for (number = 0; number < timer; number++) {	      //hvis den ike registerer at det er noen i rommet vil den sjekke i "timer" sekunder om det er noen i rommet
+      val = digitalRead(sensor);
+      if (val == HIGH) {
+        break;        //dersom det bli merket bevegelse stubber den for loopen
+      }
+       else {        //dersom den fortsatt ikke merker noe venter den i et sekund
+        delay(100);
+      }
+    }
+       if (number < timer) {       //hvis for-loopen har blitt brutt slik at "number" er ulik "timer" gjør den ingen ting og forsetter tilbake til starten
+
+    }
+       else {        //ellers hvis "number" er lik (eller større enn) timer vil bytte hvilken led som er på
+      int avlesning = 0;
+      Serial.println("0");		//printer "no motion detected" slik at det blir enkelt å feilsøke
+      digitalWrite(led1, LOW);				//skrur av "led1"
+      digitalWrite(led2, HIGH);	//skrur på "led2"
+      Serial.println(number);
+    }
+  }
+  else {
+  return;
+  }
+}
+```
+
+## wifitester
+
+```C
+#include <ESP8266WiFi.h>
+#include <WiFiUdp.h>
+
+const char* ssid = ""; //Navn på nettverket
+const char* password = ""; //Passord til nettverket
+
+WiFiUDP Udp;
+unsigned int localUdpPort = 4210;  // local port to listen on
+
+String romNummer = "111";
+String co2PPM = "0";
+String tempC = "0";
+String humidity = "0";
+String irSensor = "0";
+
+void setup()
+{
+  Serial.begin(115200);
+  Serial.println();
+
+  Serial.printf("Connecting to %s ", ssid);
+  WiFi.begin(ssid, password);
+  while (WiFi.status() != WL_CONNECTED)
+  {
+    delay(500);
+    Serial.print(".");
+  }
+  Serial.println(" connected");
+
+  Udp.begin(localUdpPort);
+  Serial.printf("Klar til å sende til %d\n", WiFi.localIP().toString().c_str(), localUdpPort);
+}
+
+
+void loop()
+{  
+    String informasjon = romNummer+','+co2PPM+','+tempC+','+ humidity+','+irSensor;
+    Udp.beginPacket(Udp.remoteIP(), Udp.remotePort());
+    Udp.write(informasjon);
+    Udp.endPacket();
+  }
+}
+```
+
+## Pirtester
+
+```C
+#include <ESP8266WiFi.h>
+#include <WiFiUdp.h>
+// Henter fra biblioteker
+
+const char* ssid ="AndroidAP";//Skriv inn nettverksnavn i anførselstegnene
+const char* password = "eesc5126";//Skriv inn passordnavn i anførselstegnene
+
+WiFiUDP Udp;
+unsigned int localUdpPort = 4210;  // local port to listen on
+char incomingPacket[255];  // buffer for incoming packets
+char  replyPacket[] = "Hi there! Got the message :-)";  // a reply string to send back
+
+const char * udpAddress = "192.168.43.17";//Skriv inn IP-adressen til mottakeren i anførselstegnene
+const int udpPort = 49194;//Skriv inn UDP-porten til mottakeren
+
+
+int sensor = 5; //PIR-sensoren sin inputpin____ Digital-5 = D2 pinen på ESP8266
+int buttonpin = 0;//Knappen sin inputpin____Analog 0
+  //bestemmer variabler for pinene som blir brukt i programmet slik at de lett kan endres
+
+
+
+int statuz = 0;
+
+
+int scantid = 100;   //Setter hvor lang tid den vil sjekke om rommet er ledig før den setter rommet som ledig
+int val = 0;              
+int i = 0;
+int bval = 0;
+int avlesning = 0;   //Avlesning er variabelen som bestemmer om et rom er ledig eller ikke. 0=ledig, 1=opptatt
+int dotid = 300;  //Tiden du får når du trykker inn doknappen.
+int led = 4;
+
+
+
+
+void setup()
+{
+  pinMode(sensor, INPUT);       //Forteller mikrokontrollere at den skal få verdier fra "sensor", setter pinen sensoren er koblet til i som input for å ta imot data
+  Serial.begin(9600);//Starter serialmonitoren for lett feilsøking
+  Serial.println();
+
+  Serial.printf("Connecting to %s ", ssid); //"connecting to internet"
+  WiFi.begin(ssid, password); //Kobler seg til nettet
+  while (WiFi.status() != WL_CONNECTED)//Denne while-loopen lager en "......." mens den kobler seg til nettet
+
+  {
+    delay(500);
+    Serial.print(".");
+  }
+  Serial.println(" connected"); //Når den har koblet seg på nettet sier den ifra
+
+  Udp.begin(localUdpPort);
+  Serial.printf("Now listening at IP %s, UDP port %d\n", WiFi.localIP().toString().c_str(), localUdpPort);
+}
+
+
+void loop()
+{
+  int bval = analogRead(buttonpin); //Lager en verdi bval ut av inputen til knappen
+  int val = digitalRead(sensor); //Lager en verdi bval ut av inputen til PIR-sensoren
+  if (bval > 200){ //Hvis knappen er trykt in vil den analoge verdien være over 200 og if-loopen starter
+   Serial.println("bval");
+    int avlesning = 1; //avlesningsvariabelen blir 1 noe som indikerer at den er opptatt
+   int irSensor = avlesning; //setter irSensor variabelen lik avlesning.
+   Udp.beginPacket(udpAddress, udpPort); //Start å skrive en UDP-pakke som skal sendes.
+   Udp.write("irSensor:"); //Gi UDP-pakken et navn så det er enkelt å skille pakkene.
+   Udp.print(irSensor); //Gir UDP-pakken en verdi som viser om det er ledig eller opptatt
+   Udp.endPacket(); //Avslutt UDP-sendinga
+   delay(dotid);//Doknappen er stilt inn på en tid, bestemt i variablene. Den er foreløpig 300000ms=5min
+  }
+
+        //Seitter verdien "val" til den den leser fra "sensor" som er om det er noen i rommet(HIGH) eller ikke(LOW)
+else {
+if(val == HIGH){
+    for (i = 0; i < 50; i++){ //ser sensoren noe vil den si ifra at det er noen der i
+        int avlesning = 1;
+        Serial.println("1");
+        int irSensor = avlesning;
+        Udp.beginPacket(udpAddress, udpPort);// forbreder udp til å sende en packet
+        Udp.write("irSensor:"); // skriver et som er inne i ""
+        Udp.print(irSensor);  //sender verdien som heter irSensor
+        Udp.endPacket(); // avslutter pakken
+        delay(10); // setter inn et lite delay
+
+      }
+    }
+
+
+
+else if (val == LOW) {        //dersom "val" er "LOW", altså om det ikke er noen i rommet kjører den koden under
+    int x;
+    for (x = 0; x < scantid; x++) {        //hvis den ike registerer at det er noen i rommet vil den sjekke i "sacntid" sekunder om det er noen i rommet
+      int val = digitalRead(sensor); // variabel som heter val, verdi = info som blir henta far pir sensor
+      if (val == HIGH) { // lager en if løkke som ser etter info fra pir esnsoren
+      break;        //dersom det bli merket bevegelse stubber den for loopen
+      }
+      else {        //dersom den fortsatt ikke merker noe venter den i et sekun
+        ;
+        delay(1);
+       }
+       }
+       if (x < scantid) {       //hvis for-loopen har blitt brutt slik at "number" er ulik "scantid" gjør den ingen ting og forsetter tilbake til starten
+       }
+       else {        //ellers hvis "number" er lik (eller større enn) scantid vil bytte hvilken led som er på
+      int avlesning = 0;
+      int irSensor = avlesning;
+      Serial.println(irSensor);    //printer "no motion detected" slik at det blir enkelt å feilsøke
+
+    }
+  }
+}
+  int romNummer = 216;  // variabel med navn romNummer som har verdi 216 (dette er eksempel på en verdi)
+  int co2PPM = 369;  // variabel med navn co2PPM som har verdi 369 (dette er eksempel på en verdi)
+  int tempC = 223; // variabel med navn tempC som har verdi 223 (dette er eksempel på en verdi)
+  int humidity = 79;  // variabel  med navn humidity som har verdi 79 (dette er eksempel på en verdi)
+  int irSensor = val; // variabel med navn irSensor som har verdi = val
+  int packetSize = Udp.parsePacket(); // lager en verdi med navnet packetSize
+    // receive incoming UDP packets
+    delay(100);
+
+    Udp.beginPacket(udpAddress, udpPort); // forbreder udp til å sende en packet
+    Udp.print(romNummer);  //sender verdien som heter romNummer (samme under)
+    Udp.write(":"); // skriver et som er inne i "" (samme under)
+    Udp.print(co2PPM);
+    Udp.write(":");
+    Udp.print(tempC);
+    Udp.write(":");
+    Udp.print(humidity);
+    Udp.write(":");
+    Udp.print(irSensor);
+    Udp.write(":");
+    Udp.endPacket(); // avslutter pakken
+    delay(100); // putter in delayer mellom hver packet for at den ikke skal hope seg opp
+    Serial.println(irSensor); // printer verdien til monitoren for å feilteste
+
+
+}
+```
+## Pir kode (den vi bruker)
+```C
+#include <ESP8266WiFi.h>
+#include <WiFiUdp.h>
+// Henter fra biblioteker
+
+const char* ssid ="AndroidAP";//Skriv inn nettverksnavn i anførselstegnene, slik at arduinoen vet hvilket nettverk den skal koble seg på.
+const char* password = "eesc5126";//Skriv inn passordnavn i anførselstegnene, slik at arduinoen vet passordet på nettet, sånn at den kan logge seg på nettet.
+
+WiFiUDP Udp;
+unsigned int localUdpPort = 4210;  // Lokal UDP-port, arduinoen skal høre på
+char incomingPacket[255];   // Sjekker inkommende pakker
+char  replyPacket[] = "Hi there! Got the message :-)";  // Sender et svar tilbake om den finner noe
+
+const char * udpAddress = "192.168.43.17";//Skriv inn IP-adressen til mottakeren i anførselstegnene,  sånn at arduinoen vet hvor den skal sende pakkene.
+const int udpPort = 49194;//Skriv inn UDP-porten til mottakeren, sånn at arduinoen vet på hvilken "kanal" den skal sende pakkene
+
+
+int sensor = 5; //PIR-sensoren sin inputpin____ Digital-5 = D2 pinen på ESP8266
+int buttonpin = 0;//Knappen sin inputpin____Analog 0
+  //bestemmer variabler for pinene som blir brukt i programmet slik at de lett kan endres
+
+//variabler
+int scantid = 100;   //Setter hvor lang tid den vil sjekke om rommet er ledig før den setter rommet som ledig
+int val = 0;              
+int i = 0;
+int bval = 0;
+int avlesning = 0;   //Avlesning er variabelen som bestemmer om et rom er ledig eller ikke. 0=ledig, 1=opptatt
+int dotid = 300;  //Tiden du får når du trykker inn doknappen.
+int led = 4;
+//variabler
+
+
+
+
+void setup()
+{
+  pinMode(sensor, INPUT);       //Forteller mikrokontrollere at den skal få verdier fra "sensor", setter pinen sensoren er koblet til i som input for å ta imot data
+  pinMode(led, OUTPUT);
+  Serial.begin(9600);//Starter serialmonitoren for lett feilsøking
+  Serial.println();
+
+  Serial.printf("Connecting to %s ", ssid); //"connecting to internet"
+  WiFi.begin(ssid, password); //Kobler seg til nettet
+  while (WiFi.status() != WL_CONNECTED)//Denne while-loopen lager en "......." mens den kobler seg til nettet
+
+  {
+    delay(500);
+    Serial.print(".");
+  }
+  Serial.println(" connected"); //Når den har koblet seg på nettet sier den ifra
+
+  Udp.begin(localUdpPort);  //Starter opp UDP-senderen så den kan sende pakker senere.
+  Serial.printf("Now listening at IP %s, UDP port %d\n", WiFi.localIP().toString().c_str(), localUdpPort);
+}
+
+
+void loop()
+{
+  int bval = analogRead(buttonpin); //Lager en verdi bval ut av inputen til knappen
+  int val = digitalRead(sensor); //Lager en verdi bval ut av inputen til PIR-sensoren
+
+  if (bval > 200){ //Hvis knappen er trykt in vil den analoge verdien være over 200 og if-loopen starter
+    digitalWrite(led, HIGH);
+  Serial.println("bval"); //Printer bval for lett feilsøking, og kontroll over hva som skjer i koden via serialmonitoren.
+   int avlesning = 1; //avlesningsvariabelen blir 1 noe som indikerer at den er opptatt
+   int irSensor = avlesning; //setter irSensor variabelen lik avlesning.
+   Udp.beginPacket(udpAddress, udpPort); //Start å skrive en UDP-pakke som skal sendes.
+   Udp.write("irSensor:"); //Gi UDP-pakken et navn så det er enkelt å skille pakkene.
+   Udp.print(irSensor); //Gir UDP-pakken en verdi som viser om det er ledig eller opptatt
+   Udp.endPacket(); //Avslutt UDP-sendinga
+   delay(dotid);//Doknappen er stilt inn på en tid, bestemt i variablene. Den er foreløpig 300000ms=5min
+  }
+
+        //Seitter verdien "val" til den den leser fra "sensor" som er om det er noen i rommet(HIGH) eller ikke(LOW)
+else {  //Knappen er ikke trykt inn, bval<200
+  if(val == HIGH){ //Om PIR-sensoren ser bevegelse vil den gå videre på en for-løkke her.
+    for (i = 0; i < 200; i++){  //Starter en for løkke som hele tiden sjekker om noen skal trykke på doknappen, og om noen gjør det brytes den med en gang og starter direkte på linje 58.
+        Serial.println("1");
+        int avlesning = 1;
+        int irSensor = avlesning;
+        Udp.beginPacket(udpAddress, udpPort);// forbreder udp til å sende en packet
+        Udp.write("irSensor:"); // skriver et som er inne i ""
+        Udp.print(irSensor);  //sender verdien som heter irSensor
+        Udp.endPacket(); // avslutter pakken
+        if (bval > 200){ //Hvis knappen er trykt inn;
+          break; //Bryt denne for-løkka og start rett på linje 58, slik at man slipper å vente så lenge mens man holder inne knappen
+        }
+        else { //Hvis knappen ikke er trykt inn;
+        delay(10); //Vent 10ms og fortsett med for.løkka.
+        }
+      }
+    }
+
+
+
+else if (val == LOW) {        //dersom "val" er "LOW", altså om det ikke er noen i rommet kjører den koden under
+    int x;
+    for (x = 0; x < scantid; x++) {        //hvis den ike registerer at det er noen i rommet vil den sjekke i "timer" sekunder om det er noen i rommet
+      int val = digitalRead(sensor); // variabel som heter val, verdi = info som blir henta far pir sensor
+      if (val == HIGH) { // lager en if løkke som ser etter info fra pir esnsoren
+      break;        //dersom det bli merket bevegelse stubber den for loopen
+      }
+      else {        //dersom den fortsatt ikke merker noe venter den i et sekun
+        ;
+        delay(1);
+       }
+       }
+       if (x < scantid) {       //hvis for-loopen har blitt brutt slik at "number" er ulik "timer" gjør den ingen ting og forsetter tilbake til starten
+       }
+       else {        //ellers hvis "number" er lik (eller større enn) timer vil bytte hvilken led som er på
+      int avlesning = 0;
+      Serial.println("0");    //printer "no motion detected" slik at det blir enkelt å feilsøke
+
+    }
+  }
+}
+  int romNummer = 216;  // variabel med navn romNummer som har verdi 216 (dette er eksempel på en verdi)
+  int co2PPM = 369;  // variabel med navn co2PPM som har verdi 369 (dette er eksempel på en verdi)
+  int tempC = 223; // variabel med navn tempC som har verdi 223 (dette er eksempel på en verdi)
+  int humidity = 79;  // variabel  med navn humidity som har verdi 79 (dette er eksempel på en verdi)
+  int irSensor = val; // variabel med navn irSensor som har verdi = val
+  int packetSize = Udp.parsePacket(); // lager en verdi med navnet packetSize
+    // receive incoming UDP packets
+    delay(100);
+    Udp.beginPacket(udpAddress, udpPort); // forbreder udp til å sende en packet
+    Udp.print(romNummer);  //sender verdien som heter romNummer (samme under)
+    Udp.write(":"); // skriver et som er inne i "" (samme under)
+    Udp.print(co2PPM);
+    Udp.write(":");
+    Udp.print(tempC);
+    Udp.write(":");
+    Udp.print(humidity);
+    Udp.write(":");
+    Udp.print(irSensor);
+    Udp.write(":");
+    Udp.endPacket(); // avslutter pakken
+    delay(100); // putter in delayer mellom hver packet for at den ikke skal hope seg opp
+    Serial.println(irSensor); // printer verdien til monitoren for å feilteste
+}
 ```
 
 # Kilder

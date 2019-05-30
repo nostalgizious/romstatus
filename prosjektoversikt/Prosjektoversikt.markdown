@@ -84,9 +84,6 @@
 - [Oppdatere luftkvalitet:](#oppdatere-luftkvalitet)
 		- [grupperomOversikt.html](#grupperomoversikthtml)
 		- [oversiktGrupperom.css](#oversiktgrupperomcss)
-- [Vrimle {](#vrimle-)
-- [Vrimle>p {](#vrimlep-)
-- [easteregg1 {](#easteregg1-)
 		- [grupperomOversikt.js](#grupperomoversiktjs)
 - [Kilder](#kilder)
 

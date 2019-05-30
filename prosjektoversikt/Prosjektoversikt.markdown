@@ -109,7 +109,7 @@ Ut av prosjektet sitter vi tilsammen igjen med en sammensetning av kunnskap om 3
 
 Mål for opplæringen er at eleven skal kunne
 
-- **planlegge og bygge en konstruksjon som er fast eller bevegelig, og som har en definert funksjon (høy, konstruere en innretning som skal festes til hvert grupperom for å måle luftkvalitet og bevegelse i romme)**
+- **planlegge og bygge en konstruksjon som er fast eller bevegelig, og som har en definert funksjon (høy, konstruere en innretning som skal festes til hvert grupperom for å måle luftkvalitet og bevegelse i rommet)**
 - **bruke tredimensjonale tegninger eller skisser i utvikling av konstruksjoner (høy, bruker 3d verktøy til å lage coveret til arduino brettet og til PIR sensoren)**
 - bruke forskjellige materialer og former for sammenføyninger og begrunne valg av materialer og byggemåte ut fra materialenes egenskaper og konstruksjonens funksjon
 - **bruke sensorer og styringssystemer i forbindelse med forsøk og konstruksjoner (høy, bruker PIR sensorer og CO2 målere til å loggføre forskjellige verdier i grupperommene)**
@@ -119,7 +119,7 @@ Mål for opplæringen er at eleven skal kunne
 
 Mål for opplæringen er at eleven skal kunne
 
-- **gjøre rede for hvordan et naturvitenskapelig prosjekt planlegges, gjennomføres og etterarbeides før det blir publisert (Jobba med alt dette under dette prosjektet, og skrev en grundige forklaringer i rapporten)**
+- **gjøre rede for hvordan et naturvitenskapelig prosjekt planlegges, gjennomføres og etterarbeides før det blir publisert (Jobbet med alt dette under dette prosjektet, og skrevet grundige forklaringer i rapporten)**
 - **planlegge, gjennomføre, analysere og dokumentere systematiske målinger om støy, luftforurensning, inneklima og vannkvalitet, og drøfte virkninger på helse og miljø (høy, dokumentere hva vi gjør hver uke i loggen og en del er prosjektet er å måle luftkvaliteten)**
 
 ### Teknologi, naturvitenskap og samfunn
@@ -128,7 +128,7 @@ Mål for opplæringen er at eleven skal kunne
 
 - drøfte etiske, miljømessige, kulturelle og politiske sider ved teknologisk utvikling
 - **beskrive den historiske utviklingen av en teknologisk innretning, forklare virkemåten og drøfte anvendelser i samfunnet (middels, drøfter anvendelse av produktet og hvordan det vill hjelpe skolen, men snakker ikke om utviklingen)**
-- **gjøre rede for utvikling og produksjon av et teknologisk produkt og vurdere produktets brukervennlighet, utviklingsmuligheter og miljøpåvirkning (høy, vurdere Brukervennligheten og utviklingsmuligheter i senere rapporten)**
+- **gjøre rede for utvikling og produksjon av et teknologisk produkt og vurdere produktets brukervennlighet, utviklingsmuligheter og miljøpåvirkning (høy, vurderer Brukervennligheten og utviklingsmuligheter i rapporten)**
 - beskrive prinsipper og virkemåte for noen moderne instrumenter i industri, helsevesen eller forskning, og gjøre rede for nytten og eventuelle skadevirkninger
 - kartlegge og presentere praktisk bruk av realfag i en lokal bedrift eller institusjon
 
@@ -139,7 +139,7 @@ Mål for opplæringen er at eleven skal kunne
 - **gjøre rede for funksjonen til vanlige komponenter i elektroniske kretser, og gjenkjenne komponentene i en krets (høy, gjør rede for hvordan de forskjellige komponentenen vi bruker fungerer og hvordan man lager en krets for et de skal fungere i rapporten)**
 - **lage elektroniske kretser ved å lodde komponenter og simulere og teste kretsene (høy, har loddet en arduino, lodda også på et lykkehjul som en øvelse)**
 - **forme og utvikle produkter som har en definert funksjon og inneholder elektronikk (høy,lager et produkt som merker bevegelse og registrere luftkvalitet, det gjør vi med elektriske komponenter)**
-- **dokumentere og presentere designprosesser fra idé til ferdig produkt (høy, dokumentere hvordan produktet fungere og arbeidsmetoden i rapporten)**
+- **dokumentere og presentere designprosesser fra idé til ferdig produkt (høy, dokumenterer hvordan produktet fungerer og arbeidsmetoden i rapporten)**
 - begrunne valg av materialer i produkter og vurdere produktenes form og funksjon, miljømessige konsekvenser, estetikk og forbedringsmuligheter
 - **utføre målinger med eller teste et eget produkt, og vurdere kvaliteten på produktet med tanke på funksjonalitet (høy, tester og gjør forskjellige målinger av produktet for å finne ut av hva vi kan forbedre og hvordan alle komponentene virker)**
 
@@ -149,7 +149,7 @@ Mål for opplæringen er at eleven skal kunne
 
 ## Hvordan en NDIR CO~2~ sensor fungerer
 
-Alle molekyler har sitt unike absorpsjonsspekter, hvor enkelte bølgelengder blir absorbert og skutt ut i alle retninger. Når molekylet tar imot en bestemt bølgelengde vil elektronene flytte seg til et annet energinivå. Når de går tilbake skytes et foton med den samme bølgelengden ut i en tilfeldig retning. CO2 kan ta imot og sende ut bølgelengder på 4.26 µm, 2.7 µm og 13 µm fra det infrarøde spekteret. NDIR sin CO2 sensor bruker en liten IR-lampe med bølgelengde på rundt 4,2 µm som lyser gjennom et rør med lufta i rommet. CO2-molekylene absorberer da bølgelengdene på 4.26 µm, mens de andre bølgelengdene går videre. I enden av røret er den et optisk filter som tar opp alle fotonene. Bak der er det en IR-detektor som ser alle punktene hvor bølgelengder på 4.26 µm ikke har truffet. Mengden CO2 molekyler er proporsjonal med antall “hull” det er eller antall fotoner som ikke kom videre. objekter<sup>4</sup>
+Alle molekyler har sitt unike absorpsjonsspekter, hvor enkelte bølgelengder blir absorbert og skutt ut i alle retninger. Når molekylet tar imot en bestemt bølgelengde vil elektronene flytte seg til et annet energinivå. Når de går tilbake skytes et foton med den samme bølgelengden ut i en tilfeldig retning. CO2 kan ta imot og sende ut bølgelengder på 4.26 µm, 2.7 µm og 13 µm fra det infrarøde spekteret. NDIR sin CO2 sensor bruker en liten IR-lampe med bølgelengde på rundt 4,2 µm som lyser gjennom et rør med lufta i rommet. CO2-molekylene absorberer da bølgelengdene på 4.26 µm, mens de andre bølgelengdene går videre. I enden av røret er den et optisk filter som tar opp alle fotonene. Bak der er det en IR-detektor som ser alle punktene hvor bølgelengder på 4.26 µm ikke har truffet. Mengden CO2 molekyler er proporsjonal med antall “hull” det er eller antall fotoner som ikke kom videre. <sup>4</sup>
 
 ## Hvordan en PIR sensor fungerer
 
@@ -161,11 +161,7 @@ Her er en tegning av hvordan man kobler til en PIR sensor (spenningen til den ko
 
 ![img](vedlegg/pirsensorbilde2.png)
 
-PIR sensorer har to forskjellige potmetere under. Den ene kontrollerer rekkevidden på sensoren fra 3 til 7 meter mens den andre kontrollerer hvor stor ventetiden er til den neste avlesningen starter, mellom 0.3 sekunder til 5 min. Det stikker også ut 3 forskjellige pins på baksiden med en jumper som forbinder 2 av dem. dette gjør som et det blir 2 forskjellige innstillinger. Den ene heter "non-repeatable trigger" og gjør at når verdien er “high” og ventetiden er over vil den automatisk sette verdien til “LOW” og søke etter bevegelse igjen. Den andre heter“repeatable trigger”og holder verdien på “HIGH” helt til den merker en forandring. objekter<sup>2</sup>
-
-![img](vedlegg/pirsensor.fzz)
-![img](vedlegg/pirsensor.fzz)
-over kan du se hvordan vi kobla til pirsensoren for produktet vårt.
+PIR sensorer har to forskjellige potmetere under. Den ene kontrollerer rekkevidden på sensoren fra 3 til 7 meter mens den andre kontrollerer hvor stor ventetiden er til den neste avlesningen starter, mellom 0.3 sekunder til 5 min. Det stikker også ut 3 forskjellige pins på baksiden med en jumper som forbinder 2 av dem. dette gjør som et det blir 2 forskjellige innstillinger. Den ene heter "non-repeatable trigger" og gjør at når verdien er “high” og ventetiden er over vil den automatisk sette verdien til “LOW” og søke etter bevegelse igjen. Den andre heter“repeatable trigger”og holder verdien på “HIGH” helt til den merker en forandring<sup>2</sup>.
 
 ## Litt info om Node esp8266en
 
@@ -185,10 +181,17 @@ Her kan du se forskjellen på pinnene mellom esp8266 en og en arduino.
 # Fremgangsmåte
 
 - Last ned Arduino IDE og åpne dens Plugin i skriverbordsmenyen øverst på skjermen.
-- Last ned CH340G -driveren med linken: https://github.com/adrianmihalko/ch340g-ch34g-ch34x-mac-os-x-driver
-- Følg bruksanvisningen på denne linken:  https://github.com/esp8266/Arduino#installing-with-boards-manager, for å laste ned riktige drivere i arduino IDE og sette opp Boards Manager riktig.
+- Last ned CH340G -driveren med linken: [https://github.com/adrianmihalko/ch340g-ch34g-ch34x-mac-os-x-driver](https://github.com/adrianmihalko/ch340g-ch34g-ch34x-mac-os-x-driver)
+- Følg bruksanvisningen på denne linken:  [https://github.com/esp8266/Arduino#installing-with-boards-manager](https://github.com/esp8266/Arduino#installing-with-boards-manager), for å laste ned riktige drivere i arduino IDE og sette opp Boards Manager riktig.
 - Sett opp ESP8266en, PIR-sensoren og de andre komponentene slik du ser på Fritzingtegningen vedlagt.
 - Last ned koden vår, og følg instruksene skrevet inn i koden, mens du fyller ut i de feltene du trenger slik vi har beskrevet.
+- For å hoste en lokal server på mac:
+	- lag en mappe under /Users/dittNavn kalt 'Sites'
+	- Flytt prosjektet inn under denne mappen
+	- åpne terminalen og gå til Library
+	- skriv sudo nano /etc/apache2/httpd.conf for å redigere httpd.conf
+	- finn DocumentRoot og Directory, og endre /Library/WebServer/Documents til /Users/dittNavn/Sites/index.php
+	- hvis du nå skriver sudo apachctl start, skal du ha serveren klar med din nettside
 
 
 # Original tidsplan
@@ -442,14 +445,6 @@ Vi har lært blant annet:
 Minst like viktig er også erfaringen med å jobbe under press, følge en plan og bli ferdig innen en (litt løst satt) frist.
 Vi fant også ut at det er lurt å skrive gjevnlig på rapporten underveis
 
-## Fjerne alt unner denne overskriften?
-- **Vi valgte å lage et produkt som kunne sjekke om grupperommene på skolen er ledige eller opptatte, og sende disse informasjonene til en sentral over nettet og føre dette opp på en nettside/TV-skjerm
-- **Vi satt oss i varabel grad inn i Github og git-systemet, noe som kunne gjort samarbeidet om kode og 3D-tegninger lettere.
-- **Vi  møtte på mange problemer hvor noen av dem krevde veldig mye mer tid på å bli fikset enn ventet.
-- **Vi har lært oss å kode med flere forskjellige språk, som SQL, HTML, Javascript, C++ og Python.
-- **Vi har lært oss flere praktiske ferdigheter som lodding, oppsett av komponetene på en arduino, 3D-printing og demontering av CO2 målere.
-- **Målene vi satte oss på starten av året var litt store, og vi slet litt på slutten med å bli ferdig, og vi ble nesten helt ferdige. Vi hadde det fortsatt gøy, og om vi hadde hatt et par vurderingsfrie uker til, kunne vi nok kommet i mål.
-- **Vi utvidet målene i løpet av de første ukene med flere ting vi tenkte kunne være mulig og praktisk, men som ikke originalt var en del av planen. Dette rakk vi ikke å gjennomføre, men burde gjøres for at prosjektet oppnår sitt fulle potensiale.
 
 # Vedlegg
 

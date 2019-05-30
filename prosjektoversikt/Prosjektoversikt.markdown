@@ -149,7 +149,7 @@ Mål for opplæringen er at eleven skal kunne
 
 ## Hvordan en NDIR CO~2~ sensor fungerer
 
-Alle molekyler har sitt unike absorpsjonsspekter, hvor enkelte bølgelengder blir absorbert og skutt ut i alle retninger. Når molekylet tar imot en bestemt bølgelengde vil elektronene flytte seg til et annet energinivå. Når de går tilbake skytes et foton med den samme bølgelengden ut i en tilfeldig retning. CO2 kan ta imot og sende ut bølgelengder på 4.26 µm, 2.7 µm og 13 µm fra det infrarøde spekteret. NDIR sin CO2 sensor bruker en liten IR-lampe med bølgelengde på rundt 4,2 µm som lyser gjennom et rør med lufta i rommet. CO2-molekylene absorberer da bølgelengdene på 4.26 µm, mens de andre bølgelengdene går videre. I enden av røret er den et optisk filter som tar opp alle fotonene. Bak der er det en IR-detektor som ser alle punktene hvor bølgelengder på 4.26 µm ikke har truffet. Mengden CO2 molekyler er proporsjonal med antall “hull” det er eller antall fotoner som ikke kom videre. <sup>4</sup>
+Alle molekyler har sitt unike absorpsjonsspekter, hvor enkelte bølgelengder blir absorbert og skutt ut i alle retninger. Når molekylet tar imot en bestemt bølgelengde vil elektronene flytte seg til et annet energinivå. Når de går tilbake skytes et foton med den samme bølgelengden ut i en tilfeldig retning. CO2 kan ta imot og sende ut bølgelengder på 4.26 µm, 2.7 µm og 13 µm fra det infrarøde spekteret. NDIR sin CO2 sensor bruker en liten IR-lampe med bølgelengde på rundt 4,2 µm som lyser gjennom et rør med lufta i rommet. CO2-molekylene absorberer da bølgelengdene på 4.26 µm, mens de andre bølgelengdene går videre. I enden av røret er den et optisk filter som tar opp alle fotonene. Bak der er det en IR-detektor som ser alle punktene hvor bølgelengder på 4.26 µm ikke har truffet. Mengden CO2 molekyler er proporsjonal med antall “hull” det er eller antall fotoner som ikke kom videre. <sup>3</sup>
 
 ## Hvordan en PIR sensor fungerer
 
@@ -2213,7 +2213,6 @@ else if (val == LOW) {        //dersom "val" er "LOW", altså om det ikke er noe
 ```
 
 # Kilder
-<sup>1</sup> enellerannenkilde.com
-<sup>2</sup> https://howtomechatronics.com/tutorials/arduino/how-pir-sensor-works-and-how-to-use-it-with-arduino/
-<sup>3</sup> https://en.wikipedia.org/wiki/NodeMCU
-<sup>4</sup> https://en.wikipedia.org/wiki/Carbon_dioxide_sensor
+<sup>1</sup> https://howtomechatronics.com/tutorials/arduino/how-pir-sensor-works-and-how-to-use-it-with-arduino/
+<sup>2</sup> https://en.wikipedia.org/wiki/NodeMCU
+<sup>3</sup> https://en.wikipedia.org/wiki/Carbon_dioxide_sensor

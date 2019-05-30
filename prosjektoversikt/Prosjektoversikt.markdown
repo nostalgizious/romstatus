@@ -163,7 +163,7 @@ Her er en tegning av hvordan man kobler til en PIR sensor (spenningen til den ko
 
 PIR sensorer har to forskjellige potmetere under. Den ene kontrollerer rekkevidden på sensoren fra 3 til 7 meter mens den andre kontrollerer hvor stor ventetiden er til den neste avlesningen starter, mellom 0.3 sekunder til 5 min. Det stikker også ut 3 forskjellige pins på baksiden med en jumper som forbinder 2 av dem. dette gjør som et det blir 2 forskjellige innstillinger. Den ene heter "non-repeatable trigger" og gjør at når verdien er “high” og ventetiden er over vil den automatisk sette verdien til “LOW” og søke etter bevegelse igjen. Den andre heter“repeatable trigger”og holder verdien på “HIGH” helt til den merker en forandring<sup>1</sup>.
 
-![bilde av fritzing-tegning](pirSensorFritz.png)
+![pirSensorFritz](pirSensorFritz.png)
 over kan du se hvordan vi kobla til pirsensoren for produktet vårt.
 
 ## Litt info om Node esp8266en

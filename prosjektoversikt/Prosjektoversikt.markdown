@@ -421,6 +421,7 @@ Vi har lært blant annet:
 - Hvordan samtlige sensorer funker
 
 Minst like viktig er også erfaringen med å jobbe under press, følge en plan og bli ferdig innen en (litt løst satt) frist.
+Vi fant også ut at det er lurt å skrive gjevnlig på rapporten underveis
 
 ## Fjerne alt unner denne overskriften?
 - **Vi valgte å lage et produkt som kunne sjekke om grupperommene på skolen er ledige eller opptatte, og sende disse informasjonene til en sentral over nettet og føre dette opp på en nettside/TV-skjerm

@@ -396,23 +396,24 @@ PIR sensorer har to forskjellige potmetere under. Den ene kontrollerer rekkevidd
 - Senere brukte vi en UDP-sender i koden og programmet Packet-Sender til å ta imot pakkene.
 - Først fikk vi bare sendt UDP-pakker fra ESP8266en til MACen den var koblet til, men senere kunne vi sende UDP-pakker til andre MACer helt trådløst.
 
-# Refleksjoner
-
 ## Anbefalinger
 
 - Forhåndssjekk hvilke drivere og programmer du trenger, og hvilke problemer du kommer til å møte før du planlegger.
 - Ikke planlegg for mye hver uke i lang tid forover, fordi problemer kan stoppe opp progresjonen noe som kan gjøre at det ikke er så lett å bli ferdig.
 - Hvis man skal bruke noe annet enn adruino bør man søke opp problemer og løsninger på dette produktet, ettersom det finnes mange inkompatibilitetsproblemer med mange av dem og mange krever andre drivere. Det er også viktig at man sjekker hovedspennigna i mikrochipen du skal bruke for å sjekke om den kan drive flere av arduinos komponenter som krever 5V.
 
-## Konklusjon
+# Konklusjon
 
-- Vi valgte å lage et produkt som kunne sjekke om grupperommene på skolen er ledige eller opptatte, og sende disse informasjonene til en sentral over nettet og føre dette opp på en nettside/TV-skjerm
-- Vi satt oss i varabel grad inn i Github og git-systemet, noe som kunne gjort samarbeidet om kode og 3D-tegninger lettere.
-- Vi  møtte på mange problemer hvor noen av dem krevde veldig mye mer tid på å bli fikset enn ventet.
-- Vi har lært oss å kode med flere forskjellige språk, som SQL, HTML, Javascript, C++ og Python.
-- Vi har lært oss flere praktiske ferdigheter som lodding, oppsett av komponetene på en arduino, 3D-printing og demontering av CO2 målere.
-- Målene vi satte oss på starten av året var litt store, og vi slet litt på slutten med å bli ferdig, og vi ble nesten helt ferdige. Vi hadde det fortsatt gøy, og om vi hadde hatt et par vurderingsfrie uker til, kunne vi nok kommet i mål.
-- Vi utvidet målene i løpet av de første ukene med flere ting vi tenkte kunne være mulig og praktisk, men som ikke originalt var en del av planen. Dette rakk vi ikke å gjennomføre, men burde gjøres for at prosjektet oppnår sitt fulle potensiale.
+- Vi satte oss noen store mål med dette prosjektet. Ingen før oss hadde noen gang blitt ferdig med det. Derfor har vi hatt litt lite tid, og de siste ukene har vært litt stressende. Likevel er vi glade for at vi tok på oss utfordringen. De siste månedene har vært utrolig lærerike og spennende. Minst like viktig er også erfaringen med å jobbe under press, følge en plan og bli ferdig innen en (litt løst satt) frist.
+
+## Fjerne alt unner denne overskriften?
+- **Vi valgte å lage et produkt som kunne sjekke om grupperommene på skolen er ledige eller opptatte, og sende disse informasjonene til en sentral over nettet og føre dette opp på en nettside/TV-skjerm
+- **Vi satt oss i varabel grad inn i Github og git-systemet, noe som kunne gjort samarbeidet om kode og 3D-tegninger lettere.
+- **Vi  møtte på mange problemer hvor noen av dem krevde veldig mye mer tid på å bli fikset enn ventet.
+- **Vi har lært oss å kode med flere forskjellige språk, som SQL, HTML, Javascript, C++ og Python.
+- **Vi har lært oss flere praktiske ferdigheter som lodding, oppsett av komponetene på en arduino, 3D-printing og demontering av CO2 målere.
+- **Målene vi satte oss på starten av året var litt store, og vi slet litt på slutten med å bli ferdig, og vi ble nesten helt ferdige. Vi hadde det fortsatt gøy, og om vi hadde hatt et par vurderingsfrie uker til, kunne vi nok kommet i mål.
+- **Vi utvidet målene i løpet av de første ukene med flere ting vi tenkte kunne være mulig og praktisk, men som ikke originalt var en del av planen. Dette rakk vi ikke å gjennomføre, men burde gjøres for at prosjektet oppnår sitt fulle potensiale.
 
 # Vedlegg
 

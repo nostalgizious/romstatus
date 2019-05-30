@@ -1,4 +1,6 @@
-/*function() {
+/*
+Easteregg vi velger å kommentere vekk. Funker ikke for øyeblikket.
+function() {
   "use strict";
   // Some key codes that are used
   var up = 38,
@@ -92,17 +94,19 @@
 
 // Bla mellom sidene
 function side(n) {
+  //Finner elementer
   var a, b, c, d = 0;
   a = document.getElementById("Oversikt");
   b = document.getElementById("kart")
   c = document.getElementById("trengerHjelp");
   d = document.getElementById("omP");
   if (n == 1) {
-    a.style.display = "block";
+    //Gjemmer/viser dem 
+    a.style.display = "block";  
     b.style.display = "none";
     c.style.display = "none";
     d.style.display = "none";
-
+    //Endrer stilen til elementene i menyen avhengig om de er aktive eller ikke
     document.getElementById("over").className = "active";
     document.getElementById("kartm").className = "inactive";
     document.getElementById("hjelp").className = "inactive";
@@ -138,53 +142,50 @@ function side(n) {
 }
 
 // Sorter tabellen
+/*
+Sorterer først oppover. Hvis den har sortert gjennom hele uten at noe er blitt forandret, sorterer den nedover.
+
+*/
 function sortTable(n) {
   var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
   table = document.getElementById("myTable");
   switching = true;
-  // Set the sorting direction to ascending:
+  // Setter retning oppover:
   dir = "asc";
-  /* Make a loop that will continue until
-  no switching has been done: */
+  
   while (switching) {
-    // Start by saying: no switching is done:
+    //Starter med å si at ingen bytting har blitt gjort:
     switching = false;
     rows = table.rows;
-    /* Loop through all table rows (except the
-    first, which contains table headers): */
+    /*Looper gjennom alle radene utenom den øverste: */
     for (i = 1; i < (rows.length - 1); i++) {
-      // Start by saying there should be no switching:
+      //Antar at det ikke burde byttes:
       shouldSwitch = false;
-      /* Get the two elements you want to compare,
-      one from current row and one from the next: */
+      /* Finner to elementer, den ene fra raden over den andre */
       x = rows[i].getElementsByTagName("TD")[n];
       y = rows[i + 1].getElementsByTagName("TD")[n];
-      /* Check if the two rows should switch place,
-      based on the direction, asc or desc: */
+      /* Sjekker om de burde bytte plass avhengig av retning */
       if (dir == "asc") {
         if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
-          // If so, mark as a switch and break the loop:
+          // Hvis retningen er oppover, og den over er mindre enn den under, burde de bytte
           shouldSwitch = true;
-          break;
+          break; //avbryter for-loopen
         }
       } else if (dir == "desc") {
         if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
-          // If so, mark as a switch and break the loop:
           shouldSwitch = true;
           break;
         }
       }
     }
     if (shouldSwitch) {
-      /* If a switch has been marked, make the switch
-      and mark that a switch has been done: */
+      /* Hvis vi kom fram til at de burde bytte plass: */
       rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
-      switching = true;
-      // Each time a switch is done, increase this count by 1:
+      switching = true; //Sier at vi har byttet en gang
+      // Hver gang vi bytter, øker switchcount med 1:
       switchcount++;
     } else {
-      /* If no switching has been done AND the direction is "asc",
-      set the direction to "desc" and run the while loop again. */
+      /* Hvis ingen rader har byttet plass, har ikke switchcount økt. Da prøver vi å sortere andre veien. */
       if (switchcount == 0 && dir == "asc") {
         dir = "desc";
         switching = true;
@@ -193,53 +194,35 @@ function sortTable(n) {
   }
 }
 
-function sortTableLuft(n) {
+function sortTableLuft(n) { //Samme som funksjonen over, bare med luftkvalitet
   var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
   table = document.getElementById("myTable");
   switching = true;
-  // Set the sorting direction to ascending:
   dir = "asc";
-  /* Make a loop that will continue until
-  no switching has been done: */
   while (switching) {
-    // Start by saying: no switching is done:
     switching = false;
     rows = table.rows;
-    /* Loop through all table rows (except the
-    first, which contains table headers): */
     for (i = 1; i < (rows.length - 1); i++) {
-      // Start by saying there should be no switching:
       shouldSwitch = false;
-      /* Get the two elements you want to compare,
-      one from current row and one from the next: */
       x = rows[i].getElementsByTagName("TD")[n];
       y = rows[i + 1].getElementsByTagName("TD")[n];
-      /* Check if the two rows should switch place,
-      based on the direction, asc or desc: */
       if (dir == "asc") {
-        if (Number(x.title) > Number(y.title)) {
-          // If so, mark as a switch and break the loop:
+        if (Number(x.title) > Number(y.title)) { //Sorterer etter tittel-attribute i stedet for string
           shouldSwitch = true;
           break;
         }
       } else if (dir == "desc") {
         if (Number(x.title) < Number(y.title)) {
-          // If so, mark as a switch and break the loop:
           shouldSwitch = true;
           break;
         }
       }
     }
     if (shouldSwitch) {
-      /* If a switch has been marked, make the switch
-      and mark that a switch has been done: */
       rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
       switching = true;
-      // Each time a switch is done, increase this count by 1:
       switchcount++;
     } else {
-      /* If no switching has been done AND the direction is "asc",
-      set the direction to "desc" and run the while loop again. */
       if (switchcount == 0 && dir == "asc") {
         dir = "desc";
         switching = true;
@@ -258,25 +241,25 @@ function oppdatereKartDel(id, n) {
   var table, rows, status, boks, LuftKval = 0;
   table = document.getElementById('myTable');
   rows = table.rows;
-  status = rows[n].getElementsByTagName("TD")[3].innerHTML;
-  LuftKval = rows[n].getElementsByTagName("TD")[4].innerHTML;    //(id + 'luft').className)
+  status = rows[n].getElementsByTagName("TD")[3].innerHTML;  //Finner string i den tredje kollonen i den n. raden
+  LuftKval = rows[n].getElementsByTagName("TD")[4].innerHTML;
   boks = document.getElementById(id + 'K');
-  boks.getElementsByTagName('td')[1].innerHTML = status;
+  boks.getElementsByTagName('td')[1].innerHTML = status;    //Finner string i celle i tabell i kart og erstatter med status
   boks.getElementsByTagName('td')[3].innerHTML = LuftKval;
-  if (status == 'Ledig') {
-    if (LuftKval == 'Hoy') {
-      boks.style.backgroundColor = '#57BB3E';
+  if (status == 'Ledig') {  //endrer farge hvis ledig
+    if (LuftKval == 'Hoy') {  
+      boks.style.backgroundColor = '#57BB3E'; //Til grønn
     }
     else if (LuftKval == 'Middels') {
-      boks.style.backgroundColor = '#FFBB00';
+      boks.style.backgroundColor = '#FFBB00'; //Til gul
     }
     else if (LuftKval == 'Lav') {
-      boks.style.backgroundColor = '#FF7440';
+      boks.style.backgroundColor = '#FF7440';  //Til rød
     }
   }
 }
 
-function statusFarge2() {
+function statusFarge2() {   //Kaller funksjonen oppdatereKartDel for alle rom
   for (var i = 0; i < 5; i++) {
     oppdatereKartDel(i + 111, i + 1);
   }
@@ -287,16 +270,16 @@ function statusFarge2() {
 
 //
 
-function hover(etasje1, etasje2) {
+function hover(etasje1, etasje2) {  //Hvis du peker på en av etasjene i kartet, utvides de
   var x, y = 0;
-  x = document.getElementById(etasje1);
-  y = document.getElementById(etasje2);
+  x = document.getElementById(etasje1); //etasje1 er ikke første etasje, men etasjen du peker på
+  y = document.getElementById(etasje2); //etasjen du ikke peker på hvis du peker på en etasje
   x.style.width = '38%';
   y.style.width = '20%';
 }
 
-// Etasje utvider seg onmouseover
-function hoverNot() {
+
+function hoverNot() {   //Etasjene går tilbake til vanlig størelse hvis du ikke peker på dem
   var x, y = 0;
   x = document.getElementById('etasje1');
   y = document.getElementById('etasje2');
@@ -308,7 +291,7 @@ function hoverNot() {
   x.style.height = '100%';
 }
 
-function myFunction(x) {
+function myFunction(x) {  //Forkorter tabelloverskrifter hvis skjrmen blir for liten
   if (x.matches) { // If media query matches
     document.getElementById("romnummer").innerHTML = "Romnr.";
     document.getElementById("luftkvalitet").innerHTML = "Luftkval.";

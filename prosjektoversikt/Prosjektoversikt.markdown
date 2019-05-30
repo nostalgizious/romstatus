@@ -5,6 +5,7 @@
 *Et prosjekt av Magnus Hovda, Arvin Das, Martin S. Winther og Ferdinand O. Schnell*
 
 ![nettsideeksempel](vedlegg/nettsideeksempel.png)
+![nettsideeksempel2](vedlegg/nettsideeksempel2.png)
 
 <!-- TOC depthFrom:1 depthTo:6 withLinks:1 updateOnSave:1 orderedList:0 -->
 

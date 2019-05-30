@@ -684,6 +684,7 @@ if __name__ == '__main__':
     insert(romnavn, data[1],data[2],data[3],data[4])
 ```
 
+
 ## Illustrasjon 6-8
 
 ![Førsteutkast Arduino](vedlegg/forsteutkastarduino.png)
@@ -1694,6 +1695,465 @@ x.addListener(myFunction); //Hvis skjermen endrer størelse, tilpasser siden seg
 luftStatus(); //Sorterer etter beste ledige grupperom
 statusFarge(); //Endrer farge på alle grupperommene på kartet.
 
+```
+# Testkoder for pirsensoren
+
+## pirsensortest
+```C
+int ledPin = 13;                // choose the pin for the LED
+int inputPin = 2;               // choose the input pin (for PIR sensor)
+int pirState = LOW;             // we start, assuming no motion detected
+int val = 0;                    // variable for reading the pin status
+
+void setup() {
+  pinMode(ledPin, OUTPUT);      // declare LED as output
+  pinMode(inputPin, INPUT);     // declare sensor as input
+
+  Serial.begin(9600);
+}
+
+void loop(){
+  val = digitalRead(inputPin);  // read input value
+  if (val == HIGH) {            // check if the input is HIGH
+    digitalWrite(ledPin, HIGH);  // turn LED ON
+    if (pirState == LOW) {
+      // we have just turned on
+      Serial.println("Motion detected!");
+      // We only want to print on the output change, not state
+      pirState = HIGH;
+    }
+  } else {
+    digitalWrite(ledPin, LOW); // turn LED OFF
+    if (pirState == HIGH){
+      // we have just turned of
+      Serial.println("Motion ended!");
+      // We only want to print on the output change, not state
+      pirState = LOW;
+    }
+  }
+}
+```
+## knapptester
+
+```C
+int knapp = 6;
+int verdi = 0;
+
+
+void setup() {
+  pinMode(knapp,OUTPUT);
+  Serial.begin(9600);
+}
+
+void loop() {
+  while (digitalRead(knapp) != verdi) {
+    Serial.println(digitalRead(knapp));
+    verdi = digitalRead(knapp);
+    delay(100);
+
+  }
+
+}
+```
+
+## pir og knapp-tester
+
+```C
+ int led1 = 5;
+int led2 = 6;
+int sensor = 10;
+int buttonpin = 4;
+int buttonval = 0;
+int avlesning = 0;
+  //bestemmer variabler for pinene som blir brukt i programmet slik at de lett kan endres
+int timer = 4;				//setter hvor lang tid den vil sjekke om rommet er ledig før den bytter om til grønt lys
+int waittime = 10;        //setter hvor lang tid den vil holde grupperommet hvis knappen blir trykket inn
+void setup() {
+    pinMode(sensor, INPUT);       //Forteller mikrokontrollere at den skal få verdier fra "sensor"
+    pinMode(led1, OUTPUT);        //Forteller mikrokontrollere at den skal sende verdier fra "led1"
+    pinMode(led2, OUTPUT);				//Forteller mikrokontrollere at den skal sende verdier fra "led2"
+    pinMode(buttonpin, INPUT);			//orteller at den skal sende et signal i "buttonpin" dersom en knapp som er koblet til denne vil den gi et signal "HIGH"
+    Serial.begin(9600);         //Starter skjerm med hastighet 9600 slik at feilsøking vil bli enklere
+}
+
+void loop() {
+
+int buttonval = digitalRead(buttonpin);
+int val = digitalRead(sensor);			//Setter verdien "val" til den den leser fra "sensor" som er om det er noen i rommet(HIGH) eller ikke(LOW)
+if (buttonval == HIGH){ //dett vil aldri skje, må flytte den lengre opp
+    int avlesning = 1;
+    digitalWrite(led1, HIGH);				//skrur på "led1"
+    digitalWrite(led2, LOW);
+    Serial.println("på");
+    delay(5000);
+ }
+else if (buttonval == LOW) {				//dersom "val" er "HIGH", altså om det er noen i rommet
+  if(val == HIGH){
+  digitalWrite(led1, HIGH);				//skrur på "led1"
+  digitalWrite(led2, LOW);
+  Serial.println("1");			//printer "motion detected" slik at det blir enkelt å feilsøke
+  int avlesning = 1;
+  delay(20000);
+  }
+  }
+
+  else if (val == LOW) {				//dersom "val" er "LOW", altså om det ikke er noen i rommet kjører den koden under
+    int number;
+    for (number = 0; number < timer; number++) {	      //hvis den ike registerer at det er noen i rommet vil den sjekke i "timer" sekunder om det er noen i rommet
+      val = digitalRead(sensor);
+      if (val == HIGH) {
+        break;        //dersom det bli merket bevegelse stubber den for loopen
+      }
+       else {        //dersom den fortsatt ikke merker noe venter den i et sekund
+        delay(100);
+      }
+    }
+       if (number < timer) {       //hvis for-loopen har blitt brutt slik at "number" er ulik "timer" gjør den ingen ting og forsetter tilbake til starten
+
+    }
+       else {        //ellers hvis "number" er lik (eller større enn) timer vil bytte hvilken led som er på
+      int avlesning = 0;
+      Serial.println("0");		//printer "no motion detected" slik at det blir enkelt å feilsøke
+      digitalWrite(led1, LOW);				//skrur av "led1"
+      digitalWrite(led2, HIGH);	//skrur på "led2"
+      Serial.println(number);
+    }
+  }
+  else {
+  return;
+  }
+}
+```
+
+## wifitester
+
+```C
+#include <ESP8266WiFi.h>
+#include <WiFiUdp.h>
+
+const char* ssid = ""; //Navn på nettverket
+const char* password = ""; //Passord til nettverket
+
+WiFiUDP Udp;
+unsigned int localUdpPort = 4210;  // local port to listen on
+
+String romNummer = "111";
+String co2PPM = "0";
+String tempC = "0";
+String humidity = "0";
+String irSensor = "0";
+
+void setup()
+{
+  Serial.begin(115200);
+  Serial.println();
+
+  Serial.printf("Connecting to %s ", ssid);
+  WiFi.begin(ssid, password);
+  while (WiFi.status() != WL_CONNECTED)
+  {
+    delay(500);
+    Serial.print(".");
+  }
+  Serial.println(" connected");
+
+  Udp.begin(localUdpPort);
+  Serial.printf("Klar til å sende til %d\n", WiFi.localIP().toString().c_str(), localUdpPort);
+}
+
+
+void loop()
+{  
+    String informasjon = romNummer+','+co2PPM+','+tempC+','+ humidity+','+irSensor;
+    Udp.beginPacket(Udp.remoteIP(), Udp.remotePort());
+    Udp.write(informasjon);
+    Udp.endPacket();
+  }
+}
+```
+
+## Pirtester
+
+```C
+#include <ESP8266WiFi.h>
+#include <WiFiUdp.h>
+// Henter fra biblioteker
+
+const char* ssid ="AndroidAP";//Skriv inn nettverksnavn i anførselstegnene
+const char* password = "eesc5126";//Skriv inn passordnavn i anførselstegnene
+
+WiFiUDP Udp;
+unsigned int localUdpPort = 4210;  // local port to listen on
+char incomingPacket[255];  // buffer for incoming packets
+char  replyPacket[] = "Hi there! Got the message :-)";  // a reply string to send back
+
+const char * udpAddress = "192.168.43.17";//Skriv inn IP-adressen til mottakeren i anførselstegnene
+const int udpPort = 49194;//Skriv inn UDP-porten til mottakeren
+
+
+int sensor = 5; //PIR-sensoren sin inputpin____ Digital-5 = D2 pinen på ESP8266
+int buttonpin = 0;//Knappen sin inputpin____Analog 0
+  //bestemmer variabler for pinene som blir brukt i programmet slik at de lett kan endres
+
+
+
+int statuz = 0;
+
+
+int scantid = 100;   //Setter hvor lang tid den vil sjekke om rommet er ledig før den setter rommet som ledig
+int val = 0;              
+int i = 0;
+int bval = 0;
+int avlesning = 0;   //Avlesning er variabelen som bestemmer om et rom er ledig eller ikke. 0=ledig, 1=opptatt
+int dotid = 300;  //Tiden du får når du trykker inn doknappen.
+int led = 4;
+
+
+
+
+void setup()
+{
+  pinMode(sensor, INPUT);       //Forteller mikrokontrollere at den skal få verdier fra "sensor", setter pinen sensoren er koblet til i som input for å ta imot data
+  Serial.begin(9600);//Starter serialmonitoren for lett feilsøking
+  Serial.println();
+
+  Serial.printf("Connecting to %s ", ssid); //"connecting to internet"
+  WiFi.begin(ssid, password); //Kobler seg til nettet
+  while (WiFi.status() != WL_CONNECTED)//Denne while-loopen lager en "......." mens den kobler seg til nettet
+
+  {
+    delay(500);
+    Serial.print(".");
+  }
+  Serial.println(" connected"); //Når den har koblet seg på nettet sier den ifra
+
+  Udp.begin(localUdpPort);
+  Serial.printf("Now listening at IP %s, UDP port %d\n", WiFi.localIP().toString().c_str(), localUdpPort);
+}
+
+
+void loop()
+{
+  int bval = analogRead(buttonpin); //Lager en verdi bval ut av inputen til knappen
+  int val = digitalRead(sensor); //Lager en verdi bval ut av inputen til PIR-sensoren
+  if (bval > 200){ //Hvis knappen er trykt in vil den analoge verdien være over 200 og if-loopen starter
+   Serial.println("bval");
+    int avlesning = 1; //avlesningsvariabelen blir 1 noe som indikerer at den er opptatt
+   int irSensor = avlesning; //setter irSensor variabelen lik avlesning.
+   Udp.beginPacket(udpAddress, udpPort); //Start å skrive en UDP-pakke som skal sendes.
+   Udp.write("irSensor:"); //Gi UDP-pakken et navn så det er enkelt å skille pakkene.
+   Udp.print(irSensor); //Gir UDP-pakken en verdi som viser om det er ledig eller opptatt
+   Udp.endPacket(); //Avslutt UDP-sendinga
+   delay(dotid);//Doknappen er stilt inn på en tid, bestemt i variablene. Den er foreløpig 300000ms=5min
+  }
+
+        //Seitter verdien "val" til den den leser fra "sensor" som er om det er noen i rommet(HIGH) eller ikke(LOW)
+else {
+if(val == HIGH){
+    for (i = 0; i < 50; i++){ //ser sensoren noe vil den si ifra at det er noen der i
+        int avlesning = 1;
+        Serial.println("1");
+        int irSensor = avlesning;
+        Udp.beginPacket(udpAddress, udpPort);// forbreder udp til å sende en packet
+        Udp.write("irSensor:"); // skriver et som er inne i ""
+        Udp.print(irSensor);  //sender verdien som heter irSensor
+        Udp.endPacket(); // avslutter pakken
+        delay(10); // setter inn et lite delay
+
+      }
+    }
+
+
+
+else if (val == LOW) {        //dersom "val" er "LOW", altså om det ikke er noen i rommet kjører den koden under
+    int x;
+    for (x = 0; x < scantid; x++) {        //hvis den ike registerer at det er noen i rommet vil den sjekke i "sacntid" sekunder om det er noen i rommet
+      int val = digitalRead(sensor); // variabel som heter val, verdi = info som blir henta far pir sensor
+      if (val == HIGH) { // lager en if løkke som ser etter info fra pir esnsoren
+      break;        //dersom det bli merket bevegelse stubber den for loopen
+      }
+      else {        //dersom den fortsatt ikke merker noe venter den i et sekun
+        ;
+        delay(1);
+       }
+       }
+       if (x < scantid) {       //hvis for-loopen har blitt brutt slik at "number" er ulik "scantid" gjør den ingen ting og forsetter tilbake til starten
+       }
+       else {        //ellers hvis "number" er lik (eller større enn) scantid vil bytte hvilken led som er på
+      int avlesning = 0;
+      int irSensor = avlesning;
+      Serial.println(irSensor);    //printer "no motion detected" slik at det blir enkelt å feilsøke
+
+    }
+  }
+}
+  int romNummer = 216;  // variabel med navn romNummer som har verdi 216 (dette er eksempel på en verdi)
+  int co2PPM = 369;  // variabel med navn co2PPM som har verdi 369 (dette er eksempel på en verdi)
+  int tempC = 223; // variabel med navn tempC som har verdi 223 (dette er eksempel på en verdi)
+  int humidity = 79;  // variabel  med navn humidity som har verdi 79 (dette er eksempel på en verdi)
+  int irSensor = val; // variabel med navn irSensor som har verdi = val
+  int packetSize = Udp.parsePacket(); // lager en verdi med navnet packetSize
+    // receive incoming UDP packets
+    delay(100);
+
+    Udp.beginPacket(udpAddress, udpPort); // forbreder udp til å sende en packet
+    Udp.print(romNummer);  //sender verdien som heter romNummer (samme under)
+    Udp.write(":"); // skriver et som er inne i "" (samme under)
+    Udp.print(co2PPM);
+    Udp.write(":");
+    Udp.print(tempC);
+    Udp.write(":");
+    Udp.print(humidity);
+    Udp.write(":");
+    Udp.print(irSensor);
+    Udp.write(":");
+    Udp.endPacket(); // avslutter pakken
+    delay(100); // putter in delayer mellom hver packet for at den ikke skal hope seg opp
+    Serial.println(irSensor); // printer verdien til monitoren for å feilteste
+
+
+}
+```
+## Pir kode (den vi bruker)
+```C
+#include <ESP8266WiFi.h>
+#include <WiFiUdp.h>
+// Henter fra biblioteker
+
+const char* ssid ="AndroidAP";//Skriv inn nettverksnavn i anførselstegnene, slik at arduinoen vet hvilket nettverk den skal koble seg på.
+const char* password = "eesc5126";//Skriv inn passordnavn i anførselstegnene, slik at arduinoen vet passordet på nettet, sånn at den kan logge seg på nettet.
+
+WiFiUDP Udp;
+unsigned int localUdpPort = 4210;  // Lokal UDP-port, arduinoen skal høre på
+char incomingPacket[255];   // Sjekker inkommende pakker
+char  replyPacket[] = "Hi there! Got the message :-)";  // Sender et svar tilbake om den finner noe
+
+const char * udpAddress = "192.168.43.17";//Skriv inn IP-adressen til mottakeren i anførselstegnene,  sånn at arduinoen vet hvor den skal sende pakkene.
+const int udpPort = 49194;//Skriv inn UDP-porten til mottakeren, sånn at arduinoen vet på hvilken "kanal" den skal sende pakkene
+
+
+int sensor = 5; //PIR-sensoren sin inputpin____ Digital-5 = D2 pinen på ESP8266
+int buttonpin = 0;//Knappen sin inputpin____Analog 0
+  //bestemmer variabler for pinene som blir brukt i programmet slik at de lett kan endres
+
+//variabler
+int scantid = 100;   //Setter hvor lang tid den vil sjekke om rommet er ledig før den setter rommet som ledig
+int val = 0;              
+int i = 0;
+int bval = 0;
+int avlesning = 0;   //Avlesning er variabelen som bestemmer om et rom er ledig eller ikke. 0=ledig, 1=opptatt
+int dotid = 300;  //Tiden du får når du trykker inn doknappen.
+int led = 4;
+//variabler
+
+
+
+
+void setup()
+{
+  pinMode(sensor, INPUT);       //Forteller mikrokontrollere at den skal få verdier fra "sensor", setter pinen sensoren er koblet til i som input for å ta imot data
+  pinMode(led, OUTPUT);
+  Serial.begin(9600);//Starter serialmonitoren for lett feilsøking
+  Serial.println();
+
+  Serial.printf("Connecting to %s ", ssid); //"connecting to internet"
+  WiFi.begin(ssid, password); //Kobler seg til nettet
+  while (WiFi.status() != WL_CONNECTED)//Denne while-loopen lager en "......." mens den kobler seg til nettet
+
+  {
+    delay(500);
+    Serial.print(".");
+  }
+  Serial.println(" connected"); //Når den har koblet seg på nettet sier den ifra
+
+  Udp.begin(localUdpPort);  //Starter opp UDP-senderen så den kan sende pakker senere.
+  Serial.printf("Now listening at IP %s, UDP port %d\n", WiFi.localIP().toString().c_str(), localUdpPort);
+}
+
+
+void loop()
+{
+  int bval = analogRead(buttonpin); //Lager en verdi bval ut av inputen til knappen
+  int val = digitalRead(sensor); //Lager en verdi bval ut av inputen til PIR-sensoren
+
+  if (bval > 200){ //Hvis knappen er trykt in vil den analoge verdien være over 200 og if-loopen starter
+    digitalWrite(led, HIGH);
+  Serial.println("bval"); //Printer bval for lett feilsøking, og kontroll over hva som skjer i koden via serialmonitoren.
+   int avlesning = 1; //avlesningsvariabelen blir 1 noe som indikerer at den er opptatt
+   int irSensor = avlesning; //setter irSensor variabelen lik avlesning.
+   Udp.beginPacket(udpAddress, udpPort); //Start å skrive en UDP-pakke som skal sendes.
+   Udp.write("irSensor:"); //Gi UDP-pakken et navn så det er enkelt å skille pakkene.
+   Udp.print(irSensor); //Gir UDP-pakken en verdi som viser om det er ledig eller opptatt
+   Udp.endPacket(); //Avslutt UDP-sendinga
+   delay(dotid);//Doknappen er stilt inn på en tid, bestemt i variablene. Den er foreløpig 300000ms=5min
+  }
+
+        //Seitter verdien "val" til den den leser fra "sensor" som er om det er noen i rommet(HIGH) eller ikke(LOW)
+else {  //Knappen er ikke trykt inn, bval<200
+  if(val == HIGH){ //Om PIR-sensoren ser bevegelse vil den gå videre på en for-løkke her.
+    for (i = 0; i < 200; i++){  //Starter en for løkke som hele tiden sjekker om noen skal trykke på doknappen, og om noen gjør det brytes den med en gang og starter direkte på linje 58.
+        Serial.println("1");
+        int avlesning = 1;
+        int irSensor = avlesning;
+        Udp.beginPacket(udpAddress, udpPort);// forbreder udp til å sende en packet
+        Udp.write("irSensor:"); // skriver et som er inne i ""
+        Udp.print(irSensor);  //sender verdien som heter irSensor
+        Udp.endPacket(); // avslutter pakken
+        if (bval > 200){ //Hvis knappen er trykt inn;
+          break; //Bryt denne for-løkka og start rett på linje 58, slik at man slipper å vente så lenge mens man holder inne knappen
+        }
+        else { //Hvis knappen ikke er trykt inn;
+        delay(10); //Vent 10ms og fortsett med for.løkka.
+        }
+      }
+    }
+
+
+
+else if (val == LOW) {        //dersom "val" er "LOW", altså om det ikke er noen i rommet kjører den koden under
+    int x;
+    for (x = 0; x < scantid; x++) {        //hvis den ike registerer at det er noen i rommet vil den sjekke i "timer" sekunder om det er noen i rommet
+      int val = digitalRead(sensor); // variabel som heter val, verdi = info som blir henta far pir sensor
+      if (val == HIGH) { // lager en if løkke som ser etter info fra pir esnsoren
+      break;        //dersom det bli merket bevegelse stubber den for loopen
+      }
+      else {        //dersom den fortsatt ikke merker noe venter den i et sekun
+        ;
+        delay(1);
+       }
+       }
+       if (x < scantid) {       //hvis for-loopen har blitt brutt slik at "number" er ulik "timer" gjør den ingen ting og forsetter tilbake til starten
+       }
+       else {        //ellers hvis "number" er lik (eller større enn) timer vil bytte hvilken led som er på
+      int avlesning = 0;
+      Serial.println("0");    //printer "no motion detected" slik at det blir enkelt å feilsøke
+
+    }
+  }
+}
+  int romNummer = 216;  // variabel med navn romNummer som har verdi 216 (dette er eksempel på en verdi)
+  int co2PPM = 369;  // variabel med navn co2PPM som har verdi 369 (dette er eksempel på en verdi)
+  int tempC = 223; // variabel med navn tempC som har verdi 223 (dette er eksempel på en verdi)
+  int humidity = 79;  // variabel  med navn humidity som har verdi 79 (dette er eksempel på en verdi)
+  int irSensor = val; // variabel med navn irSensor som har verdi = val
+  int packetSize = Udp.parsePacket(); // lager en verdi med navnet packetSize
+    // receive incoming UDP packets
+    delay(100);
+    Udp.beginPacket(udpAddress, udpPort); // forbreder udp til å sende en packet
+    Udp.print(romNummer);  //sender verdien som heter romNummer (samme under)
+    Udp.write(":"); // skriver et som er inne i "" (samme under)
+    Udp.print(co2PPM);
+    Udp.write(":");
+    Udp.print(tempC);
+    Udp.write(":");
+    Udp.print(humidity);
+    Udp.write(":");
+    Udp.print(irSensor);
+    Udp.write(":");
+    Udp.endPacket(); // avslutter pakken
+    delay(100); // putter in delayer mellom hver packet for at den ikke skal hope seg opp
+    Serial.println(irSensor); // printer verdien til monitoren for å feilteste
+}
 ```
 
 # Kilder

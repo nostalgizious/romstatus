@@ -7,8 +7,7 @@
 ![nettsideeksempel1](vedlegg/nettsideeksempel1.png)
 ![nettsideeksempel2](vedlegg/nettsideeksempel2.png)
 
-<!-- TOC depthFrom:1 depthTo:6 withLinks:1 updateOnSave:1 orderedList:0 -->
-
+<!-- TOC START min:1 max:3 link:true asterisk:false update:true -->
 - [Romstatus](#romstatus)
 - [Prosjektbeskrivelse](#prosjektbeskrivelse)
 - [Begrunnelse](#begrunnelse)
@@ -21,6 +20,7 @@
 - [Beskrivelse av funksjonalitet til deler](#beskrivelse-av-funksjonalitet-til-deler)
 	- [Hvordan en NDIR CO~2~ sensor fungerer](#hvordan-en-ndir-co2-sensor-fungerer)
 	- [Hvordan en PIR sensor fungerer](#hvordan-en-pir-sensor-fungerer)
+	- [Litt info om Node esp8266en](#litt-info-om-node-esp8266en)
 - [Fremgangsmåte](#fremgangsmåte)
 - [Original tidsplan](#original-tidsplan)
 	- [Uke 5](#uke-5)
@@ -32,22 +32,25 @@
 	- [Uke 12](#uke-12)
 	- [Utover året](#utover-året)
 - [Logg](#logg)
-	- [Uke 5](#uke-5)
-	- [Uke 6](#uke-6)
-	- [Uke 7](#uke-7)
-	- [Uke 8](#uke-8)
+	- [Uke 5](#uke-5-1)
+	- [Uke 6](#uke-6-1)
+	- [Uke 7](#uke-7-1)
+	- [Uke 8](#uke-8-1)
 	- [Uke 9](#uke-9)
-	- [Uke 10](#uke-10)
-	- [Uke 11](#uke-11)
-	- [Uke 12](#uke-12)
+	- [Uke 10](#uke-10-1)
+	- [Uke 11](#uke-11-1)
+	- [Uke 12](#uke-12-1)
 	- [Uke 13](#uke-13)
 	- [Uke 14](#uke-14)
 	- [Uke 15-17](#uke-15-17)
 	- [Uke 18](#uke-18)
 	- [Uke 19](#uke-19)
+- [Resultat](#resultat)
 - [Drøfting, kritisk refleksjon, forbedringsmuligheter](#drøfting-kritisk-refleksjon-forbedringsmuligheter)
 	- [Planlegging](#planlegging)
-	- [Utførelse](#utfrelse)
+	- [Utførelse](#utførelse)
+	- [Brukervennlighet](#brukervennlighet)
+	- [Server](#server)
 	- [Back-end](#back-end)
 		- [Legge data i en database](#legge-data-i-en-database)
 		- [Hente data fra en database](#hente-data-fra-en-database)
@@ -55,7 +58,7 @@
 	- [Front-end](#front-end)
 	- [Hardware](#hardware)
 		- [Oppdage bevegelse med Arduino](#oppdage-bevegelse-med-arduino)
-		- [Koble Arduinoen på internett](#koble-arduinoen-p-internett)
+		- [Koble Arduinoen på internett](#koble-arduinoen-på-internett)
 	- [Anbefalinger](#anbefalinger)
 - [Konklusjon](#konklusjon)
 - [Vedlegg](#vedlegg)
@@ -83,9 +86,17 @@
 		- [grupperomOversikt.html](#grupperomoversikthtml)
 		- [oversiktGrupperom.css](#oversiktgrupperomcss)
 		- [grupperomOversikt.js](#grupperomoversiktjs)
+- [Testkoder for pirsensoren](#testkoder-for-pirsensoren)
+	- [pirsensortest](#pirsensortest)
+	- [knapptester](#knapptester)
+	- [pir og knapp-tester](#pir-og-knapp-tester)
+	- [wifitester](#wifitester)
+	- [Pirtester](#pirtester)
+	- [Pir kode (den vi bruker)](#pir-kode-den-vi-bruker)
 - [Kilder](#kilder)
+<!-- TOC END -->
 
-<!-- /TOC -->
+
 
 # Prosjektbeskrivelse
 
@@ -1244,7 +1255,7 @@ def luftHtml(htmlFil, romnummer, co2ppm,luftkval):
 
 ### oversiktGrupperom.css
 
-```css
+```
 
 :root {
   --primCol: #F9F8F6;
@@ -2219,5 +2230,3 @@ else if (val == LOW) {        //dersom "val" er "LOW", altså om det ikke er noe
 <sup>1</sup> https://howtomechatronics.com/tutorials/arduino/how-pir-sensor-works-and-how-to-use-it-with-arduino/
 <sup>2</sup> https://en.wikipedia.org/wiki/NodeMCU
 <sup>3</sup> https://en.wikipedia.org/wiki/Carbon_dioxide_sensor
-
-

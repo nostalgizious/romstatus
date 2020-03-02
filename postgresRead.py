@@ -23,7 +23,7 @@ def read(romnummer):
         cur.execute('SELECT version()')
         # display the PostgreSQL database server version
         db_version = cur.fetchone()
-        #print(db_version)
+        print(db_version)
 
         # close the communication with the PostgreSQL
     except (Exception, psycopg2.DatabaseError) as error:

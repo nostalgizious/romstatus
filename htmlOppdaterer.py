@@ -23,4 +23,6 @@ def oppdaterRom(romNummer):
         luft = "Hoy"
 
     erstatt.luftHtml("grupperomOversikt.html",romNummer, str(co2ppm), luft)
+    #erstatt.luftHtml("/home/pi/romstatus-WS/romstatus-app-ws/mobile-app-ws/src/main/resources/static/index.html", romNummer, str(co2ppm), luft)
     erstatt.statusHtml("grupperomOversikt.html", romNummer, status)
+    #erstatt.statusHtml("/home/pi/romstatus-WS/romstatus-app-ws/mobile-app-ws/src/main/resources/static/index.html", romNummer, status)
